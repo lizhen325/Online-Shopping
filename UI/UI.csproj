@@ -71,6 +71,7 @@
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Left.aspx" />
     <Content Include="Admin\Main.aspx" />
+    <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
     <Content Include="css\css\bootstrap-theme.css" />
     <Content Include="css\css\bootstrap-theme.min.css" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="Admin\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagerAdd.aspx.cs">
+      <DependentUpon>UserManagerAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagerAdd.aspx.designer.cs">
+      <DependentUpon>UserManagerAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserManagerList.aspx.cs">
       <DependentUpon>UserManagerList.aspx</DependentUpon>

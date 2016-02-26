@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManagerList.aspx.cs" Inherits="UI.Admin.UserManagerList" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,40 +10,36 @@
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-        <asp:Repeater ID="Repeater1" runat="server">
-            <HeaderTemplate>
-                    <table class="table table-bordered" style="text-align:center;">
+            <asp:Repeater ID="Repeater1" runat="server">
+                <HeaderTemplate>
+                    <table class="table table-bordered" style="text-align: center;">
+                        <tbody>
                             <tr>
-                                <th colspan="3" style="text-align: center;">UserInfo Table</th>
+                                <th>&nbsp;</th>
+                                <th style="text-align: center;">UserInfo Table</th>
+                                <th>&nbsp;</th>
                             </tr>
                             <tr>
-                                <td>Id</td>
-                                <td>UserName</td>
-                                <td>Crud</td>
+                                <td style="text-align: center;">Id</td>
+                                <td style="text-align: center;">UserName</td>
+                                <td style="text-align: center;">Crud</td>
                             </tr>
-            </HeaderTemplate>
-            <FooterTemplate>
-                <tr>
-                    <td colspan="3">
-                      <%=PageBar %>
-                    </td>
-                    
-                </tr>
-                
-
-            </FooterTemplate>
-            <ItemTemplate>
-                <tr>
-                    <td><%#Eval("UserId") %></td>
-                    <td><%#Eval("UserName") %></td>
-                    
-                </tr>
-                
-            </ItemTemplate>
-             
-        </asp:Repeater>
-       </table>
-            </div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                            <tr>
+                                <td><%#Eval("UserId") %></td>
+                                <td><%#Eval("UserName") %></td>
+                            </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                            <tr>
+                                <td colspan="3"><%=PageBar %> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
     </form>
 </body>
 </html>

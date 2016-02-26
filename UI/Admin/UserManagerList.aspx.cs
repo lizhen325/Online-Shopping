@@ -13,7 +13,6 @@ namespace UI.Admin
         protected string PageBar { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //
             int pageIndex = 1;
             int pageSize = 1;
             if(!string.IsNullOrEmpty(Request["pIndex"]))
@@ -21,7 +20,7 @@ namespace UI.Admin
                 pageIndex = Convert.ToInt32(Request["pIndex"]);
             }
             BookShopBLL.UserManagerBLL umb = new BookShopBLL.UserManagerBLL();
-            int startIndex = (pageIndex-1) * pageSize;
+            int startIndex = (pageIndex-1) * pageSize + 1;
             int endIndex = pageIndex * pageSize;
             Repeater1.DataSource = umb.GetListByPage("", "UserId", startIndex, endIndex);
             Repeater1.DataBind();
