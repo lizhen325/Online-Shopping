@@ -8,17 +8,18 @@ using Model;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace BookShopDAL.Tests
+using BookShopBLL;
+
+namespace UserInfoDALTest.Tests
 {
     [TestClass()]
     public class Test
     {
-        
+        private UserInfo ui = new UserInfo();
+        private UserInfoDAL dal = new UserInfoDAL();
         [TestMethod()]
-        public void InsertUserInfoTest()
+        public void InsertUserInfo()
         {
-            UserInfo ui = new UserInfo();
-            UserInfoDAL dal = new UserInfoDAL();
             ui.UserName = "Lizhen";
             ui.UserPwd = "flwls3250";
             ui.Email = "zhenli336@gmail.com";
@@ -29,35 +30,30 @@ namespace BookShopDAL.Tests
             Assert.IsTrue(i > 0);
         }
 
-        //private int InsertUserInfo(UserInfo ui)
-        //{
-        //    string sql = "insert into UserInfo (UserName,UserPwd,Email,Address,MobilePhone,RegisterTime) values(@UserName,@UserPwd,@Email,@Address,@MobilePhone,@RegisterTime)";
-        //    SqlParameter[] ps = {
-        //                             new SqlParameter("@UserName",ui.UserName),
-        //                             new SqlParameter("@UserPwd",ui.UserPwd),
-        //                             new SqlParameter("@Email",ui.Email),
-        //                             new SqlParameter("@Address",ui.Address),
-        //                             new SqlParameter("@MobilePhone",ui.MobilePhone),
-        //                             new SqlParameter("@RegisterTime",ui.RegisterTime)
-        //                         };
-        //    return SqlHelper.ExcuteNonQuery(sql, ps);
-        //}
+        [TestMethod()]
+        public void GetRecordCount()
+        {
+            string strWhere = "";
+            int i = dal.GetRecordCount(strWhere);
+            Assert.IsTrue(i > 0);
+        }
 
-        //private static int ExcuteNonQuery(string sql, params SqlParameter[] ps)
-        //{
-        //    string conStr = "Data Source=.; Initial Catalog=shop; Integrated Security=True;";
-        //    using (SqlConnection con = new SqlConnection(conStr))
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand(sql, con))
-        //        {
-        //            if (ps != null)
-        //            {
-        //                cmd.Parameters.AddRange(ps);
-        //            }
-        //            con.Open();
-        //            return cmd.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
+        [TestMethod()]
+        public void GetListByPage()
+        {
+            string strWhere = "";
+            string orderby = "UserId";
+            int pageIndex = 1;
+            int pageSize = 1;
+            DataSet ds = dal.GetListByPage(strWhere, orderby, pageIndex, pageSize);
+            Assert.IsNotNull(ds);
+        }
+
+        [TestMethod()]
+        public void GetAllUserInfo()
+        {
+            DataTable dt = dal.GetAllUserInfo();
+            Assert.IsNotNull(dt);
+        }
     }
 }
