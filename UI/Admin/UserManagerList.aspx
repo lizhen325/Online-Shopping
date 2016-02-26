@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManagerList.aspx.cs" Inherits="UI.Admin.UserManagerList" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
+        <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate>
                     <table class="table table-bordered" style="text-align:center;">
                             <tr>
@@ -22,17 +21,26 @@
                                 <td>Crud</td>
                             </tr>
             </HeaderTemplate>
+            <FooterTemplate>
+                <tr>
+                    <td colspan="3">
+                      <%=PageBar %>
+                    </td>
+                    
+                </tr>
+                
+
+            </FooterTemplate>
             <ItemTemplate>
                 <tr>
                     <td><%#Eval("UserId") %></td>
                     <td><%#Eval("UserName") %></td>
-                    <td>aaa</td>
+                    
                 </tr>
                 
             </ItemTemplate>
              
         </asp:Repeater>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetAllUser" TypeName="BookShopBLL.UserManagerBLL"></asp:ObjectDataSource>
        </table>
             </div>
     </form>

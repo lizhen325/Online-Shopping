@@ -12,7 +12,6 @@ namespace BookShopDAL
     public class SqlHelper
     {
         public readonly static string conStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-
         /// <summary>
         /// Get all table
         /// </summary>
@@ -64,6 +63,7 @@ namespace BookShopDAL
         {
             using(SqlConnection con = new SqlConnection(conStr))
             {
+                con.Open();
                 using(SqlCommand cmd =new SqlCommand(sql,con))
                 {
                     if(ps!=null)
@@ -101,6 +101,30 @@ namespace BookShopDAL
                     con.Dispose();
                     throw e;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Get all talbe information
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static DataSet Query(string sql)
+        {
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                DataSet ds = new DataSet();
+                try
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(sql, con);
+                    da.Fill(ds, "ds");
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                return ds;
             }
         }
     }
