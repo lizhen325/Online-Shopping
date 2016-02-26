@@ -25,9 +25,9 @@ namespace BookShopDAL
         /// <returns></returns>
         public static DataTable GetAllList(string sql, params SqlParameter[] ps)
         {
+            DataTable dt = new DataTable();
             using(SqlDataAdapter da = new SqlDataAdapter(sql,conStr))
             {
-                DataTable dt = new DataTable();
                 if(ps!=null)
                 {
                     da.SelectCommand.Parameters.AddRange(ps);
