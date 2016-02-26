@@ -28,7 +28,7 @@
                     text: 'Add',
                     iconCls: 'icon-ok',
                     handler: function () {
-                        //添加数据
+                        //Add User Info
                         addUserEvent();
                     }
                 }, {
@@ -37,6 +37,17 @@
                         $('#addDiv').dialog('close');
                     }
                 }]
+            });
+        }
+        function addUserEvent() {
+            var serverData = $('#addForm').serializeArray();
+            $.post("UserManagerAdd.aspx", serverData, function (data) {
+                if (data == 'ok') {
+                    alert("Fail to Add!!!");
+                } else {
+                    alert('Sucess!');
+                    $('#addDiv').dialog('close');
+                }
             });
         }
     </script>
@@ -80,13 +91,21 @@
     </form>
     <div id="addDiv" style="display:none; background-color:#0094ff;">
         <form id="addForm">
-     <table class="table">
-            <tr><td>用户名</td><td><input type="text" name="txtName" /></td></tr>
-               <tr><td>密码</td><td><input type="text" name="txtPwd" /></td></tr>
-               <tr><td>邮箱</td><td><input type="text" name="txtEmail" /></td></tr>
-            <!--   <tr><td>时间</td><td><input type="text" id="txtRegTime" /></td></tr>-->
-        </table>
-            </form>
-        </div>
+            <table class="table">
+                <tr>
+                    <td>UserName</td><td><input type="text" name="txtName" /></td>
+
+                </tr>
+                <tr>
+                    <td>Password</td><td><input type="text" name="txtPwd" /></td>
+
+                </tr>
+                <tr>
+                    <td>Email</td><td><input type="text" name="txtEmail" /></td>
+
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

@@ -30,7 +30,7 @@ namespace BookShopDAL
         /// <returns></returns>
         public int InsertUser(UserManager um)
         {
-            string sql = "insert into UserManager (UserName,UserPwd) values(@UserName,@UserPwd)";
+            string sql = "insert into UserManager(UserName,UserPwd)values(@UserName,@UserPwd)";
             SqlParameter [] ps = {
                                      new SqlParameter("@UserName",um.UserName),
                                      new SqlParameter("@UserPwd",um.UserPwd)

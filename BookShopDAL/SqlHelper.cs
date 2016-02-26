@@ -48,6 +48,7 @@ namespace BookShopDAL
                     {
                         cmd.Parameters.AddRange(ps);
                     }
+                    con.Open();
                     return cmd.ExecuteNonQuery();
                 }
             }
@@ -63,13 +64,14 @@ namespace BookShopDAL
         {
             using(SqlConnection con = new SqlConnection(conStr))
             {
-                con.Open();
+                
                 using(SqlCommand cmd =new SqlCommand(sql,con))
                 {
                     if(ps!=null)
                     {
                         cmd.Parameters.AddRange(ps);
                     }
+                    con.Open();
                     return cmd.ExecuteScalar();
                 }
             }
