@@ -81,7 +81,7 @@ namespace BookShopDAL
         /// <param name="sql">sql语句</param>
         /// <param name="ps">sql语句参数</param>
         /// <returns>多行多列</returns>
-        public static SqlDataReader ExecuteReader(string sql, params SQLiteParameter[] ps)
+        public static SqlDataReader ExecuteReader(string sql, params SqlParameter[] ps)
         {
             SqlConnection con = new SqlConnection(conStr);
             using (SqlCommand cmd = new SqlCommand(conStr, con))
