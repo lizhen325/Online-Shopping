@@ -9,9 +9,14 @@ using System.Data.SqlClient;
 
 namespace BookShopDAL
 {
-    public class SqlHelper
+    public  static class SqlHelper
     {
-        public readonly static string conStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        //Avoid to user Connectionstrings, when you are tesing.
+        //private static string conStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        private static string conStr = "Data Source=.; Initial Catalog=shop; Integrated Security=True;";
+        
+        
+        //private string a = "Data Source=.; Initial Catalog=shop; Integrated Security=True;";
         /// <summary>
         /// Get all table
         /// </summary>
@@ -40,11 +45,11 @@ namespace BookShopDAL
         /// <returns></returns>
         public static int ExcuteNonQuery(string sql, params SqlParameter[] ps)
         {
-            using(SqlConnection con = new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(SqlHelper.conStr))
             {
-                using(SqlCommand cmd = new SqlCommand(sql,con))
+                using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    if(ps!=null)
+                    if (ps != null)
                     {
                         cmd.Parameters.AddRange(ps);
                     }
@@ -62,12 +67,12 @@ namespace BookShopDAL
         /// <returns></returns>
         public static object ExcuteScalar(string sql, params SqlParameter[] ps)
         {
-            using(SqlConnection con = new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(SqlHelper.conStr))
             {
-                
-                using(SqlCommand cmd =new SqlCommand(sql,con))
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    if(ps!=null)
+                    if (ps != null)
                     {
                         cmd.Parameters.AddRange(ps);
                     }
@@ -85,8 +90,8 @@ namespace BookShopDAL
         /// <returns>多行多列</returns>
         public static SqlDataReader ExecuteReader(string sql, params SqlParameter[] ps)
         {
-            SqlConnection con = new SqlConnection(conStr);
-            using (SqlCommand cmd = new SqlCommand(conStr, con))
+            SqlConnection con = new SqlConnection(SqlHelper.conStr);
+            using (SqlCommand cmd = new SqlCommand(sql, con))
             {
                 if (ps != null)
                 {
@@ -113,7 +118,7 @@ namespace BookShopDAL
         /// <returns></returns>
         public static DataSet Query(string sql)
         {
-            using (SqlConnection con = new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(SqlHelper.conStr))
             {
                 DataSet ds = new DataSet();
                 try
