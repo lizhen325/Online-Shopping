@@ -54,5 +54,15 @@ namespace BookShopBLL
         {
             return dal.InsertUserInfo(ui) > 0;
         }
+
+        /// <summary>
+        /// Remove UserInfo by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool RemoveUserInfoById(int id)
+        {
+            return dal.RemoveUserInfoById(id) > 0;
+        }
     }
 }

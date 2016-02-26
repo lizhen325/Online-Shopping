@@ -11,58 +11,19 @@
     <link href="../css/themes/default/dialog.css" rel="stylesheet" />
     <script src="../js/jquery-1.7.1.js"></script>
     <script src="../js/jquery.easyui.min.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            $('#addUser').click(function () {
-                AddUser();
-            })
-        });
-        function AddUser() {
-            $('#addDiv').css('display', 'block');
-            $('#addDiv').dialog({
-                title: 'Add User Info',
-                width: 300,
-                height: 300,
-                buttons: [{
-                    text: 'Add',
-                    iconCls: 'icon-ok',
-                    handler: function () {
-                        //Add User Info
-                        addUserEvent();
-                    }
-                }, {
-                    text: 'Cancel',
-                    handler: function () {
-                        $('#addDiv').dialog('close');
-                    }
-                }]
-            });
-        }
-        function addUserEvent() {
-            var serverData = $('#addForm').serializeArray();
-            $.post("UserManagerAdd.aspx", serverData, function (data) {
-                if (data == 'ok') {
-                    alert("Fail to Add!!!");
-                } else {
-                    alert('Sucess!');
-                    $('#addDiv').dialog('close');
-                }
-            });
-        }
-    </script>
+    <script src="../js/admin.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-            <a href="javascript:void(0)" id="addUser">Add User</a>
+            <a href="javascript:void(0)" id="addUser" class="btn btn-success">Add User</a>
             <asp:Repeater ID="Repeater1" runat="server">
                 <HeaderTemplate>
                     <table class="table table-bordered" style="text-align: center;">
                         <tbody>
                             <tr>
                                
-                                <th colspan="9" style="text-align:center;">UserInfo Table</th>
+                                <th colspan="10" style="text-align:center;">UserInfo Table</th>
                                
                             </tr>
                             <tr>
@@ -74,7 +35,7 @@
                                 <td style="text-align: center;">MobilePhone</td>
                                 <td style="text-align: center;">RegisterTime</td>
                                 <td style="text-align: center;">LoginTime</td>
-                                <td style="text-align: center;">Crud</td>
+                                <td style="text-align: center;">Up/Re</td>
                             </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -87,12 +48,18 @@
                                 <td><%#Eval("MobilePhone") %></td>
                                 <td><%#Eval("RegisterTime") %></td>
                                 <td><%#Eval("LoginTime") %></td>
+                                <td>
+                                    <a href='UserInfoUpdate.aspx?id=<%#Eval("UserId")%>' class="btn btn-success">Update</a>
+                                    <a href='javascript:RemoveConfirm(<%#Eval("UserId") %>)'>Remove</a>
+                                </td>
+                                
+
                             </tr>
                 </ItemTemplate>
                 <FooterTemplate>
                             <tr>
                                 
-                                <td colspan="9" style="text-align:center;"><%=PageBar %> </td>
+                                <td colspan="10" style="text-align:center;"><%=PageBar %> </td>
                                 
                             </tr>
                         </tbody>

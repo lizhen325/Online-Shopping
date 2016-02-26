@@ -55,5 +55,12 @@ namespace UserInfoDALTest.Tests
             DataTable dt = dal.GetAllUserInfo();
             Assert.IsNotNull(dt);
         }
+
+        [TestMethod()]
+        public void RemoveUserInfoById()
+        {
+            int i = dal.RemoveUserInfoById(1);
+            Assert.IsTrue(i > 0);
+        }
     }
 }

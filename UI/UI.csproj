@@ -72,6 +72,7 @@
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Left.aspx" />
     <Content Include="Admin\Main.aspx" />
+    <Content Include="Admin\UserInfoUpdate.aspx" />
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -347,6 +348,7 @@
     <Content Include="css\themes\metro\tree.css" />
     <Content Include="css\themes\metro\validatebox.css" />
     <Content Include="css\themes\metro\window.css" />
+    <Content Include="js\admin.js" />
     <Content Include="js\jquery-1.7.1.js" />
     <Content Include="js\jquery-1.8.3.js" />
     <Content Include="js\jquery-ui-1.8.20.min.js" />
@@ -389,6 +391,13 @@
     <Compile Include="Admin\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UserInfoUpdate.aspx.cs">
+      <DependentUpon>UserInfoUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserInfoUpdate.aspx.designer.cs">
+      <DependentUpon>UserInfoUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UserManagerAdd.aspx.cs">
       <DependentUpon>UserManagerAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,12 +412,18 @@
     <Compile Include="Admin\UserManagerList.aspx.designer.cs">
       <DependentUpon>UserManagerList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UserManagerRemove.ashx.cs">
+      <DependentUpon>UserManagerRemove.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\MD5Encrypt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\UserManagerRemove.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
