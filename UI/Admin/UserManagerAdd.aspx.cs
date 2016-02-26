@@ -13,12 +13,17 @@ namespace UI.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserManager um = new UserManager();
-            um.UserName = Request["txtName"];
-            um.UserPwd = Request["txtPwd"];
-            UserManagerBLL bll = new UserManagerBLL();
-            int i = bll.InsertUser(um);
-            if(i > 0)
+            UserInfoBLL bll = new UserInfoBLL();
+            UserInfo ui = new UserInfo();
+            ui.UserName = Request["txtName"];
+            ui.UserPwd = Request["txtPwd"];
+            ui.Email = Request["txtEmail"];
+            ui.Address = Request["txtAddress"];
+            ui.MobilePhone = Request["txtMobilePhone"];
+            ui.RegisterTime = System.DateTime.Now;
+
+            bool flag = bll.InsertUserInfo(ui);
+            if(flag)
             {
                 Context.Response.Write("ok");
             }

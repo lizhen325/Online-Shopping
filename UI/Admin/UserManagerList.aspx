@@ -23,7 +23,7 @@
             $('#addDiv').dialog({
                 title: 'Add User Info',
                 width: 300,
-                height: 230,
+                height: 300,
                 buttons: [{
                     text: 'Add',
                     iconCls: 'icon-ok',
@@ -61,13 +61,19 @@
                     <table class="table table-bordered" style="text-align: center;">
                         <tbody>
                             <tr>
-                                <th>&nbsp;</th>
-                                <th style="text-align:center;">UserInfo Table</th>
-                                <th>&nbsp;</th>
+                               
+                                <th colspan="9" style="text-align:center;">UserInfo Table</th>
+                               
                             </tr>
                             <tr>
                                 <td style="text-align: center;">Id</td>
                                 <td style="text-align: center;">UserName</td>
+                                <td style="text-align: center;">Password</td>
+                                <td style="text-align: center;">Email</td>
+                                <td style="text-align: center;">Address</td>
+                                <td style="text-align: center;">MobilePhone</td>
+                                <td style="text-align: center;">RegisterTime</td>
+                                <td style="text-align: center;">LoginTime</td>
                                 <td style="text-align: center;">Crud</td>
                             </tr>
                 </HeaderTemplate>
@@ -75,13 +81,19 @@
                             <tr>
                                 <td><%#Eval("UserId") %></td>
                                 <td><%#Eval("UserName") %></td>
+                                <td><%#Eval("UserPwd") %></td>
+                                <td><%#Eval("Email") %></td>
+                                <td><%#Eval("Address") %></td>
+                                <td><%#Eval("MobilePhone") %></td>
+                                <td><%#Eval("RegisterTime") %></td>
+                                <td><%#Eval("LoginTime") %></td>
                             </tr>
                 </ItemTemplate>
                 <FooterTemplate>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td><%=PageBar %> </td>
-                                <td>&nbsp;</td>
+                                
+                                <td colspan="9" style="text-align:center;"><%=PageBar %> </td>
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -94,15 +106,18 @@
             <table class="table">
                 <tr>
                     <td>UserName</td><td><input type="text" name="txtName" /></td>
-
                 </tr>
                 <tr>
                     <td>Password</td><td><input type="text" name="txtPwd" /></td>
-
                 </tr>
                 <tr>
                     <td>Email</td><td><input type="text" name="txtEmail" /></td>
-
+                </tr>
+                <tr>
+                    <td>Address</td><td><input type="text" name="txtAddress" /></td>
+                </tr>
+                <tr>
+                    <td>MobilePhone</td><td><input type="text" name="txtMobilePhone" /></td>
                 </tr>
             </table>
         </form>

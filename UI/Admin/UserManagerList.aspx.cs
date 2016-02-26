@@ -14,19 +14,19 @@ namespace UI.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             int pageIndex = 1;
-            int pageSize = 3;
+            int pageSize = 1;
             if(!string.IsNullOrEmpty(Request["pIndex"]))
             {
                 pageIndex = Convert.ToInt32(Request["pIndex"]);
             }
-            BookShopBLL.UserManagerBLL umb = new BookShopBLL.UserManagerBLL();
+            BookShopBLL.UserInfoBLL bll = new BookShopBLL.UserInfoBLL();
             int startIndex = (pageIndex-1) * pageSize + 1;
             int endIndex = pageIndex * pageSize;
-            Repeater1.DataSource = umb.GetListByPage("", "UserId", startIndex, endIndex);
+            Repeater1.DataSource = bll.GetListByPage("", "UserId", startIndex, endIndex);
             Repeater1.DataBind();
 
             //Get counts of table
-            int rowsCount = umb.GetRecordCount("");
+            int rowsCount = bll.GetRecordCount("");
             StringBuilder sb = new StringBuilder();
             //First Page, Previous Page
             if(pageIndex <= 1)
