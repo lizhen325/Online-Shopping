@@ -393,6 +393,7 @@
     <Compile Include="Admin\UserManagerList.aspx.designer.cs">
       <DependentUpon>UserManagerList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\MD5Encrypt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,7 @@ namespace UI.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             int pageIndex = 1;
-            int pageSize = 1;
+            int pageSize = 3;
             if(!string.IsNullOrEmpty(Request["pIndex"]))
             {
                 pageIndex = Convert.ToInt32(Request["pIndex"]);

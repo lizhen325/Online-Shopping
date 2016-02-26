@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 using BookShopBLL;
+using UI.Common;
 
 namespace UI.Admin
 {
@@ -16,7 +17,7 @@ namespace UI.Admin
             UserInfoBLL bll = new UserInfoBLL();
             UserInfo ui = new UserInfo();
             ui.UserName = Request["txtName"];
-            ui.UserPwd = Request["txtPwd"];
+            ui.UserPwd = MD5Encrypt.MD5Check(Request["txtPwd"]);
             ui.Email = Request["txtEmail"];
             ui.Address = Request["txtAddress"];
             ui.MobilePhone = Request["txtMobilePhone"];
