@@ -2,22 +2,36 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
     <title></title>
+    <link href="../css/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+    </style>
 </head>
-    <frameset rows="*" cols="180,*" frameborder="no" border="0" framespacing="0">
-                <frame src="Left.aspx" name="leftFrame" scrolling="auto" noresize="noresize" id="leftFrame" title="leftFrame" />
-                <frameset rows="50,*" frameborder="no" border="0" framespacing="0">
-                    <frame src="Head.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-                    <frame src="Main.aspx" name="mainFrame" id="mainFrame" title="mainFrame" />
-                </frameset>
-            </frameset>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            
-        </div>
-    </form>
+    <div class="container-fluid">
+        <iframe src="Head.aspx" style="height:200px; border:1px solid #eee;" scrolling="No" class="col-sm-12" name="Head">
+        
+        </iframe>
+    </div>
+
+    <div class="container-fluid">
+        <iframe src="Left.aspx" class="col-sm-2" style="height:600px; border:1px solid #eee; background-color:#eee;" name="Left">
+
+        </iframe>
+        <iframe src="Main.aspx" class="col-sm-10" style="height:600px; border:1px solid #eee;" scorlling="No" name="Main">
+
+        </iframe>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>&copy <strong>Zhen Li</strong></p>
+    </footer>
 </body>
 </html>
