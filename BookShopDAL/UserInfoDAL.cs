@@ -103,5 +103,54 @@ namespace BookShopDAL
             string sql = "delete from UserInfo where UserId=@UserId";
             return SqlHelper.ExcuteNonQuery(sql, new SqlParameter("@UserId", id));
         }
+
+        /// <summary>
+        /// Get user information by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoById(int id)
+        {
+            UserInfo ui = new UserInfo();
+            string sql = "select * from UserInfo where UserId=@UserId";
+            DataTable dt = SqlHelper.GetAllList(sql, new SqlParameter("@UserId",id));
+            if (dt.Rows.Count > 0)
+            {
+                ui = RowToUserInfo(dt.Rows[0]);
+            }
+            return ui;
+        }
+
+        private UserInfo RowToUserInfo(DataRow dr)
+        {
+            UserInfo ui = new UserInfo();
+            ui.UserId = Convert.ToInt32(dr["UserId"]);
+            ui.UserName = dr["UserName"].ToString();
+            //ui.UserPwd = dr["UserPwd"].ToString();
+            ui.Email = dr["Email"].ToString();
+            ui.Address = dr["Address"].ToString();
+            ui.MobilePhone = dr["MobilePhone"].ToString();
+            //ui.RegisterTime = Convert.ToDateTime(dr["RegisterTime"]);
+            //ui.LoginTime = Convert.ToDateTime(dr["LoginTime"]);
+            return ui;
+        }
+
+        /// <summary>
+        /// Update UserInfo by Id
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public int UpdateUserInfoById(UserInfo ui)
+        {
+            string sql = "update UserInfo set UserName=@UserName,Email=@Email,Address=@Address,MobilePhone=@MobilePhone where UserId=@UserId";
+            SqlParameter[] ps = {
+                                     new SqlParameter("@UserName",ui.UserName),
+                                     new SqlParameter("@Email",ui.Email),
+                                     new SqlParameter("@Address",ui.Address),
+                                     new SqlParameter("@MobilePhone",ui.MobilePhone),
+                                     new SqlParameter("@UserId",ui.UserId)
+                                 };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
     }
 }

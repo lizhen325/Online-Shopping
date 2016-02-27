@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BookShopDAL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
+
 namespace UserManagerInfoDALTest
 {
     [TestClass()]

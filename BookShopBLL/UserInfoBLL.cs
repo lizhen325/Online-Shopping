@@ -64,5 +64,25 @@ namespace BookShopBLL
         {
             return dal.RemoveUserInfoById(id) > 0;
         }
+
+        /// <summary>
+        /// Get user information by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoById(int id)
+        {
+            return dal.GetUserInfoById(id);
+        }
+
+         /// <summary>
+        /// Update UserInfo by Id
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public bool UpdateUserInfoById(UserInfo ui)
+        {
+            return dal.UpdateUserInfoById(ui) > 0;
+        }
     }
 }

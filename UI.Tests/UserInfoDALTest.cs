@@ -59,7 +59,27 @@ namespace UserInfoDALTest.Tests
         [TestMethod()]
         public void RemoveUserInfoById()
         {
-            int i = dal.RemoveUserInfoById(1);
+            int i = dal.RemoveUserInfoById(10);
+            Assert.AreEqual(1,i);
+        }
+
+        [TestMethod()]
+        public void GetUserInfoById()
+        {
+            UserInfo ui2 = new UserInfo();
+            ui2 = dal.GetUserInfoById(2);
+            Assert.IsNotNull(ui2);
+        }
+
+        [TestMethod()]
+        public void UpdateUserInfoById()
+        {
+            ui.UserId = 2;
+            ui.UserName = "Jin";
+            ui.Email = "lizhen_325@hotmail.com";
+            ui.MobilePhone = "1234567";
+            ui.Address = "New Zealand";
+            int i = dal.UpdateUserInfoById(ui);
             Assert.IsTrue(i > 0);
         }
     }

@@ -19,7 +19,9 @@
                     <div class="panel-title" style="text-align:center;"> Update User Info </div>
                 </div>
             <div class="panel-body">
+                
                 <form id="form1" runat="server">
+                    <input type="text" name="uid" value="<%=ui.UserId %>"/>
                     <div id="signupalert" class="alert alert-danger login-alert" style="display:none;">
                         <p>Error: </p>
                         <span></span>
@@ -28,34 +30,34 @@
                     <div class="form-group" style="margin:20px 0 0 0">
                         <label for="username" class="col-md-3 control-label">UserName</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="username"/>
+                            <input type="text" class="form-control" name="username" value="<%=ui.UserName %>"/>
                         </div>
                     </div>
                     <%-- Email --%>
                     <div class="form-group" style="margin:20px 0 0 0">
                         <label for="email" class="col-md-3 control-label">Email</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="email"/>
+                            <input type="text" class="form-control" name="email" value="<%=ui.Email %>"/>
                         </div>
                     </div>
                     <%-- Address --%>
                     <div class="form-group" style="margin:20px 0 0 0">
                         <label for="address" class="col-md-3 control-label">Address</label>
                         <div class="col-md-9">
-                            <input type="password" class="form-control" name="address" />
+                            <input type="text" class="form-control" name="address" value="<%=ui.Address %>"/>
                         </div>
                     </div>
                     <%-- mobile phone --%>
                     <div class="form-group">
                         <label for="mobilephone" class="col-md-3 control-label"  style="margin:20px 0 0 0">Mobile Phone</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="mobilephone"/>
+                            <input type="text" class="form-control" name="mobilephone" value="<%=ui.MobilePhone %>"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-md-offset-3 col-md-9">
-                            <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i>&nbsp; Update </button>
+                            <input type="submit" value="update" class="btn btn-info" />
                         </div>
                     </div>
                 </form>
