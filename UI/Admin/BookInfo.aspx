@@ -45,7 +45,9 @@
         </ItemTemplate>
         <FooterTemplate>
                 <tr>
+                    <td colspan="10" style="text-align:center;"><%=PageBar %> </td>
                 </tr>
+           
             </tbody>
         </table>
         </FooterTemplate>

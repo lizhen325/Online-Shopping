@@ -19,5 +19,28 @@ namespace BookShopBLL
         {
             return dal.GetAllBookInfo();
         }
+
+        /// <summary>
+        /// get userinfo by page
+        /// </summary>
+        /// <param name="strwhere"></param>
+        /// <param name="orderby"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public DataSet GetListByPage(string strwhere, string orderby, int pageIndex, int pageSize)
+        {
+            return dal.GetListByPage(strwhere, orderby, pageIndex, pageSize);
+        }
+
+        /// <summary>
+        /// Get All Information
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public int GetRecordCount(string strWhere)
+        {
+            return dal.GetRecordCount(strWhere);
+        }
     }
 }
