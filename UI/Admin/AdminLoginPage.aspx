@@ -31,6 +31,10 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input id="login-password" type="password" class="form-control" name="password" placeholder="password" />
                             </div>
+                            <%--<div class="input-group margT25">
+                                <span class="input-group-addon">Authentication</span>
+                                <img src="../Common/ValidateCode.ashx" />
+                            </div>--%>
                             <div class="input-group">
                                 <div class="checkbox">
                                     <label>

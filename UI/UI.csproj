@@ -416,6 +416,9 @@
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\MD5Encrypt.cs" />
+    <Compile Include="Common\ValidateCode.ashx.cs">
+      <DependentUpon>ValidateCode.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -424,6 +427,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\UserManagerRemove.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\ValidateCode.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
