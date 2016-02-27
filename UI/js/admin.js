@@ -62,6 +62,7 @@ function Prompt(id) {
             location.href = "../Admin/BookTypeAdd.aspx?pid=" + id;
             break;
         case '2':
+            location.href = "../Admin/BookTypeEdit.aspx?pid=" + id;
             break;
         case '3':
             $.post('../Admin/BookTypeDelete.ashx', { id: id }, function (data) {

@@ -41,5 +41,25 @@ namespace BookShopBLL
         {
             return dal.DeleteBookType(id) > 0;
         }
+
+        /// <summary>
+        /// Get book type by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BookType GetBookTypeById(int id)
+        {
+            return dal.GetBookTypeById(id);
+        }
+
+        /// <summary>
+        /// updqte Book type by id
+        /// </summary>
+        /// <param name="bk"></param>
+        /// <returns></returns>
+        public bool UpdateBookType(BookType bk)
+        {
+            return dal.UpdateBookType(bk) > 0;
+        }
     }
 }

@@ -47,5 +47,47 @@ namespace BookShopDAL
             string sql = "delete from BookType where TypeId=@TypeId";
             return SqlHelper.ExcuteNonQuery(sql, new SqlParameter("@TypeId", id));
         }
+
+        /// <summary>
+        /// Get book type by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BookType GetBookTypeById(int id)
+        {
+            BookType bk = new BookType();
+            string sql = "select * from BookType where TypeId=@TypeId";
+            DataTable dt = SqlHelper.GetAllList(sql, new SqlParameter("@TypeId", id));
+            if (dt.Rows.Count > 0)
+            {
+                bk = RowToBookType(dt.Rows[0]);
+            }
+            return bk;
+        }
+
+        private BookType RowToBookType(DataRow dr)
+        {
+            BookType bk = new BookType();
+            bk.TypeId = Convert.ToInt32(dr["TypeId"]);
+            bk.TypeTitle = dr["TypeTitle"].ToString();
+            bk.TypeParentId = Convert.ToInt32(dr["TypeParentId"]);
+            return bk;
+        }
+
+        /// <summary>
+        /// updqte Book type by id
+        /// </summary>
+        /// <param name="bk"></param>
+        /// <returns></returns>
+        public int UpdateBookType(BookType bt)
+        {
+            string sql = "update BookType set TypeTitle=@TypeTitle,TypeParentId=@TypeParentId where TypeId=@TypeId";
+            SqlParameter[] ps = {
+                                    new SqlParameter("@TypeTitle",bt.TypeTitle),
+                                    new SqlParameter("@TypeParentId",bt.TypeParentId),
+                                    new SqlParameter("@TypeId",bt.TypeId)
+                                };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
     }
 }

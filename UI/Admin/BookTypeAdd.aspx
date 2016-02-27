@@ -9,11 +9,15 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <input type="hidden" name="pid" value="<%=Request["pid"] %>" />
-        Classcification Name:
-        <input type="text" name="title" />
-        <br />
-        <input type="submit" value="添加" />
+            <table>
+                <tr>
+                    <td>Add Classcification</td>
+                    <td><input type="text" name="title"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Add" /></td>
+                </tr>
+            </table>
     </div>
     </form>
 </body>

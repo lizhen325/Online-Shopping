@@ -30,5 +30,16 @@ namespace UI.Tests
             int i = dal.InsertBookType(bt);
             Assert.IsTrue(i > 0);
         }
+
+        [TestMethod()]
+        public void UpdateBookType()
+        {
+            BookType bt = new BookType();
+            bt.TypeId = 1;
+            bt.TypeTitle = "Programming";
+            bt.TypeParentId = 3;
+            int i = dal.UpdateBookType(bt);
+            Assert.IsTrue(i > 0);
+        }
     }
 }

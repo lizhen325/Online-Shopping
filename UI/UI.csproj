@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Admin\AdminLoginPage.aspx" />
     <Content Include="Admin\BookTypeAdd.aspx" />
+    <Content Include="Admin\BookTypeEdit.aspx" />
     <Content Include="Admin\Head.aspx" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Left.aspx" />
@@ -390,6 +391,13 @@
     </Compile>
     <Compile Include="Admin\BookTypeDelete.ashx.cs">
       <DependentUpon>BookTypeDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BookTypeEdit.aspx.cs">
+      <DependentUpon>BookTypeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookTypeEdit.aspx.designer.cs">
+      <DependentUpon>BookTypeEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Head.aspx.cs">
       <DependentUpon>Head.aspx</DependentUpon>
