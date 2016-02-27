@@ -40,8 +40,8 @@ namespace UI.Admin
 
             StringBuilder sb = new StringBuilder();
             sb.Append("<ul class='pagination'>");
-            sb.Append("<li><a href='?pIndex=0'> << </a></li>");
-            for (int i = 1; i < pageCount; i++ )
+            sb.Append("<li><a href='?pIndex=1'> << </a></li>");
+            for (int i = 1; i <= pageCount; i++ )
             {
                 if(i == pageIndex)
                 {
