@@ -10,6 +10,15 @@ namespace BookShopDAL
 {
     public class BookTypeDAL
     {
-        
+        /// <summary>
+        /// Get All BookType
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetAllBookType()
+        {
+            string sql = "select * from BookType";
+            DataTable dt = SqlHelper.GetAllList(sql);
+            return dt;
+        }
     }
 }

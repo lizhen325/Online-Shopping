@@ -75,6 +75,22 @@
     <Content Include="Admin\UserInfoUpdate.aspx" />
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
+    <Content Include="BookTypeList.aspx" />
+    <Content Include="Content\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="Content\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="Content\zTreeStyle\img\diy\2.png" />
+    <Content Include="Content\zTreeStyle\img\diy\3.png" />
+    <Content Include="Content\zTreeStyle\img\diy\4.png" />
+    <Content Include="Content\zTreeStyle\img\diy\5.png" />
+    <Content Include="Content\zTreeStyle\img\diy\6.png" />
+    <Content Include="Content\zTreeStyle\img\diy\7.png" />
+    <Content Include="Content\zTreeStyle\img\diy\8.png" />
+    <Content Include="Content\zTreeStyle\img\diy\9.png" />
+    <Content Include="Content\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Content\zTreeStyle\img\loading.gif" />
+    <Content Include="Content\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="Content\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="Content\zTreeStyle\zTreeStyle.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -353,6 +369,7 @@
     <Content Include="js\jquery-1.8.3.js" />
     <Content Include="js\jquery-ui-1.8.20.min.js" />
     <Content Include="js\jquery.easyui.min.js" />
+    <Content Include="js\jquery.ztree.core-3.5.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -415,6 +432,14 @@
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookTypeList.aspx.cs">
+      <DependentUpon>BookTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookTypeList.aspx.designer.cs">
+      <DependentUpon>BookTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BookTypeTree.cs" />
     <Compile Include="Common\MD5Encrypt.cs" />
     <Compile Include="Common\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>

@@ -11,6 +11,14 @@ namespace BookShopBLL
 {
     public class BookTypeBLL
     {
-        
+        BookTypeDAL dal = new BookTypeDAL();
+        /// <summary>
+        /// Get All BookType
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetAllBookType()
+        {
+            return dal.GetAllBookType();
+        }
     }
 }
