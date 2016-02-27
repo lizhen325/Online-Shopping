@@ -55,23 +55,33 @@ function RemoveConfirm(id) {
     }
 }
 
-function Prompt(id) {
+function Prompt(id,isParent) {
     var temp = prompt("Plaese 1:Add, 2:Update, 3:Delete");
     switch (temp) {
         case '1':
+            //Add
             location.href = "../Admin/BookTypeAdd.aspx?pid=" + id;
             break;
         case '2':
+            //Update
             location.href = "../Admin/BookTypeEdit.aspx?pid=" + id;
             break;
         case '3':
-            $.post('../Admin/BookTypeDelete.ashx', { id: id }, function (data) {
-                if (data == 1) {
-                    location.href = "../BookTypeList.aspx";
-                } else {
-                    alert('Fail to Delete');
+            //Delete
+            if (confirm('Are you Sure?'))
+            {
+                if (isParent) {
+                    alert('Cannot Delete Parent Node');
+                    return;
                 }
-            });
+                $.post('../Admin/BookTypeDelete.ashx', { id: id }, function (data) {
+                    if (data == 1) {
+                        location.href = "../BookTypeList.aspx";
+                    } else {
+                        alert('Fail to Delete');
+                    }
+                });
+            }
             break;
         default:
             alert('please type correct number!!');

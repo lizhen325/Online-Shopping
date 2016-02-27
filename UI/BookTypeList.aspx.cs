@@ -30,9 +30,9 @@ namespace UI
                         id= Convert.ToInt32(dr["TypeId"]),
                         name = dr["TypeTitle"].ToString(),
                         pId = Convert.ToInt32(dr["TypeParentId"]),
-                        open = true,
-                        IsParent = true,
-                        Click = "Prompt(" + Convert.ToInt32(dr["TypeId"]) + ")"
+                        open = true
+                        //IsParent = true,
+                        //Click = "Prompt(" + Convert.ToInt32(dr["TypeId"]) + ")"
                     });
                 }
 
