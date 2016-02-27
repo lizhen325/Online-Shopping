@@ -52,6 +52,7 @@
     <Compile Include="Common\MD5Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUserManagerDAL.cs" />
+    <Compile Include="BookInfoDALTest.cs" />
     <Compile Include="UserInfoDALTest.cs" />
   </ItemGroup>
   <ItemGroup>
