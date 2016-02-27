@@ -18,6 +18,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             BookTypeBLL bll = new BookTypeBLL();
+            //read BookType table
             DataTable dt = bll.GetAllBookType();
             List<BookTypeTree> list = new List<BookTypeTree>();
             if(dt.Rows.Count>0)
@@ -37,6 +38,7 @@ namespace UI
 
             }
             JavaScriptSerializer js = new JavaScriptSerializer();
+            //return JSon object
             ZTree = js.Serialize(list);
         }
     }

@@ -21,5 +21,14 @@ namespace UI.Tests
             DataTable dt = dal.GetAllBookType();
             Assert.IsNotNull(dt);
         }
+
+        [TestMethod()]
+        public void InsertBookType(BookType bt)
+        {
+            bt.TypeTitle = "Programming";
+            bt.TypeParentId = 3;
+            int i = dal.InsertBookType(bt);
+            Assert.IsTrue(i > 0);
+        }
     }
 }

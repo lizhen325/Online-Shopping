@@ -19,9 +19,9 @@ namespace Model
             get { return _typeId; }
             set { _typeId = value; }
         }
-        private int _typeTitle;
+        private string _typeTitle;
 
-        public int TypeTitle
+        public string TypeTitle
         {
             get { return _typeTitle; }
             set { _typeTitle = value; }

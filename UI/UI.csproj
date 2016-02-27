@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminLoginPage.aspx" />
+    <Content Include="Admin\BookTypeAdd.aspx" />
     <Content Include="Admin\Head.aspx" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Left.aspx" />
@@ -379,6 +380,13 @@
     </Compile>
     <Compile Include="Admin\AdminLoginPage.aspx.designer.cs">
       <DependentUpon>AdminLoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BookTypeAdd.aspx.cs">
+      <DependentUpon>BookTypeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookTypeAdd.aspx.designer.cs">
+      <DependentUpon>BookTypeAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Head.aspx.cs">
       <DependentUpon>Head.aspx</DependentUpon>

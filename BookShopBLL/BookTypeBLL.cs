@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BookShopDAL;
 using System.Data;
 using System.Data.SqlClient;
+using Model;
 
 namespace BookShopBLL
 {
@@ -19,6 +20,16 @@ namespace BookShopBLL
         public DataTable GetAllBookType()
         {
             return dal.GetAllBookType();
+        }
+
+        /// <summary>
+        /// Insert book type
+        /// </summary>
+        /// <param name="bt"></param>
+        /// <returns></returns>
+        public bool InsertBookType(BookType bt)
+        {
+            return dal.InsertBookType(bt) > 0;
         }
     }
 }
