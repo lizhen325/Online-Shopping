@@ -32,7 +32,7 @@
             var temp = prompt("Plaese 1:Add, 2:Update, 3:Delete");
             switch(temp){
                 case '1':
-                    location.href = "BookTypeAdd.aspx?pid="+id;
+                    location.href = "../Admin/BookTypeAdd.aspx?pid="+id;
                     break;
                 case '2':
                     break;
@@ -43,11 +43,10 @@
                     break;
             }
         }
-        
         </script>
 </head>
 <body>
-    <a href="Admin/BookTypeAdd.aspx?id=0">Add Classcification</a>
+    <a href="../Admin/BookTypeAdd.aspx?pid=0">Add Classcification</a>
     <ul id="treeDemo" class="ztree"></ul>
         
 </body>

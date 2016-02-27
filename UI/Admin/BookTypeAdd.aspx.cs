@@ -13,11 +13,21 @@ namespace UI.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BookType bt = new BookType();
-            bt.TypeTitle = Request["title"];
-            bt.TypeParentId = Convert.ToInt32(Request["pid"]);
-            BookTypeBLL bll = new BookTypeBLL();
-            
+            if (IsPostBack)
+            {
+                BookType bt = new BookType();
+                bt.TypeTitle = Request["title"];
+                bt.TypeParentId = int.Parse(Request["pid"]);
+                BookTypeBLL bll = new BookTypeBLL();
+                if (bll.InsertBookType(bt))
+                {
+                    Response.Redirect("../BookTypeList.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Error.html");
+                }
+            }
         }
     }
 }
