@@ -388,6 +388,9 @@
     <Compile Include="Admin\BookTypeAdd.aspx.designer.cs">
       <DependentUpon>BookTypeAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\BookTypeDelete.ashx.cs">
+      <DependentUpon>BookTypeDelete.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Head.aspx.cs">
       <DependentUpon>Head.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -463,6 +466,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Common\ValidateCode.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\BookTypeDelete.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -36,5 +36,16 @@ namespace BookShopDAL
                                  };
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
+
+        /// <summary>
+        /// Delete book type by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DeleteBookType(int id)
+        {
+            string sql = "delete from BookType where TypeId=@TypeId";
+            return SqlHelper.ExcuteNonQuery(sql, new SqlParameter("@TypeId", id));
+        }
     }
 }

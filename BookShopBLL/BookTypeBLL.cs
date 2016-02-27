@@ -31,5 +31,15 @@ namespace BookShopBLL
         {
             return dal.InsertBookType(bt) > 0;
         }
+
+        /// <summary>
+        /// Delete book type by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool DeleteBookType(int id)
+        {
+            return dal.DeleteBookType(id) > 0;
+        }
     }
 }

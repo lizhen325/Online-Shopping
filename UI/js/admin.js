@@ -54,3 +54,26 @@ function RemoveConfirm(id) {
         });
     }
 }
+
+function Prompt(id) {
+    var temp = prompt("Plaese 1:Add, 2:Update, 3:Delete");
+    switch (temp) {
+        case '1':
+            location.href = "../Admin/BookTypeAdd.aspx?pid=" + id;
+            break;
+        case '2':
+            break;
+        case '3':
+            $.post('../Admin/BookTypeDelete.ashx', { id: id }, function (data) {
+                if (data == 1) {
+                    location.href = "../BookTypeList.aspx";
+                } else {
+                    alert('Fail to Delete');
+                }
+            });
+            break;
+        default:
+            alert('please type correct number!!');
+            break;
+    }
+}
