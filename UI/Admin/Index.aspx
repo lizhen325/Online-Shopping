@@ -16,9 +16,12 @@
 </head>
 <body>
     <div class="container-fluid">
-        <iframe src="Head.aspx" style="height:200px; border:1px solid #eee;" scrolling="No" class="col-sm-12" name="Head">
+        <div class="row">
+         <iframe src="Head.aspx" style="height:200px;" scrolling="No" name="Head" class="col-md-12 col-sm-12 col-lg-12">
         
         </iframe>
+        </div>
+        
     </div>
 
     <div class="container-fluid">
