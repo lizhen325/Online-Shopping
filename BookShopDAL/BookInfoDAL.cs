@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Model;
 
 namespace BookShopDAL
 {
@@ -71,6 +72,31 @@ namespace BookShopDAL
                 return 0;
             }
             return Convert.ToInt32(obj);
+        }
+
+        /// <summary>
+        /// Insert book info
+        /// </summary>
+        /// <param name="bi"></param>
+        /// <returns></returns>
+        public int InsertBookInfo(BookInfo bi)
+        {
+            string sql = "insert into BookInfo (Title,SubTitle,PriceOld,PriceNew,Author,Publisher,PublishDate,SaleDate,ISBN,TypeId,Details,Imgtitle) values(@Title,@SubTitle,@PriceOld,@PriceNew,@Author,@Publisher,@PublishDate,@SaleDate,@ISBN,@TypeId,@Details,@Imgtitle) ";
+            SqlParameter[] ps = {
+                                     new SqlParameter("@Title",bi.BookTitle),
+                                     new SqlParameter("@SubTitle",bi.SubTitle),
+                                     new SqlParameter("@PriceOld",bi.PriceOld),
+                                     new SqlParameter("@PriceNew",bi.PriceNew),
+                                     new SqlParameter("@Author",bi.Author),
+                                     new SqlParameter("@Publisher",bi.Publisher),
+                                     new SqlParameter("@PublishDate",bi.PublishDate),
+                                     new SqlParameter("@SaleDate",bi.SaleDate),
+                                     new SqlParameter("@ISBN",bi.Isbn),
+                                     new SqlParameter("@TypeId",bi.TypeId),
+                                     new SqlParameter("@Details",bi.Details),
+                                     new SqlParameter("@ImgTitle",bi.ImgTitle)
+                                 };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
         }
     }
 }

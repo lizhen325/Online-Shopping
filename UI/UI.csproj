@@ -80,6 +80,16 @@
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
     <Content Include="BookTypeList.aspx" />
+    <Content Include="Content\UMEditorThemes\default\css\umeditor.css" />
+    <Content Include="Content\UMEditorThemes\default\css\umeditor.min.css" />
+    <Content Include="Content\UMEditorThemes\default\images\caret.png" />
+    <Content Include="Content\UMEditorThemes\default\images\close.png" />
+    <Content Include="Content\UMEditorThemes\default\images\icons.gif" />
+    <Content Include="Content\UMEditorThemes\default\images\icons.png" />
+    <Content Include="Content\UMEditorThemes\default\images\ok.gif" />
+    <Content Include="Content\UMEditorThemes\default\images\pop-bg.png" />
+    <Content Include="Content\UMEditorThemes\default\images\spacer.gif" />
+    <Content Include="Content\UMEditorThemes\default\images\videologo.gif" />
     <Content Include="Content\zTreeStyle\img\diy\1_close.png" />
     <Content Include="Content\zTreeStyle\img\diy\1_open.png" />
     <Content Include="Content\zTreeStyle\img\diy\2.png" />
@@ -375,6 +385,58 @@
     <Content Include="js\jquery-ui-1.8.20.min.js" />
     <Content Include="js\jquery.easyui.min.js" />
     <Content Include="js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="js\umeditor.config.js" />
+    <Content Include="js\umeditor.min.js" />
+    <Content Include="js\UMEditor\dialogs\emotion\emotion.css" />
+    <Content Include="js\UMEditor\dialogs\emotion\emotion.js" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\0.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="js\UMEditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="js\UMEditor\dialogs\formula\formula.css" />
+    <Content Include="js\UMEditor\dialogs\formula\formula.html" />
+    <Content Include="js\UMEditor\dialogs\formula\formula.js" />
+    <Content Include="js\UMEditor\dialogs\formula\images\formula.png" />
+    <Content Include="js\UMEditor\dialogs\image\image.css" />
+    <Content Include="js\UMEditor\dialogs\image\image.js" />
+    <Content Include="js\UMEditor\dialogs\image\images\close.png" />
+    <Content Include="js\UMEditor\dialogs\image\images\upload1.png" />
+    <Content Include="js\UMEditor\dialogs\image\images\upload2.png" />
+    <Content Include="js\UMEditor\dialogs\link\link.js" />
+    <Content Include="js\UMEditor\dialogs\map\map.html" />
+    <Content Include="js\UMEditor\dialogs\map\map.js" />
+    <Content Include="js\UMEditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="js\UMEditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="js\UMEditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="js\UMEditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="js\UMEditor\dialogs\video\video.css" />
+    <Content Include="js\UMEditor\dialogs\video\video.js" />
+    <Content Include="js\UMEditor\lang\en\en.js" />
+    <Content Include="js\UMEditor\lang\en\images\addimage.png" />
+    <Content Include="js\UMEditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="js\UMEditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="js\UMEditor\lang\en\images\background.png" />
+    <Content Include="js\UMEditor\lang\en\images\button.png" />
+    <Content Include="js\UMEditor\lang\en\images\copy.png" />
+    <Content Include="js\UMEditor\lang\en\images\deletedisable.png" />
+    <Content Include="js\UMEditor\lang\en\images\deleteenable.png" />
+    <Content Include="js\UMEditor\lang\en\images\imglabel.png" />
+    <Content Include="js\UMEditor\lang\en\images\listbackground.png" />
+    <Content Include="js\UMEditor\lang\en\images\localimage.png" />
+    <Content Include="js\UMEditor\lang\en\images\music.png" />
+    <Content Include="js\UMEditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="js\UMEditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="js\UMEditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="js\UMEditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="js\UMEditor\lang\en\images\upload.png" />
+    <Content Include="js\UMEditor\net\upload\2014-11-22\1ef9a504-ff25-4573-b982-4ea83a533c63.jpg" />
+    <Content Include="js\UMEditor\umeditor.config.js" />
+    <Content Include="js\UMEditor\umeditor.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -486,6 +548,7 @@
     <Compile Include="Common\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>
     </Compile>
+    <Compile Include="js\UMEditor\net\Uploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -509,6 +572,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\UMEditor\net\getContent.ashx" />
+    <Content Include="js\UMEditor\net\imageUp.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookInfoAdd.aspx.cs" Inherits="UI.Admin.BookInfoAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookInfoAdd.aspx.cs"  Inherits="UI.Admin.BookInfoAdd" %>
 
 <!DOCTYPE html>
 
@@ -6,8 +6,12 @@
 <head runat="server">
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/UMEditorThemes/default/css/umeditor.min.css" rel="stylesheet" />
     <script src="../js/jquery-1.7.1.js"></script>
     <script src="../js/ajaxfileupload.js"></script>
+    <script src="../js/UMEditor/umeditor.config.js"></script>
+    <script src="../js/UMEditor/umeditor.min.js"></script>
+    <script src="../js/UMEditor/lang/en/en.js"></script>
     <script type="text/javascript">
         $(function () {
             //load type
@@ -125,7 +129,15 @@
                 <tr>
                     <td>Details</td>
                     <td>
-                        <input type="text" name="details" /></td>
+                        <!--style给定宽度可以影响编辑器的最终宽度-->
+                        <script type="text/plain" id="myEditor" style="width: 500px; height: 300px;">
+                            Desciption for Product
+                        </script>
+                        <script type="text/javascript">
+                            //实例化编辑器
+                            var um = UM.getEditor('myEditor');
+                        </script>
+                        </td>
                 </tr>
                 <tr>
                     <td>Image</td>
