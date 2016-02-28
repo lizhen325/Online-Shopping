@@ -369,6 +369,7 @@
     <Content Include="css\themes\metro\validatebox.css" />
     <Content Include="css\themes\metro\window.css" />
     <Content Include="js\admin.js" />
+    <Content Include="js\ajaxfileupload.js" />
     <Content Include="js\jquery-1.7.1.js" />
     <Content Include="js\jquery-1.8.3.js" />
     <Content Include="js\jquery-ui-1.8.20.min.js" />
@@ -417,6 +418,9 @@
     </Compile>
     <Compile Include="Admin\BookTypeList.ashx.cs">
       <DependentUpon>BookTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FileUploadAjax.ashx.cs">
+      <DependentUpon>FileUploadAjax.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Head.aspx.cs">
       <DependentUpon>Head.aspx</DependentUpon>
@@ -499,6 +503,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\BookTypeList.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\FileUploadAjax.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedImage\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

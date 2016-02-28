@@ -7,9 +7,34 @@
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <script src="../js/jquery-1.7.1.js"></script>
+    <script src="../js/ajaxfileupload.js"></script>
     <script type="text/javascript">
         $(function () {
+            //load type
             LoadTypeList(1, 0);
+
+            $('#type1').change(function () {
+                LoadTypeList(2, $('#type1').val());
+            })
+            $('#type2').change(function () {
+                LoadTypeList(3, $('#type2').val());
+            })
+
+            //file upload
+            $('#btnUpload').click(function () {
+                if ($('#UpImg1').val() == "") {
+                    alert("Please select a file");
+                    return;
+                }
+                $.ajaxFileUpload({
+                    url: 'FileUploadAjax.ashx',
+                    fileElementId: 'UpImg1',
+                    success: function (data) {
+                        alert("Upload SuccessFul!!");
+                        $('#imgTitle').val($(data).text());
+                    }
+                });
+            });
         });
 
         function LoadTypeList(type, pid) {
@@ -23,9 +48,13 @@
                 function (data) {
                     var typeList = $('#type' + type);
                     typeList.empty();
-                    $.each(data, function (index, item) {
-                        typeList.append('<option value="' + item.TypeId + '">' + item.TypeTitle + '</option>');
-                    });
+                    if (data.length <= 0) {
+                        typeList.append('<option value="0">No Option</option>')
+                    } else {
+                        $.each(data, function (index, item) {
+                            typeList.append('<option value="' + item.TypeId + '">' + item.TypeTitle + '</option>');
+                        });
+                    }
                     if (type < 3) {
                         LoadTypeList(type + 1, typeList.val());
                     }
@@ -101,11 +130,15 @@
                 <tr>
                     <td>Image</td>
                     <td>
-                        <input type="text" name="image" id="imgTitle" readonly="readonly" /></td>
+                        <input type="text" readonly="readonly" name="imgTitle" id="imgTitle" />
+                        <br />
+                        <input style="margin: 10px 0 0 0;" type="file" id="UpImg1" name="UpImg1" />
+                        <input style="margin: 10px 0 0 128px;" type="button" id="btnUpload" value="Upload" class="btn btn-primary" />
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Add" /></td>
+                        <input type="submit" value="Add" class="btn btn-success" /></td>
                 </tr>
             </table>
         </div>
