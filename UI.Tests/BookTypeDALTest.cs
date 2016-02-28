@@ -41,5 +41,13 @@ namespace UI.Tests
             int i = dal.UpdateBookType(bt);
             Assert.IsTrue(i > 0);
         }
+
+        [TestMethod()]
+        public void GetList()
+        {
+            string strWhere = " TypeParentId=0";
+            DataTable dt = dal.GetList(strWhere);
+            Assert.IsNotNull(dt);
+        }
     }
 }

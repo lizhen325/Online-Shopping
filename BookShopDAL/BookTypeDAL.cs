@@ -23,6 +23,17 @@ namespace BookShopDAL
         }
 
         /// <summary>
+        /// Get all list with where condition
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public DataTable GetList(string strWhere)
+        {
+            string sql = "select * from BookType where " + strWhere;
+            return SqlHelper.GetAllList(sql);
+        }
+
+        /// <summary>
         /// Insert book type
         /// </summary>
         /// <param name="bt"></param>

@@ -61,5 +61,15 @@ namespace BookShopBLL
         {
             return dal.UpdateBookType(bk) > 0;
         }
+
+        /// <summary>
+        /// Get all list with where condition
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public DataTable GetList(string strWhere)
+        {
+            return dal.GetList(strWhere);
+        }
     }
 }
