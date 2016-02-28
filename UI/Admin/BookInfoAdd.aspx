@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookInfoAdd.aspx.cs"  Inherits="UI.Admin.BookInfoAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="BookInfoAdd.aspx.cs"  Inherits="UI.Admin.BookInfoAdd" %>
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -109,11 +109,6 @@
                         <input type="text" name="publishdate" /></td>
                 </tr>
                 <tr>
-                    <td>Sale Date</td>
-                    <td>
-                        <input type="text" name="saledate" /></td>
-                </tr>
-                <tr>
                     <td>ISBN</td>
                     <td>
                         <input type="text" name="isbn" /></td>
@@ -121,22 +116,19 @@
                 <tr>
                     <td>Type</td>
                     <td>
-                        <select id="type1"></select>
-                        <select id="type2"></select>
-                        <select id="type3"></select>
+                        <select id="type1" name="type1"></select>
+                        <select id="type2" name="type2"></select>
+                        <select id="type3" name="type3"></select>
                     </td>
                 </tr>
                 <tr>
                     <td>Details</td>
                     <td>
-                        <!--style给定宽度可以影响编辑器的最终宽度-->
-                        <script type="text/plain" id="myEditor" style="width: 500px; height: 300px;">
-                            Desciption for Product
-                        </script>
-                        <script type="text/javascript">
-                            //实例化编辑器
-                            var um = UM.getEditor('myEditor');
-                        </script>
+                        <script type="text/plain" id="myEditor" style="width: 500px; height: 300px;">请在此编辑详细介绍</script>
+                    <script type="text/javascript">
+                        //实例化编辑器
+                        var um = UM.getEditor('myEditor');
+                    </script>
                         </td>
                 </tr>
                 <tr>

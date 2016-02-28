@@ -83,19 +83,32 @@ namespace BookShopDAL
         {
             string sql = "insert into BookInfo (Title,SubTitle,PriceOld,PriceNew,Author,Publisher,PublishDate,SaleDate,ISBN,TypeId,Details,Imgtitle) values(@Title,@SubTitle,@PriceOld,@PriceNew,@Author,@Publisher,@PublishDate,@SaleDate,@ISBN,@TypeId,@Details,@Imgtitle) ";
             SqlParameter[] ps = {
-                                     new SqlParameter("@Title",bi.BookTitle),
-                                     new SqlParameter("@SubTitle",bi.SubTitle),
-                                     new SqlParameter("@PriceOld",bi.PriceOld),
-                                     new SqlParameter("@PriceNew",bi.PriceNew),
-                                     new SqlParameter("@Author",bi.Author),
-                                     new SqlParameter("@Publisher",bi.Publisher),
-                                     new SqlParameter("@PublishDate",bi.PublishDate),
-                                     new SqlParameter("@SaleDate",bi.SaleDate),
-                                     new SqlParameter("@ISBN",bi.Isbn),
-                                     new SqlParameter("@TypeId",bi.TypeId),
-                                     new SqlParameter("@Details",bi.Details),
-                                     new SqlParameter("@ImgTitle",bi.ImgTitle)
+                                     new SqlParameter("@Title",SqlDbType.VarChar,50),
+                                     new SqlParameter("@SubTitle",SqlDbType.VarChar,50),
+                                     new SqlParameter("@PriceOld",SqlDbType.Decimal,5),
+                                     new SqlParameter("@PriceNew",SqlDbType.Decimal,5),
+                                     new SqlParameter("@Author",SqlDbType.VarChar,50),
+                                     new SqlParameter("@Publisher",SqlDbType.VarChar,50),
+                                     new SqlParameter("@PublishDate",SqlDbType.VarChar,50),
+                                     new SqlParameter("@SaleDate",SqlDbType.VarChar,50),
+                                     new SqlParameter("@ISBN",SqlDbType.VarChar,50),
+                                     new SqlParameter("@TypeId",SqlDbType.VarChar,50),
+                                     new SqlParameter("@Details",SqlDbType.VarChar,-1),
+                                     new SqlParameter("@ImgTitle",SqlDbType.VarChar,50)
                                  };
+            ps[0].Value = bi.BookTitle;
+            ps[1].Value = bi.SubTitle;
+            ps[2].Value = bi.PriceOld;
+            ps[3].Value = bi.PriceNew;
+            ps[4].Value = bi.Author;
+            ps[5].Value = bi.Publisher;
+            ps[6].Value = bi.PublishDate;
+            ps[7].Value = bi.SaleDate;
+            ps[8].Value = bi.Isbn;
+            ps[9].Value = bi.TypeId;
+            ps[10].Value = bi.Details;
+            ps[11].Value = bi.ImgTitle;
+
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
     }

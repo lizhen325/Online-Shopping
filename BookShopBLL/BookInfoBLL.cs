@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BookShopDAL;
 using System.Data;
+using Model;
 
 namespace BookShopBLL
 {
@@ -41,6 +42,16 @@ namespace BookShopBLL
         public int GetRecordCount(string strWhere)
         {
             return dal.GetRecordCount(strWhere);
+        }
+
+        /// <summary>
+        /// Insert book info
+        /// </summary>
+        /// <param name="bi"></param>
+        /// <returns></returns>
+        public bool InsertBookInfo(BookInfo bi)
+        {
+            return dal.InsertBookInfo(bi) > 0;
         }
     }
 }
