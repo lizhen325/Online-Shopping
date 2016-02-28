@@ -53,5 +53,15 @@ namespace BookShopBLL
         {
             return dal.InsertBookInfo(bi) > 0;
         }
+
+        /// <summary>
+        /// delete book info by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool DeleteBookInfoById(int id)
+        {
+            return dal.DeleteBookInfoById(id) > 0;
+        }
     }
 }

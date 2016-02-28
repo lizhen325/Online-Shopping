@@ -111,5 +111,16 @@ namespace BookShopDAL
 
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
+
+        /// <summary>
+        /// delete book info by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DeleteBookInfoById(int id)
+        {
+            string sql = "delete from BookInfo where Id=@Id ";
+            return SqlHelper.ExcuteNonQuery(sql, new SqlParameter("@Id", id));
+        }
     }
 }

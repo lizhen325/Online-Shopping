@@ -461,6 +461,9 @@
     <Compile Include="Admin\BookInfoAdd.aspx.designer.cs">
       <DependentUpon>BookInfoAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\BookInfoDelete.ashx.cs">
+      <DependentUpon>BookInfoDelete.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\BookTypeAdd.aspx.cs">
       <DependentUpon>BookTypeAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -576,6 +579,9 @@
   <ItemGroup>
     <Content Include="js\UMEditor\net\getContent.ashx" />
     <Content Include="js\UMEditor\net\imageUp.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\BookInfoDelete.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

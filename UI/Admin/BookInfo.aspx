@@ -6,6 +6,21 @@
 <head runat="server">
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../js/jquery-1.7.1.js"></script>
+    <script type="text/javascript">
+        function RemoveConfirm(id) {
+            if (confirm("Are you sure??")) {
+                $.post('BookInfoDelete.ashx', { id: id }, function (data) {
+                    if (data == 1) {
+                        //reload current page
+                        location.href = location.href;
+                    } else {
+                        alert('Fail to Delete');
+                    }
+                });
+            };
+        }
+    </script>
 </head>
 <body>
     <asp:Repeater ID="Repeater1" runat="server">
