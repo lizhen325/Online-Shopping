@@ -72,6 +72,7 @@
     <Content Include="Admin\BookInfoAdd.aspx" />
     <Content Include="Admin\BookTypeAdd.aspx" />
     <Content Include="Admin\BookTypeEdit.aspx" />
+    <Content Include="Admin\Foot.aspx" />
     <Content Include="Admin\Head.aspx" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Left.aspx" />
@@ -486,6 +487,13 @@
     </Compile>
     <Compile Include="Admin\FileUploadAjax.ashx.cs">
       <DependentUpon>FileUploadAjax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Foot.aspx.cs">
+      <DependentUpon>Foot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Foot.aspx.designer.cs">
+      <DependentUpon>Foot.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Head.aspx.cs">
       <DependentUpon>Head.aspx</DependentUpon>

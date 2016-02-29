@@ -14,7 +14,7 @@
     </style>
 </head>
 <body >
-    <div class="container" style="background-color:#666;">
+    <div class="container-fluid text-center" style="background-color:#666;">
              <div class="navbar-header">
                  <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="padding:22px;" />    
                  <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="padding:5px;"/> 
