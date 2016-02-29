@@ -70,6 +70,7 @@
     <Content Include="Admin\AdminLoginPage.aspx" />
     <Content Include="Admin\BookInfo.aspx" />
     <Content Include="Admin\BookInfoAdd.aspx" />
+    <Content Include="Admin\BookInfoUpdate.aspx" />
     <Content Include="Admin\BookTypeAdd.aspx" />
     <Content Include="Admin\BookTypeEdit.aspx" />
     <Content Include="Admin\Foot.aspx" />
@@ -467,6 +468,13 @@
     </Compile>
     <Compile Include="Admin\BookInfoDelete.ashx.cs">
       <DependentUpon>BookInfoDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BookInfoUpdate.aspx.cs">
+      <DependentUpon>BookInfoUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookInfoUpdate.aspx.designer.cs">
+      <DependentUpon>BookInfoUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\BookTypeAdd.aspx.cs">
       <DependentUpon>BookTypeAdd.aspx</DependentUpon>

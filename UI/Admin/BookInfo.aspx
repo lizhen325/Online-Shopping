@@ -70,7 +70,7 @@
                     <td><%#Convert.ToDateTime(Eval("PublishDate")).ToString("yyyy-MM-dd") %></td>
                     <td><%#Convert.ToDateTime(Eval("SaleDate")).ToString("yyyy-MM-dd") %></td>
                     <td>
-                        <a href='UserInfoUpdate.aspx?id=<%#Eval("Id")%>' class="btn btn-info">Update</a>
+                        <a href='BookInfoUpdate.aspx?id=<%#Eval("Id")%>' class="btn btn-info">Update</a>
                         
                     </td>
                     <td>

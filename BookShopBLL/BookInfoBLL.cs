@@ -63,5 +63,25 @@ namespace BookShopBLL
         {
             return dal.DeleteBookInfoById(id) > 0;
         }
+
+        /// <summary>
+        /// get book info by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BookInfo GetBookInfoById(int id)
+        {
+            return dal.GetBookInfoById(id);
+        }
+
+        /// <summary>
+        /// update book info by id
+        /// </summary>
+        /// <param name="bi"></param>
+        /// <returns></returns>
+        public bool UpdateBookInfo(Model.BookInfo bi)
+        {
+            return dal.UpdateBookInfo(bi) > 0;
+        }
     }
 }

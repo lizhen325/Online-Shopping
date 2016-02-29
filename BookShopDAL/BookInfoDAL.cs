@@ -122,5 +122,108 @@ namespace BookShopDAL
             string sql = "delete from BookInfo where Id=@Id ";
             return SqlHelper.ExcuteNonQuery(sql, new SqlParameter("@Id", id));
         }
+
+        /// <summary>
+        /// get book info by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BookInfo GetBookInfoById(int id)
+        {
+            BookInfo bi = new BookInfo();
+            string sql = "select * from BookInfo where Id=@Id";
+            DataTable dt = SqlHelper.GetAllList(sql, new SqlParameter("@Id", id));
+            if(dt.Rows.Count > 0)
+            {
+                bi = RowToBookInfo(dt.Rows[0]);
+            }
+            return bi;
+        }
+
+        private BookInfo RowToBookInfo(DataRow row)
+        {
+            BookInfo bi = new BookInfo();
+            if (row != null)
+            {
+                if (row["Id"] != null && row["Id"].ToString() != "")
+                {
+                    bi.Id = int.Parse(row["Id"].ToString());
+                }
+                if (row["Title"] != null)
+                {
+                    bi.BookTitle = row["Title"].ToString();
+                }
+                if (row["SubTitle"] != null)
+                {
+                    bi.SubTitle = row["SubTitle"].ToString();
+                }
+                if (row["PriceOld"] != null && row["PriceOld"].ToString() != "")
+                {
+                    bi.PriceOld = decimal.Parse(row["PriceOld"].ToString());
+                }
+                if (row["PriceNew"] != null && row["PriceNew"].ToString() != "")
+                {
+                    bi.PriceNew = decimal.Parse(row["PriceNew"].ToString());
+                }
+                if (row["Author"] != null)
+                {
+                    bi.Author = row["Author"].ToString();
+                }
+                if (row["Publisher"] != null)
+                {
+                    bi.Publisher = row["Publisher"].ToString();
+                }
+                if (row["PublishDate"] != null && row["PublishDate"].ToString() != "")
+                {
+                    bi.PublishDate = DateTime.Parse(row["PublishDate"].ToString());
+                }
+                if (row["SaleDate"] != null && row["SaleDate"].ToString() != "")
+                {
+                    bi.SaleDate = DateTime.Parse(row["SaleDate"].ToString());
+                }
+                if (row["ISBN"] != null)
+                {
+                    bi.Isbn = row["ISBN"].ToString();
+                }
+                if (row["TypeId"] != null)
+                {
+                    bi.TypeId = row["TypeId"].ToString();
+                }
+                if (row["Details"] != null)
+                {
+                    bi.Details = row["Details"].ToString();
+                }
+                if (row["ImgTitle"] != null)
+                {
+                    bi.ImgTitle = row["ImgTitle"].ToString();
+                }
+            }
+            return bi;
+        }
+        /// <summary>
+        /// update book info by id
+        /// </summary>
+        /// <param name="bi"></param>
+        /// <returns></returns>
+        public int UpdateBookInfo(Model.BookInfo bi)
+        {
+            string sql = "update BookInfo set Title=@Title,SubTitle=@SubTitle,PriceOld=@PriceOld,PriceNew=@PriceNew,Author=@Author,Publisher=@Publisher,@PublishDate=@PublishDate,SaleDate=@SaleDate,ISBN=@ISBN,TypeId=@TypeId,Details=@Details,ImgTitle=@ImgTitle where Id=@Id";
+            SqlParameter[] ps = {
+                                    new SqlParameter("@Title",bi.BookTitle),
+                                    new SqlParameter("@SubTitle",bi.SubTitle),
+                                    new SqlParameter("@PriceOld",bi.PriceOld),
+                                    new SqlParameter("@PriceNew",bi.PriceNew),
+                                    new SqlParameter("@Author",bi.Author),
+                                    new SqlParameter("@Publisher",bi.Publisher),
+                                    new SqlParameter("@PublishDate",bi.PublishDate),
+                                    new SqlParameter("@SaleDate",bi.SaleDate),
+                                    new SqlParameter("@ISBN",bi.Isbn),
+                                    new SqlParameter("@TypeId",bi.TypeId),
+                                    new SqlParameter("@Details",bi.Details),
+                                    new SqlParameter("@ImgTitle",bi.ImgTitle),
+                                    new SqlParameter("@Id",bi.Id)
+                                };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
     }
 }
