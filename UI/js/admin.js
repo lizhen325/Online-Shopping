@@ -11,7 +11,7 @@ function AddUser() {
     $('#addDiv').dialog({
         title: 'Add User Info',
         width: 300,
-        height: 300,
+        height: 300,        
         buttons: [{
             text: 'Add',
             iconCls: 'icon-ok',

@@ -5,6 +5,9 @@
 <html>
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/UMEditorThemes/default/css/umeditor.min.css" rel="stylesheet" />
     <script src="../js/jquery-1.7.1.js"></script>
@@ -69,8 +72,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="col-sm-2">
-        </div>
+        <div class="container-fluid">
+
+        <div class="container-fluid">
+                <span> Operator: <i class="glyphicon glyphicon-user"> <span style="color:blue;">Administor</span> </i></span>                
+            </div>
         <div class="col-sm-10">
             <table class="table table-bordered">
                 <tr>
@@ -124,7 +130,7 @@
                 <tr>
                     <td>Details</td>
                     <td>
-                        <script type="text/plain" id="myEditor" style="width: 500px; height: 300px;">请在此编辑详细介绍</script>
+                        <script type="text/plain" id="myEditor" style="width: 500px; height: 300px;">Description for Product</script>
                     <script type="text/javascript">
                         //实例化编辑器
                         var um = UM.getEditor('myEditor');
@@ -137,15 +143,16 @@
                         <input type="text" readonly="readonly" name="imgTitle" id="imgTitle" />
                         <br />
                         <input style="margin: 10px 0 0 0;" type="file" id="UpImg1" name="UpImg1" />
-                        <input style="margin: 10px 0 0 128px;" type="button" id="btnUpload" value="Upload" class="btn btn-primary" />
+                        <input style="margin: 10px 0 0 128px;" type="button" id="btnUpload" value="Upload" class="btn btn-info" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Add" class="btn btn-success" /></td>
+                        <input type="submit" value="Add" class="btn btn-info" /></td>
                 </tr>
             </table>
         </div>
+            </div>
     </form>
 </body>
 </html>

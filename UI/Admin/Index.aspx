@@ -22,7 +22,7 @@
     </div>
     <div class="container">
         <iframe src="Left.aspx" class="col-md-2" style="height: 900px;" frameborder="1" scorlling="No" name="Left"></iframe>
-        <iframe src="Main.aspx" class="col-md-10" style="height: 900px;" frameborder="0" name="Main"></iframe>          
+        <iframe src="Main.aspx" class="col-md-10" style="height: 900px;" frameborder="0" scorlling="No" name="Main"></iframe>          
     </div>
     <div class="container">
         <div class="row">

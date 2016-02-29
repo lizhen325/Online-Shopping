@@ -5,52 +5,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="../css/themes/icon.css" rel="stylesheet" />
     <link href="../css/themes/default/easyui.css" rel="stylesheet" />
     <link href="../css/themes/default/dialog.css" rel="stylesheet" />
     <script src="../js/jquery-1.7.1.js"></script>
     <script src="../js/jquery.easyui.min.js"></script>
     <script src="../js/admin.js"></script>
+    <style type="text/css">
+        tr:nth-child(even){
+            background-color:#f2f2f2;
+        }
+        th{
+            background-color:#4CAF50;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-            <a href="javascript:void(0)" id="addUser" class="btn btn-success">Add User</a>
+            <div class="container-fluid">
+                <span> Operator: <i class="glyphicon glyphicon-user"> <span style="color:blue;">Administor</span> </i></span>                
+            </div>
             <asp:Repeater ID="Repeater1" runat="server">
                 <HeaderTemplate>
+                   <div class="table-responsive">
                     <table class="table table-bordered" style="text-align: center;">
                         <tbody>
                             <tr>
-                               
-                                <th colspan="10" style="text-align:center;">UserInfo Table</th>
-                               
+                                <td colspan="9" style="text-align:left;"><b>UserInfo Table:</b>  <a href="javascript:void(0)" id="addUser" class="btn btn-info">+Add</a></td>                                                        
                             </tr>
                             <tr>
-                                <td style="text-align: center;">Id</td>
-                                <td style="text-align: center;">UserName</td>
-                                <td style="text-align: center;">Password</td>
-                                <td style="text-align: center;">Email</td>
-                                <td style="text-align: center;">Address</td>
-                                <td style="text-align: center;">MobilePhone</td>
-                                <td style="text-align: center;">RegisterTime</td>
-                                <td style="text-align: center;">LoginTime</td>
-                                <td style="text-align: center;">Up/Re</td>
+                                <th style="text-align: center;">Id</th>
+                                <th style="text-align: center;">UserName</th>                                
+                                <th style="text-align: center;">Email</th>
+                                <th style="text-align: center;">Address</th>
+                                <th style="text-align: center;">MobilePhone</th>
+                                <th style="text-align: center;">RegisterTime</th>
+                                <th style="text-align: center;">LoginTime</th>
+                                <th style="text-align: center;">UpDate</th>
+                                <th style="text-align: center;">Remove</th>
                             </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
                             <tr>
                                 <td><%#Eval("UserId") %></td>
                                 <td><%#Eval("UserName") %></td>
-                                <td><%#Eval("UserPwd") %></td>
+                                <%--<td><%#Eval("UserPwd") %></td>--%>
                                 <td><%#Eval("Email") %></td>
                                 <td><%#Eval("Address") %></td>
                                 <td><%#Eval("MobilePhone") %></td>
                                 <td><%#Eval("RegisterTime") %></td>
                                 <td><%#Eval("LoginTime") %></td>
                                 <td>
-                                    <a href='UserInfoUpdate.aspx?id=<%#Eval("UserId")%>' class="btn btn-success">Update</a>
-                                    <a href='javascript:RemoveConfirm(<%#Eval("UserId") %>)'>Remove</a>
+                                    <a href='UserInfoUpdate.aspx?id=<%#Eval("UserId")%>' class="btn btn-info">Update</a>
+                                   
+                                </td>
+                                <td>
+                                     <a href='javascript:RemoveConfirm(<%#Eval("UserId") %>)'  class="btn btn-info">Remove</a>
                                 </td>
                                 
 
@@ -62,6 +76,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                 </FooterTemplate>
             </asp:Repeater>
         </div>

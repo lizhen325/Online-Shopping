@@ -16,13 +16,13 @@
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" href="#collapse1"><span style="font-size:11px;">User Mange</span></a>
+        <h4 class="panel-title"">
+          <a data-toggle="collapse" href="#collapse1"><i class="glyphicon glyphicon-th-list"></i><span style="font-size:12px;"> &nbsp;User</span></a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse">
         <ul class="list-group">
-          <li class="list-group-item"><a href="UserManagerList.aspx" class="list-group-item" target="Main"><span style="font-size:11px;">User Details</span></a></li>
+          <li class="list-group-item"><a href="UserManagerList.aspx" class="list-group-item" target="Main"><span style="font-size:13px;">Details</span></a></li>
         </ul>
       </div>
     </div>
@@ -32,12 +32,12 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="#collapse2"><span style="font-size:11px;">Product Mange</span></a>
+          <a data-toggle="collapse" href="#collapse2"><i class="glyphicon glyphicon-th-list"></i><span style="font-size:12px;"> &nbsp;Product</span></a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
         <ul class="list-group">
-          <li class="list-group-item"><a href="BookInfo.aspx" class="list-group-item" target="Main"><span style="font-size:11px;">Product Details</span></a></li>
+          <li class="list-group-item"><a href="BookInfo.aspx" class="list-group-item" target="Main"><span style="font-size:13px;">Details</span></a></li>
         </ul>
       </div>
     </div>
