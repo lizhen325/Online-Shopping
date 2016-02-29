@@ -15,19 +15,17 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    
         <div class="row">
-            <iframe src="Head.aspx" style="height: 100px;" frameborder="0" scrolling="no" name="Head" class="col-md-12"></iframe>
+            <iframe src="Head.aspx" style="height: 100px;" frameborder="0" scrolling="no" name="Head" class="col-md-12 col-sm-12 col-xs-12"></iframe>
         </div>      
-    </div>
-    <div class="container">
-        <iframe src="Left.aspx" class="col-md-2" style="height: 900px;" frameborder="1" scorlling="No" name="Left"></iframe>
-        <iframe src="Main.aspx" class="col-md-10" style="height: 900px;" frameborder="0" scorlling="No" name="Main"></iframe>          
-    </div>
-    <div class="container">
+    
+    
+        <iframe src="Left.aspx" class="col-md-2 col-sm-2 col-xs-2" style="height: 800px;" frameborder="1" scorlling="No" name="Left"></iframe>
+        <iframe src="Main.aspx" class="col-md-10 col-sm-10 col-xs-10" style="height: 800px;" frameborder="0" scorlling="No" name="Main"></iframe>          
+
         <div class="row">
-            <iframe src="Foot.aspx" class="col-md-12" style="height:200px;" frameborder="0" name="Foot"></iframe>  
-            </div>  
-    </div>
+            <iframe src="Foot.aspx" class="col-md-12 col-sm-12 col-xs-12" style="height:200px;" frameborder="0" name="Foot"></iframe>  
+        </div>  
 </body>
 </html>

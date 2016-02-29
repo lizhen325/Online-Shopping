@@ -51,6 +51,21 @@
         </ul>
       </div>
     </div>
+        </div>
+     <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse3"><i class="glyphicon glyphicon-th-list"></i><span style="font-size:12px;"> &nbsp;Product Type</span></a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <ul class="list-group">
+          <li class="list-group-item"><a href="../BookTypeList.aspx"  class="list-group-item" target="Main"><span style="font-size:13px;">Details</span></a></li>
+        </ul>
+      </div>
+        </div>
+    </div>
   </div>
 </div>
 </body>
