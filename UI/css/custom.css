@@ -26,7 +26,9 @@
 	border-top: 1px solid#888; padding-top:15px; font-size:85%;
 }
 .signup-box{
-	display:none; margin-top:50px;
+  display:none;
+}
+.signupf-fmargin-top:50px;
 }
 .signup-fb{
 	border-top: 1px solid #999; padding-top:20px;
@@ -75,4 +77,12 @@
   color: #fff;
   background-color: #00aced;
   border-color: #00aced;
+}
+
+#footer {
+	background-color: #666;
+	border-top: 1px solid #ccc;
+	padding: 20px;
+	text-align: center;
+	color: #eee;
 }
