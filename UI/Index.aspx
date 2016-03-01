@@ -25,10 +25,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html" class="active"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> Information</a></li>
-                    <%--<li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> Case</a></li>--%>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> About</a></li>
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
                     <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
                     <li style="margin:11px 0 0 0;"><select style="height:26px;">
                         <option selected="selected">All Categories</option>
@@ -37,7 +36,11 @@
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
                     <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
-                    <li><a href="BookShop/Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                    <%if(Session["user"]==""){%>
+                            <li><a href="BookShop/Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                        <% } else{%>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> LogOut</a></li>
+                    <%} %>
                 </ul>
             </div>
         </div>

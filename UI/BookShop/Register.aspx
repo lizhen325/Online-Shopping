@@ -10,8 +10,6 @@
                 </div>
                 <div class="panel-body panel-pad">
                     <div id="login-alert" class="alert alert-danger col-sm-12 login-alert"></div>
-                    <form id="loginform" class="form-horizontal" role="form">
-                        
                         <div class="input-group margT25">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
@@ -44,7 +42,6 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -58,7 +55,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form id="signupform" class="form-horizontal" role="form">
+                    <form id="signupform" class="form-horizontal" role="form" runat="server">
                         <%-- Error --%>
                         <div id="signupalert" class="alert alert-danger login-alert">
                             <p> Error: </p>
@@ -68,7 +65,7 @@
                         <div class="form-group">
                             <label for="userid" class="col-md-3 control-label">User ID</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="id" placeholder="User ID" />
+                                <input type="text" class="form-control" name="userid" placeholder="User ID" />
                             </div>
                         </div>
                         <%-- Password --%>
@@ -83,13 +80,6 @@
                             <label for="confirmpassword" class="col-md-3 control-label">Confirm Password</label>
                             <div class="col-md-9">
                                 <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" />
-                            </div>
-                        </div>
-                        <%-- Full Name --%>
-                        <div class="form-group">
-                            <label for="fullname" class="col-md-3 control-label">Full Name</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="fullname" placeholder="Full Name" />
                             </div>
                         </div>
                         <%-- Email --%>
@@ -110,13 +100,13 @@
                         <div class="form-group">
                             <label for="mobilephone" class="col-md-3 control-label">Phone</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="mobilephone" placeholder="Mobile Phone">
+                                <input type="text" class="form-control" name="mobilephone" placeholder="Mobile Phone" />
                             </div>
                         </div>
                         <!-- Sign -->
                         <div class="form-group">
                             <div class="col-md-offset-3 col-md-9">
-                                <button id="btn-signup" type="button" class="btn btn-info"> <i class="icon-hand-right"></i> &nbsp; Sign Up </button>
+                                <input type="submit" value="Sign Up" id="btn-signup" type="button" class="btn btn-info" /> <i class="icon-hand-right"></i>
                                 <strong>or</strong>
                                 <button id="btn-fbsignup" type="button" class="btn btn-facebook"> <i class="icon-facebook"></i> Sign Up with Facebook </button>
                             </div>
