@@ -82,5 +82,13 @@ namespace UserInfoDALTest.Tests
             int i = dal.UpdateUserInfoById(ui);
             Assert.IsTrue(i > 0);
         }
+        
+        [TestMethod()]
+        public void GetUserInfoByUserName()
+        {
+            string name = "aaaa";
+            UserInfo ui = dal.GetUserInfoByUserName(name);
+            Assert.IsNull(ui);
+        }
     }
 }

@@ -152,5 +152,22 @@ namespace BookShopDAL
                                  };
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
+
+        /// <summary>
+        /// get user info by user name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoByUserName(string name)
+        {
+            string sql = "select * from UserInfo where UserName=@UserName";
+            UserInfo ui = null;
+            DataTable dt = SqlHelper.GetAllList(sql, new SqlParameter("@UserName", name));
+            if(dt.Rows.Count > 0)
+            {
+                ui = RowToUserInfo(dt.Rows[0]);
+            }
+            return ui;
+        }
     }
 }

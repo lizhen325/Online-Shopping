@@ -566,6 +566,9 @@
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\CheckUserName.ashx.cs">
+      <DependentUpon>CheckUserName.ashx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -622,6 +625,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookShop\Shop.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\CheckUserName.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

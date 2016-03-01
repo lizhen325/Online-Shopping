@@ -84,5 +84,15 @@ namespace BookShopBLL
         {
             return dal.UpdateUserInfoById(ui) > 0;
         }
+
+        /// <summary>
+        /// get user info by user name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoByUserName(string name)
+        {
+            return dal.GetUserInfoByUserName(name);
+        }
     }
 }
