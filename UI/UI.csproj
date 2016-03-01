@@ -81,6 +81,7 @@
     <Content Include="Admin\UserInfoUpdate.aspx" />
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
+    <Content Include="BookShop\Register.aspx" />
     <Content Include="BookTypeList.aspx" />
     <Content Include="Content\img\bkg-blu.jpg" />
     <Content Include="Content\img\steven.jpg" />
@@ -558,6 +559,20 @@
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\Shop.Master.cs">
+      <DependentUpon>Shop.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\Shop.Master.designer.cs">
+      <DependentUpon>Shop.Master</DependentUpon>
+    </Compile>
     <Compile Include="BookTypeList.aspx.cs">
       <DependentUpon>BookTypeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -601,6 +616,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\BookInfoDelete.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\Shop.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
