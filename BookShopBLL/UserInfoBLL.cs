@@ -94,5 +94,15 @@ namespace BookShopBLL
         {
             return dal.GetUserInfoByUserName(name);
         }
+
+        /// <summary>
+        /// Get userinfo by email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoByEmail(string email)
+        {
+            return dal.GetUserInfoByEmail(email);
+        }
     }
 }

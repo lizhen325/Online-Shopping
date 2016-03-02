@@ -169,5 +169,22 @@ namespace BookShopDAL
             }
             return ui;
         }
+
+        /// <summary>
+        /// Get userinfo by email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoByEmail(string email)
+        {
+            string sql = "select * from UserInfo where Email=@Email";
+            DataTable dt = SqlHelper.GetAllList(sql, new SqlParameter("@Email", email));
+            UserInfo ui = null;
+            if(dt.Rows.Count > 0)
+            {
+                ui = RowToUserInfo(dt.Rows[0]);
+            }
+            return ui;
+        }
     }
 }
