@@ -134,16 +134,23 @@
             $('#btn-login').click(function () {
                 var username = $('#login-username').val();
                 var password = $('#login-password').val();
-                if (username == '' || password== '') {
+                if (username == '' || password == '') {
+                    $('#errorspan').text('username or password can not be empty');
                     return;
                 }
                 $.post('CheckUserPassword.ashx', { 'username': username, 'password': password }, function (data) {
                     if (data == 'ok') {
                         //set cookie
+                        <%%>
                         if (document.getElementById('login-remember').checked == true) {
                             var now = new Date();
                             var expireTime = now.getTime() + 1000 * 3600 * 24;
-                            document.cookie = 'rm=' + username + '; expires=' + expireTime;
+                            document.cookie = 'rm=' + username + '; expires=' + expireTime + ';';
+                        } else {
+                            //delete cookie
+                            var now = new Date();
+                            var expiredate = now.getTime() - 1000 * 3600;
+                            document.cookie = 'rm=' + username + '; expires=' + expiredate + ';';
                         }
                         location.href = '../Index.aspx';
                     } else if (data == 'no') {

@@ -36,10 +36,10 @@
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
                     <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
-                    <%if(Session["user"]==""){%>
+                    <%if(Session["user"]==null){%>
                             <li><a href="BookShop/Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                         <% } else{%>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> LogOut</a></li>
+                    <li><a href="BookShop/Logout.aspx"><span class="glyphicon glyphicon-user"></span> LogOut</a></li>
                     <%} %>
                 </ul>
             </div>

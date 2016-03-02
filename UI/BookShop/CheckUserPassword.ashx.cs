@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using Model;
 using BookShopBLL;
+using System.Web.SessionState;
 
 namespace UI.BookShop
 {
     /// <summary>
     /// Summary description for CheckUserPassword
     /// </summary>
-    public class CheckUserPassword : IHttpHandler
+    public class CheckUserPassword : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -23,7 +24,9 @@ namespace UI.BookShop
             ui = bll.GetUserInfoByUserNameAndUserPassword(username, password);
             if(ui != null)
             {
+                context.Session["user"] = username;
                 context.Response.Write("ok");
+                
             }
             else
             {

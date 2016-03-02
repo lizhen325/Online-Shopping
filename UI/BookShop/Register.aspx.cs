@@ -11,6 +11,7 @@ namespace UI.BookShop
 {
     public partial class Register : System.Web.UI.Page
     {
+        protected UserInfo ui { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if(IsPostBack)
