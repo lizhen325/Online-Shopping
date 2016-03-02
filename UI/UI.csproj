@@ -84,6 +84,7 @@
     <Content Include="Admin\UserInfoUpdate.aspx" />
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
+    <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\Logout.aspx" />
     <Content Include="BookShop\Register.aspx" />
     <Content Include="BookTypeList.aspx" />
@@ -448,6 +449,7 @@
     <Content Include="js\UMEditor\net\upload\2014-11-22\1ef9a504-ff25-4573-b982-4ea83a533c63.jpg" />
     <Content Include="js\UMEditor\umeditor.config.js" />
     <Content Include="js\UMEditor\umeditor.min.js" />
+    <Content Include="UploadedImage\index.jpg" />
     <Content Include="UploadedImage\s3.jpeg" />
     <Content Include="UploadedImage\s5.jpg" />
     <Content Include="UploadedImage\s6.jpg" />
@@ -567,6 +569,13 @@
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\BookShowList.aspx.cs">
+      <DependentUpon>BookShowList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\BookShowList.aspx.designer.cs">
+      <DependentUpon>BookShowList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\CheckUserEmail.ashx.cs">
       <DependentUpon>CheckUserEmail.ashx</DependentUpon>
     </Compile>
@@ -606,6 +615,7 @@
     </Compile>
     <Compile Include="Common\BookTypeTree.cs" />
     <Compile Include="Common\MD5Encrypt.cs" />
+    <Compile Include="Common\PageHelper.cs" />
     <Compile Include="Common\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>
     </Compile>
