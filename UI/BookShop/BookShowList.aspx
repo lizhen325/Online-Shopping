@@ -8,11 +8,10 @@
           {%>
         <div class="row">
             <div class="col-lg-4">
-                <a href="pulpitrock.jpg" class="thumbnail">
+                <a href="BookDetails.aspx?id=<%=item.Id %>" class="thumbnail">
                     <p><%=item.BookTitle %></p>
                     <p><%=item.SubTitle %></p>
                     <img src="../UploadedImage/index.jpg" alt="Cinque Terre" style="width: 150px; height: 150px" />
-                    <p><%=item.Details %></p>
                     <p style="text-align: right;">&#36;<%=item.PriceNew %></p>
                 </a>
             </div>

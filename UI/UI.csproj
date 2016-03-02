@@ -84,6 +84,7 @@
     <Content Include="Admin\UserInfoUpdate.aspx" />
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
+    <Content Include="BookShop\BookDetails.aspx" />
     <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\Logout.aspx" />
     <Content Include="BookShop\Register.aspx" />
@@ -568,6 +569,13 @@
     </Compile>
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\BookDetails.aspx.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\BookDetails.aspx.designer.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\BookShowList.aspx.cs">
       <DependentUpon>BookShowList.aspx</DependentUpon>
