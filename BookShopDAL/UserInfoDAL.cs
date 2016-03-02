@@ -186,5 +186,27 @@ namespace BookShopDAL
             }
             return ui;
         }
+
+        /// <summary>
+        /// get user info by username and userpassword
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoByUserNameAndUserPassword(string username,string password)
+        {
+            string sql = "select * from UserInfo where UserName=@UserName and UserPwd=@UserPwd";
+            SqlParameter [] ps = {
+                                     new SqlParameter("@UserName",username),
+                                     new SqlParameter("@UserPwd",password)
+                                 };
+            DataTable dt = SqlHelper.GetAllList(sql, ps);
+            UserInfo ui = null;
+            if(dt.Rows.Count > 0)
+            {
+                ui = RowToUserInfo(dt.Rows[0]);
+            }
+            return ui;
+        }
     }
 }

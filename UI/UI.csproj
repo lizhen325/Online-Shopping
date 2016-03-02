@@ -572,6 +572,9 @@
     <Compile Include="BookShop\CheckUserName.ashx.cs">
       <DependentUpon>CheckUserName.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\CheckUserPassword.ashx.cs">
+      <DependentUpon>CheckUserPassword.ashx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -634,6 +637,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookShop\CheckUserEmail.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\CheckUserPassword.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

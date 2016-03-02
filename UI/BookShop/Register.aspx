@@ -120,6 +120,21 @@
                 }
                 return false;
             });
+
+            //validate login
+            $('#btn-login').click(function () {
+                
+                var username = $('#login-username').val();
+                var password = $('#login-password').val();
+                $.post('CheckUserPassword.ashx', { 'username': username, 'password': password }, function (data) {
+                    if (data == 'ok') {
+                        location.href = '../Index.aspx';
+                    } else if (data == 'no') {
+                        $('#signupalert').css('display', 'block');
+                        $('#errorspan').text('Invalid username and password');
+                    }
+                });
+            });
         });
         
         function checkPwd(msg) {
@@ -149,6 +164,10 @@
                 </div>
                 <div class="panel-body panel-pad">
                     <div id="login-alert" class="alert alert-danger col-sm-12 login-alert"></div>
+                    <%-- Error --%>
+                        <div id="signupalert" class="alert alert-danger login-alert">
+                            <p id="errorspan"> Error: </p>
+                        </div>
                         <div class="input-group margT25">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
@@ -195,11 +214,6 @@
                 </div>
                 <div class="panel-body">
                     <form id="signupform" class="form-horizontal" role="form" runat="server">
-                        <%-- Error --%>
-                        <div id="signupalert" class="alert alert-danger login-alert">
-                            <p> Error: </p>
-                            <span></span>
-                        </div>
                         <%-- User ID --%>
                         <div class="form-group">
                             <label for="userid" class="col-md-3 control-label">User ID</label>

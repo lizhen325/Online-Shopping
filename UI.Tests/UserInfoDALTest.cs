@@ -90,5 +90,14 @@ namespace UserInfoDALTest.Tests
             UserInfo ui = dal.GetUserInfoByUserName(name);
             Assert.IsNull(ui);
         }
+
+        [TestMethod()]
+        public void GetUserInfoByUserNameAndUserPassword()
+        {
+            string username = "Jin";
+            string password = "lizhen";
+            UserInfo ui = dal.GetUserInfoByUserNameAndUserPassword(username, password);
+            Assert.IsNotNull(ui);
+        }
     }
 }
