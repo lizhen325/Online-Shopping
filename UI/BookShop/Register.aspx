@@ -123,11 +123,18 @@
 
             //validate login
             $('#btn-login').click(function () {
-                
                 var username = $('#login-username').val();
                 var password = $('#login-password').val();
+                if (username == '' || password== '') {
+                    return;
+                }
                 $.post('CheckUserPassword.ashx', { 'username': username, 'password': password }, function (data) {
                     if (data == 'ok') {
+                        if (document.getElementById('login-remember').checked == true) {
+                            var now = new Date();
+                            var expireTime = now.getTime() + 1000 * 3600 * 24;
+                            document.cookie = 'rm=' + username + '; expires=' + expireTime;
+                        }
                         location.href = '../Index.aspx';
                     } else if (data == 'no') {
                         $('#signupalert').css('display', 'block');
