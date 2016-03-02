@@ -2,6 +2,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>
         $(function () {
+            //get cookie
+            var cookiearr = document.cookie.split(';');
+            for (var i = 0; i < cookiearr.length; i++) {
+                var name = cookiearr[i].split('=')[0];
+                var value = cookiearr[i].split('=')[1];
+                if (name == 'rm') {
+                    $('#login-username').val(value);
+                }
+            }
             $('#username').blur(function () {
                 var username = $('#username').val();
                 if (username != "") {                    
@@ -130,6 +139,7 @@
                 }
                 $.post('CheckUserPassword.ashx', { 'username': username, 'password': password }, function (data) {
                     if (data == 'ok') {
+                        //set cookie
                         if (document.getElementById('login-remember').checked == true) {
                             var now = new Date();
                             var expireTime = now.getTime() + 1000 * 3600 * 24;
@@ -142,6 +152,7 @@
                     }
                 });
             });
+
         });
         
         function checkPwd(msg) {
