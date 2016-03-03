@@ -33,7 +33,7 @@
           {%>
         <div class="row" style="margin:0  auto;">
             <div class="col-md-4 col-lg-4">
-                <a href="BookDetails.aspx?id=<%=item.Id %>" class="thumbnail">
+                <a href="BookDetails_<%=item.Id %>.aspx" class="thumbnail">
                     <p><%=item.BookTitle %></p>
                     <p><%=item.SubTitle %></p>
                     <img src="<%=item.ImgTitle %>" style="width: 100px; height: 130px" />

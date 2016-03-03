@@ -390,6 +390,7 @@
     <Content Include="css\themes\metro\tree.css" />
     <Content Include="css\themes\metro\validatebox.css" />
     <Content Include="css\themes\metro\window.css" />
+    <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
     <Content Include="js\admin.js" />
     <Content Include="js\ajaxfileupload.js" />
@@ -596,6 +597,9 @@
     <Compile Include="BookShop\CheckUserPassword.ashx.cs">
       <DependentUpon>CheckUserPassword.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\CommentInfoList.ashx.cs">
+      <DependentUpon>CommentInfoList.ashx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -629,6 +633,9 @@
     <Compile Include="Common\PageHelper.cs" />
     <Compile Include="Common\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -669,6 +676,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookShop\CheckUserPassword.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\CommentInfoList.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
