@@ -1,0 +1,118 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
+                <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    <li style="margin:11px 0 0 0;">
+                        <select style="height:26px;">
+                            <option selected="selected">All Categories</option>
+                            <option>Programming</option>
+                        </select>
+                    </li>
+                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <script type="text/javascript">
+        $(function () {
+            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
+                alert(1);
+                var list1 = $('#CoomentList');
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+                });
+            });
+        });
+        </script>
+        <div class="container" style="margin:70px 0 0 0;">
+            <table class="table">
+                <tr>
+                    <td rowspan="11"><img src="http://i.ebayimg.com/00/s/NDAwWDMwMw==/z/9RUAAOSwA4dWHyiB/$_35.JPG?set_id=89040003C1" /></td>
+                </tr>
+                <tr>
+                    <td><b>Description Info</b> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>The authors present the complete guide to ANSI standard C language programming. Written by the developers of C, this new version helps readers keep up with the finalized ANSI standard for C while showing how to take advantage of C's rich set of operators, economy of expression, improved control flow, and data structures. The 2/E has been completely rewritten with additional examples and problem sets to clarify the implementation of difficult language constructs. For years, C programmers have let K&R guide them to building well-structured and efficient programs. Now this same help is available to those working with ANSI compilers. Includes detailed coverage of the C language plus the official C language reference manual for at-a-glance help with syntax notation, declarations, ANSI changes, scope rules, and the list goes on and on.
+
+Torchwood started its life on television as a spin-off from Doctor Who, bringing Captain Jack to join new colleagues in a television series that quickly established itself as fresh and watchable television. Its fourth series, subtitled 'Miracle Day', also moved from the niche channel of BBC3 to metamorphose into an international production between the BBC and the US network Starz. Torchwood has continued to entertain, provoke and attract large audiences and an expanding fandom. This is the first critical celebration of Torchwood across its four series, considering issues of representation, as well as the fandom that surrounds the show and its complex contexts. Focusing in particular on how the meanings and understandings of cult television have shifted and become subject to technological, industry and marketing changes in recent years, Torchwood Declassified explores aspects of the show including its aesthetics and branding, its use of tropes from the horror genre, vast tie-in merchandise, status as a spin-off, the nature of a celebrity that is both cult and mainstream, as well as the use of sound and music, and Torchwood's connection to place and location.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>BookTitle: </b>
+                        The C Programming Language
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SubTitle: </b> 2nd Edition</td>
+                </tr>
+                <tr>
+                    <td><b>Author: </b>   	Brian W. Kernighan, Dennis M. Ritchie</td>
+                </tr>
+                <tr>
+                    <td><b>Price: </b> <s style="color:red;"> 24.95</s></td>
+                </tr>
+                <tr>
+                    <td style="color:red;"><b> Now Price: &#36;14.95</b></td>
+                </tr>
+                <tr>
+                    <td><b>ISBN: </b> 	9780131103627</td>
+                </tr>
+                <tr>
+                    <td><b>Publisher: </b>Prentice Hall PTR</td>
+                </tr>
+                <tr>
+                    <td><b>Publish Date: </b> 1988-03-22</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="CommentList"></ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
+                <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    <li style="margin:11px 0 0 0;">
+                        <select style="height:26px;">
+                            <option selected="selected">All Categories</option>
+                            <option>Programming</option>
+                        </select>
+                    </li>
+                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <script type="text/javascript">
+        $(function () {
+            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
+                alert(1);
+                var list1 = $('#CoomentList');
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+                });
+            });
+        });
+        </script>
+        <div class="container" style="margin:70px 0 0 0;">
+            <table class="table">
+                <tr>
+                    <td rowspan="11"><img src="http://thumbs.ebaystatic.com/images/g/7agAAOSwBahU4mHQ/s-l225.jpg" /></td>
+                </tr>
+                <tr>
+                    <td><b>Description Info</b> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>With this book, web developers can build engaging and interactive sites and applications using Microsoft's latest web development tools - ASP.NET 2.0 and the new ASP.NET AJAX framework. You learn to create applications that have all the great tricks you see on popular commercial web sites, such as order forms and the ability to interact with a database. And you can build pages that display information interactively without a page refresh. This straightforward tutorial explains how. Learning ASP.NET 2.0 with AJAX helps you master the concepts and techniques of Microsoft's tools with plenty of antated examples, review quizzes, web construction exercises and chapter summaries, so you can practice new skills and test your understanding as you go.With it, you'll learn to: Master the fundamental skills of ASP.NET 2.0 to build professional quality web applications; Integrate new Ajax tools and CSS with ASP.NET 2.0 for flashier and more interactive sites; build applications with minimal coding using Visual Studio or its free counterpart, Visual Web Developer; connect your site with a database so that users can retrieve, interact and save data; debug your application, deal with unexpected problems, and protect your site from malicious users; use the community-maintained ASP. NET AJAX Control Toolkit to extend the controls that come with ASP.NET AJAX; and use personalization tools to give your site a customized look for each user.Ideal for beginning web developers, or those who are new to ASP.NET, this book gets you involved with your own learning through hands-on lessons that are clear and to the point. You get the chance to try out new techniques on the spot. Want to join the world of modern web development? This book will get you started.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>BookTitle: </b>
+                        NEW Learning ASP.NET 2.0 with AJAX
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SubTitle: </b> By Jesse Liberty Paperback Free Shipping</td>
+                </tr>
+                <tr>
+                    <td><b>Author: </b>   	Dan Hurwitz, Jesse Liberty</td>
+                </tr>
+                <tr>
+                    <td><b>Price: </b> <s style="color:red;"> 85.14</s></td>
+                </tr>
+                <tr>
+                    <td style="color:red;"><b> Now Price: &#36;78.50</b></td>
+                </tr>
+                <tr>
+                    <td><b>ISBN: </b> 	9780596513979</td>
+                </tr>
+                <tr>
+                    <td><b>Publisher: </b>O'Reilly Media, Inc, USA</td>
+                </tr>
+                <tr>
+                    <td><b>Publish Date: </b> 2007-10-16</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="CommentList"></ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+    </footer>
+</body>
+</html>

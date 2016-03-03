@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BookShopBLL;
 using Model;
+using System.Data;
 
 namespace UI.Admin
 {
@@ -25,6 +26,11 @@ namespace UI.Admin
                 for (int i = start; i < end; i++)
                 {
                     Model.BookInfo bi = bll.GetBookInfoById(i);
+                    //if id is not exist.
+                    if(bi == null)
+                    {
+                        continue;
+                    }
                     //each folder can contain 500 html page, file name is id
                     string path2 = path + (i / 500);
                     if(!Directory.Exists(path2))
@@ -32,8 +38,8 @@ namespace UI.Admin
                         Directory.CreateDirectory(path2);
                     }
                     string path3 = Path.Combine(path2, bi.Id + ".html");
-                    //
-                    temp = temp.Replace("$imgTitle", bi.ImgTitle)
+                    //replace all text
+                    string temp2 = temp.Replace("$imgTitle", bi.ImgTitle)
                                 .Replace("$Details", bi.Details)
                                 .Replace("$BookTitle", bi.BookTitle)
                                 .Replace("$SubTitle", bi.SubTitle)
@@ -43,11 +49,41 @@ namespace UI.Admin
                                 .Replace("$Isbn", bi.Isbn)
                                 .Replace("$Publisher", bi.Publisher)
                                 .Replace("$PublishDate", bi.PublishDate.ToString("yyyy-MM-dd"));
-                    File.WriteAllText(path3, temp);
+                    File.WriteAllText(path3, temp2);
                 }
                 Response.Write("<b style='color:red;'>Success to Generate</b>");
             
             }
+            else
+            {
+                BookInfoBLL bll = new BookInfoBLL();
+                Model.BookInfo bi = new Model.BookInfo();
+                DataTable dt = bll.GetAllBookInfo();
+                int max = 1;
+                int start = 2;
+                if(dt.Rows.Count > 0)
+                {
+                    foreach(DataRow dr in dt.Rows)
+                    {
+                        bi = RowToGetBookInfo(dr);
+                        if((bi.Id + 1 - bi.Id) == 1)
+                        {
+                            max++;
+                            continue;      
+                        }
+                    }
+                }
+                //Get Id domain
+                Context.Response.Write("Id domain:" + start + "--" + max);
+            }
+        }
+
+        private Model.BookInfo RowToGetBookInfo(DataRow dr)
+        {
+            Model.BookInfo bi = new Model.BookInfo();
+            bi.Id = Convert.ToInt32(dr["Id"]);
+            return bi;
+            
         }
     }
 }

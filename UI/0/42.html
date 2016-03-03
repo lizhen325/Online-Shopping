@@ -1,0 +1,117 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
+                <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    <li style="margin:11px 0 0 0;">
+                        <select style="height:26px;">
+                            <option selected="selected">All Categories</option>
+                            <option>Programming</option>
+                        </select>
+                    </li>
+                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <script type="text/javascript">
+        $(function () {
+            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
+                alert(1);
+                var list1 = $('#CoomentList');
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+                });
+            });
+        });
+        </script>
+        <div class="container" style="margin:70px 0 0 0;">
+            <table class="table">
+                <tr>
+                    <td rowspan="11"><img src="http://thumbs.ebaystatic.com/images/g/qOoAAOSwNyFWe4Ps/s-l225.jpg" /></td>
+                </tr>
+                <tr>
+                    <td><b>Description Info</b> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>This title covers everything required when starting out in web design: the best workflow processes you can follow, the best tools and techlogies for the job you want to do, and the best way to combine process and tools to achieve great web site results. The book sets out to establish an understanding of Web design by providing a set of practical walk-throughs and tutorials that show how modern web sites are constructed, and the techniques and processes involved. It gives specific instructions to promote familiarity with the tools used in web design, whilst still concentrating on the underlying HTML and JavaScript as far as practicable. After successfully completing the book readers should: understand the general principles of web design; understand how the main techlogies that it uses fit together; kw the standard applications used; have created a traditional HTML website that includes HTML, JavaScript and web optimised graphics; and have an insight into the relative uses of static and Motion Graphics design, and kw how to integrate the two.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>BookTitle: </b>
+                        
+Details about  Foundation Web Design
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SubTitle: </b> Essential HTML, JavaScript, CSS...</td>
+                </tr>
+                <tr>
+                    <td><b>Author: </b>   Sham Bhangal, Tomasz Jankowski</td>
+                </tr>
+                <tr>
+                    <td><b>Price: </b> <s style="color:red;"> 14.10</s></td>
+                </tr>
+                <tr>
+                    <td style="color:red;"><b> Now Price: &#36;13.00</b></td>
+                </tr>
+                <tr>
+                    <td><b>ISBN: </b> 		9781904344162</td>
+                </tr>
+                <tr>
+                    <td><b>Publisher: </b>	WROX Press Ltd</td>
+                </tr>
+                <tr>
+                    <td><b>Publish Date: </b> 2003-03-01</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="CommentList"></ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+    </footer>
+</body>
+</html>

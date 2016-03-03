@@ -1,0 +1,118 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
+                <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    <li style="margin:11px 0 0 0;">
+                        <select style="height:26px;">
+                            <option selected="selected">All Categories</option>
+                            <option>Programming</option>
+                        </select>
+                    </li>
+                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <script type="text/javascript">
+        $(function () {
+            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
+                alert(1);
+                var list1 = $('#CoomentList');
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+                });
+            });
+        });
+        </script>
+        <div class="container" style="margin:70px 0 0 0;">
+            <table class="table">
+                <tr>
+                    <td rowspan="11"><img src="http://thumbs.ebaystatic.com/images/m/mfpRzh9CqT0Ng1XqAD15oOA/s-l225.jpg" /></td>
+                </tr>
+                <tr>
+                    <td><b>Description Info</b> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>ALERT: Before you purchase, check with your instructor or review your course syllabus to ensure that you select the correct ISBN. Several versions of Pearson's MyLab & Mastering products exist for each title, including customized versions for individual schools, and registrations are not transferable. In addition, you may need a CourseID, provided by your instructor, to register for and use Pearson's MyLab & Mastering products. PackagesAccess codes for Pearson's MyLab & Mastering products may not be included when purchasing or renting from companies other than Pearson; check with the seller before completing your purchase. Used or rental booksIf you rent or purchase a used book with an access code, the access code may have been redeemed previously and you may have to purchase a new access code. Access codesAccess codes that are purchased from sellers other than Pearson carry a higher risk of being either the wrong ISBN or a previously redeemed code. Check with the seller prior to purchase. -- Normal 0 false false false EN-US X-NONE X-NONE "Introduction to Java Programming, Comprehensive, 9e, "features comprehensive coverage ideal for a one-, two-, or three-semester CS1 course sequence. Daniel Liang teaches concepts of problem-solving and object-oriented programming using a fundamentals-first approach. Beginning programmers learn critical problem-solving techniques then move on to grasp the key concepts of object-oriented, GUI programming, advanced GUI and Web programming using Java.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>BookTitle: </b>
+                        Introduction 
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SubTitle: </b> Introduction to JAVA Programming</td>
+                </tr>
+                <tr>
+                    <td><b>Author: </b>   Y. Daniel Liang</td>
+                </tr>
+                <tr>
+                    <td><b>Price: </b> <s style="color:red;"> 136.48</s></td>
+                </tr>
+                <tr>
+                    <td style="color:red;"><b> Now Price: &#36;90.00</b></td>
+                </tr>
+                <tr>
+                    <td><b>ISBN: </b> 	9780133050578</td>
+                </tr>
+                <tr>
+                    <td><b>Publisher: </b>Prentice Hall PTR
+
+</td>
+                </tr>
+                <tr>
+                    <td><b>Publish Date: </b> 2012-03-23</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="CommentList"></ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+    </footer>
+</body>
+</html>

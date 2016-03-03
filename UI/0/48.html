@@ -1,0 +1,116 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
+                <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    <li style="margin:11px 0 0 0;">
+                        <select style="height:26px;">
+                            <option selected="selected">All Categories</option>
+                            <option>Programming</option>
+                        </select>
+                    </li>
+                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <script type="text/javascript">
+        $(function () {
+            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
+                alert(1);
+                var list1 = $('#CoomentList');
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+                });
+            });
+        });
+        </script>
+        <div class="container" style="margin:70px 0 0 0;">
+            <table class="table">
+                <tr>
+                    <td rowspan="11"><img src="http://thumbs.ebaystatic.com/images/g/2t0AAOSwhcJWIBRv/s-l225.jpg" /></td>
+                </tr>
+                <tr>
+                    <td><b>Description Info</b> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>JavaScript Quick Syntax Reference is a condensed syntax reference to the JavaScript language. It presents the essentials of JavaScript in a well-organized format that can be used as a handy reference. This includes the latest ECMAScript 5, JSON (JavaScript Object Notation) and DOM (Document Object Model) specifications and implementations. You won't find any technical jargon, bloated samples, drawn out history lessons or witty stories in this book. What you will find is a JavaScript reference that is concise, to the point and highly accessible. The book is packed with useful information and is a must-have for any JavaScript programmer or Web developer In JavaScript Quick Syntax Reference, you will find a concise reference to JavaScript programming language syntax; has short, simple and focused code examples; and includes a well laid out table of contents and a comprehensive index allowing easy review. What you'll learn What is the lexical structure of the latest JavaScript and ECMAScript 5 What are types, values, variables, expressions, operators and statements How to use objects, arrays, functions, classes, and regular expressions What are DOM and JSON and how to use them How to effectively implement both client-side and server-side JavaScript code Who this book is for This book is a handy, pocket quick scripting syntax reference for those experienced in JavaScript as well as programmers, web developers, tinkerers and people new to JavaScript.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>BookTitle: </b>
+                        JavaScript Quick Syntax Reference
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SubTitle: </b> JavaScript Quick Syntax Reference</td>
+                </tr>
+                <tr>
+                    <td><b>Author: </b>   Mikael Olsson</td>
+                </tr>
+                <tr>
+                    <td><b>Price: </b> <s style="color:red;"> 29.49</s></td>
+                </tr>
+                <tr>
+                    <td style="color:red;"><b> Now Price: &#36;19.45</b></td>
+                </tr>
+                <tr>
+                    <td><b>ISBN: </b> 	9781430264934</td>
+                </tr>
+                <tr>
+                    <td><b>Publisher: </b>Apress L. P.</td>
+                </tr>
+                <tr>
+                    <td><b>Publish Date: </b> 2015-09-14</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="CommentList"></ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
+                <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    <li style="margin:11px 0 0 0;">
+                        <select style="height:26px;">
+                            <option selected="selected">All Categories</option>
+                            <option>Programming</option>
+                        </select>
+                    </li>
+                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <script type="text/javascript">
+        $(function () {
+            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
+                alert(1);
+                var list1 = $('#CoomentList');
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+                });
+            });
+        });
+        </script>
+        <div class="container" style="margin:70px 0 0 0;">
+            <table class="table">
+                <tr>
+                    <td rowspan="11"><img src="http://thumbs.ebaystatic.com/images/g/we8AAOSwyQtVizEB/s-l225.jpg" /></td>
+                </tr>
+                <tr>
+                    <td><b>Description Info</b> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>Don't buy this book until you understand what you're getting into. As you can tell from the 5-star reviews, beginning coders love this book. And as you can tell from the 1-star reviews, some experienced programmers don't. What beginners like-that the book assumes no programming knowledge and is written in plain English-can make the book feel simple-minded to an expert. So if you're an experienced programmer, please don't rush into a purchase that's wrong for you and then give my book a 1-star review. If you're curious about my approach, download a free sample. Try the free online exercises. You'll soon know whether or not you want to spend 40 hours learning JavaScript in my "classroom." You may like it, though. Plenty of veterans have told me, "I wish someone had used this approach to teach me HTML, PHP, jQuery, C#, Ruby, Java, Python-fill in the blank]." But don't assume. Try before you buy. (Not a bad idea if you're a beginner, either. Why take a chance on a book if you don't have to?) If you commit to my approach, you'll find that the book is just the tip of the iceberg. The larger part is the abundance of interactive exercises that encourage you to practice, practice, practice. You'll agree, I think, that without practice, a coding student might as well be reading a novel. Here's what's different about my book: Testing showed that books and courses load up the reader with far too much information at a time. So I divide up the information into little chunks that won't overwhelm anyone. A book on coding doesn't have to be written in impenetrable legalese. It can actually be human-readable. My book is. Most people learn best through examples, so I provide plenty of them. Most important, before you have a chance to forget what you've read in the book, I ask you to fire up your desktop or laptop (not your mobile device) and head over to my website, where you run a set of interactive exercises, practicing everything you've learned-until you're sure you've mastered it. Readers tell me they often start the exercises thinking they know the material cold. and quickly find out they don't. The automated exercise manager keeps you at it until your overconfidence becomes real confidence-confidence that's based on your excellent performance. There are 1,750 exercises in all. They're all interactive, with an automated answer-checker that corrects your missteps and points you in the right direction when you stumble. And they're all free. Readers tell me the combination of book and interactive exercises is involving, fun, frustration-free, addictive, confidence-building, and...well, read the reviews.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>BookTitle: </b>
+                        A Smarter Way to Learn JavaScript
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SubTitle: </b> The new approach that uses technology to cut</td>
+                </tr>
+                <tr>
+                    <td><b>Author: </b>   Mark Myers</td>
+                </tr>
+                <tr>
+                    <td><b>Price: </b> <s style="color:red;"> 15.15</s></td>
+                </tr>
+                <tr>
+                    <td style="color:red;"><b> Now Price: &#36;9.99</b></td>
+                </tr>
+                <tr>
+                    <td><b>ISBN: </b> 	9781497408180</td>
+                </tr>
+                <tr>
+                    <td><b>Publisher: </b>CreateSpace Independent Publishing Platform</td>
+                </tr>
+                <tr>
+                    <td><b>Publish Date: </b> 2014-02-21</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="CommentList"></ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+    </footer>
+</body>
+</html>
