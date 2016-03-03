@@ -1,17 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BookShop/Shop.Master" AutoEventWireup="true" CodeBehind="BookDetails.aspx.cs" Inherits="UI.BookShop.BookDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="text/javascript">
-        $(function () {
-            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
-                alert(1);
-                var list1 = $('#CoomentList');
-                $.each(data, function (index, item) {
-                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
-                });
-            });
-        });
-    </script>
     <div class="container" style="margin:70px 0 0 0;">   
     <table class="table">
         <tr>
@@ -46,14 +35,7 @@
         </tr>
         <tr>
             <td><b>Publish Date: </b> <%=biModel.PublishDate.ToString("yyyy-MM-dd") %></td>            
-        </tr>
-        <tr>
-            <td>
-                <ul id="CommentList">
-
-                </ul>
-            </td>
-        </tr>
+        </tr>        
     </table>
         </div>
 </asp:Content>

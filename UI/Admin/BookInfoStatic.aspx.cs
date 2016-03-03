@@ -48,7 +48,8 @@ namespace UI.Admin
                                 .Replace("$old", bi.PriceNew.ToString())
                                 .Replace("$Isbn", bi.Isbn)
                                 .Replace("$Publisher", bi.Publisher)
-                                .Replace("$PublishDate", bi.PublishDate.ToString("yyyy-MM-dd"));
+                                .Replace("$PublishDate", bi.PublishDate.ToString("yyyy-MM-dd"))
+                                .Replace("$id", bi.Id.ToString());
                     File.WriteAllText(path3, temp2);
                 }
                 Response.Write("<b style='color:red;'>Success to Generate</b>");

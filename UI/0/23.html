@@ -13,6 +13,18 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
+    <script type="text/javascript">
+    $(function () {
+        $.getJSON('../BookShop/CommentInfoList.ashx', { id: 23 }, function (data) {
+            var list1 = $('#CommentList');
+            $.each(data, function (index, item) {
+                alert(1);
+                list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
+            });
+        });
+    });
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -47,18 +59,6 @@
         </div>
     </nav>
     <div class="container">
-
-        <script type="text/javascript">
-        $(function () {
-            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
-                alert(1);
-                var list1 = $('#CoomentList');
-                $.each(data, function (index, item) {
-                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
-                });
-            });
-        });
-        </script>
         <div class="container" style="margin:70px 0 0 0;">
             <table class="table">
                 <tr>
@@ -99,7 +99,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <ul id="CommentList"></ul>
+                        <ul id="CommentList">
+                        </ul>
                     </td>
                 </tr>
             </table>

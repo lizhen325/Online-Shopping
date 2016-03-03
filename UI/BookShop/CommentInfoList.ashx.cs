@@ -26,7 +26,7 @@ namespace UI.BookShop
             {
                 list.Add(new CommentShowModel()
                 {
-                    CTime = dr["CommentTime"].ToString(),
+                    CTime = dr["CommentTime"].ToString("yyyy-MM--dd"),
                     CMsg = dr["CommentMsg"].ToString()
                 });
             }

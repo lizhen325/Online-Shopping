@@ -18,9 +18,9 @@ namespace BookShopDAL
         /// <returns></returns>
         public DataTable GetCommentListByBookId(int id)
         {
-            string sql = "select * from Comment where Id=@Id";
+            string sql = "select * from Comment where BookId=@BookId";
             SqlParameter[] ps = {
-                                    new SqlParameter("@Id",id)
+                                    new SqlParameter("@BookId",id)
                                  };
             return SqlHelper.GetAllList(sql, ps);
         }
