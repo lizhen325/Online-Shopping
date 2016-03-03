@@ -39,7 +39,7 @@
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
                     <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
                     <%if(Session["user"]==null){%>
-                            <li><a href="BookShop/Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
+                            <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                         <% } else{%>
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> LogOut</a></li>
                     <%} %>
@@ -47,14 +47,15 @@
             </div>
         </div>
     </nav>   
-  
+    <div class="container"> 
        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
         </asp:ContentPlaceHolder>
-        <footer id="footer">
-        <div class="container-fluid">
-            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
-            <p>Copyright &copy; 2016-02 Zhen Li</p>
         </div>
-    </footer>
+     <footer id="footer">
+        <div class="container">
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
+        </div>
+         </footer>
 </body>
 </html>
