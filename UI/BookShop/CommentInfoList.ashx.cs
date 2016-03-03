@@ -24,9 +24,10 @@ namespace UI.BookShop
             List<CommentShowModel> list = new List<CommentShowModel>();
             foreach(DataRow dr in dt.Rows)
             {
+                string temp = DateTime.Now.ToString("yyyy-MM-dd");
                 list.Add(new CommentShowModel()
                 {
-                    CTime = dr["CommentTime"].ToString("yyyy-MM--dd"),
+                    CTime = temp,
                     CMsg = dr["CommentMsg"].ToString()
                 });
             }

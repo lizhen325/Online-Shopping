@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUserManagerDAL.cs" />
     <Compile Include="BookInfoDALTest.cs" />
+    <Compile Include="CoomentInfoDAL.cs" />
     <Compile Include="UserInfoDALTest.cs" />
   </ItemGroup>
   <ItemGroup>

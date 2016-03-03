@@ -13,6 +13,38 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+
+            LoadCommentList();
+
+            $('#btnComment').click(function () {
+                if ($('#content').val() == "") {
+                    alert('cannot comment with empty');
+                    return;
+                }
+                $.post('../BookShop/CommentInfoAdd.ashx', $('#CommentAdd').serialize(), function (msg) {
+                    if (msg == 1) {
+                        LoadCommentList();
+                        $('#content').val('');
+                    } else {
+                        alert('fail to comment');
+                    }
+                });
+            });
+        });
+        function LoadCommentList() {
+            $.getJSON('../BookShop/CommentInfoList.ashx', { id: 60 }, function (data) {
+                var list1 = $('#CommentList');
+                list1.empty();
+                $.each(data, function (index, item) {
+                    list1.append('<li>' + item.CMsg + '</li>');
+                    list1.append("<li style='color:#666; float:right;'>" + item.CTime + '</li>');
+                });
+            });
+        }
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -47,64 +79,68 @@
         </div>
     </nav>
     <div class="container">
-
-        <script type="text/javascript">
-        $(function () {
-            $.getJSON('CommentInfoList.ashx', { 'id': id }, function (data) {
-                alert(1);
-                var list1 = $('#CoomentList');
-                $.each(data, function (index, item) {
-                    list1.append('<li>' + item.CTime + ':' + item.CMsg + '</li>');
-                });
-            });
-        });
-        </script>
         <div class="container" style="margin:70px 0 0 0;">
             <table class="table">
                 <tr>
-                    <td rowspan="11"><img src="http://i.ebayimg.com/00/s/NDAwWDMwMw==/z/9RUAAOSwA4dWHyiB/$_35.JPG?set_id=89040003C1" /></td>
+                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/AMYAAOSwa-dWrBcj/s-l225.jpg" /></td>
                 </tr>
                 <tr>
                     <td><b>Description Info</b> </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><p>The authors present the complete guide to ANSI standard C language programming. Written by the developers of C, this new version helps readers keep up with the finalized ANSI standard for C while showing how to take advantage of C's rich set of operators, economy of expression, improved control flow, and data structures. The 2/E has been completely rewritten with additional examples and problem sets to clarify the implementation of difficult language constructs. For years, C programmers have let K&R guide them to building well-structured and efficient programs. Now this same help is available to those working with ANSI compilers. Includes detailed coverage of the C language plus the official C language reference manual for at-a-glance help with syntax notation, declarations, ANSI changes, scope rules, and the list goes on and on.
-
-Torchwood started its life on television as a spin-off from Doctor Who, bringing Captain Jack to join new colleagues in a television series that quickly established itself as fresh and watchable television. Its fourth series, subtitled 'Miracle Day', also moved from the niche channel of BBC3 to metamorphose into an international production between the BBC and the US network Starz. Torchwood has continued to entertain, provoke and attract large audiences and an expanding fandom. This is the first critical celebration of Torchwood across its four series, considering issues of representation, as well as the fandom that surrounds the show and its complex contexts. Focusing in particular on how the meanings and understandings of cult television have shifted and become subject to technological, industry and marketing changes in recent years, Torchwood Declassified explores aspects of the show including its aesthetics and branding, its use of tropes from the horror genre, vast tie-in merchandise, status as a spin-off, the nature of a celebrity that is both cult and mainstream, as well as the use of sound and music, and Torchwood's connection to place and location.</p></td>
+                    <td colspan="2"><p>ASP.NET MVC insiders cover the latest updates to the techlogy in this popular Wrox reference MVC 5 is the newest update to the popular Microsoft techlogy that enables you to build dynamic, data-driven websites. Like previous versions, this guide shows you step-by-step techniques on using MVC to best advantage, with plenty of practical tutorials to illustrate the concepts. It covers controllers, views, and models; forms and HTML helpers; data antation and validation; membership, authorization, and security. MVC 5, the latest version of MVC, adds sophisticated features such as single page applications, mobile optimization, and adaptive rendering A team of top Microsoft MVP experts, along with visionaries in the field, provide practical advice on basic and advanced MVC topics Covers controllers, views, models, forms, data antations, authorization and security, Ajax, routing, ASP.NET web API, dependency injection, unit testing, real-world application, and much more Professional ASP.NET MVC 5 is the comprehensive resource you need to make the best use of the updated Model-View-Controller techlogy.</p></td>
                 </tr>
                 <tr>
                     <td>
                         <b>BookTitle: </b>
-                        The C Programming Language
+                        ASP.NET MVC
                     </td>
                 </tr>
                 <tr>
-                    <td><b>SubTitle: </b> 2nd Edition</td>
+                    <td><b>SubTitle: </b> NEW Professional ASP.NET MVC 5</td>
                 </tr>
                 <tr>
-                    <td><b>Author: </b>   	Brian W. Kernighan, Dennis M. Ritchie</td>
+                    <td><b>Author: </b>   Brad Wilson</td>
                 </tr>
                 <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 24.95</s></td>
+                    <td><b>Price: </b> <s style="color:red;"> 61.28</s></td>
                 </tr>
                 <tr>
-                    <td style="color:red;"><b> Now Price: &#36;14.95</b></td>
+                    <td style="color:red;"><b> Now Price: &#36;56.50</b></td>
                 </tr>
                 <tr>
-                    <td><b>ISBN: </b> 	9780131103627</td>
+                    <td><b>ISBN: </b> 	9781118794753</td>
                 </tr>
                 <tr>
-                    <td><b>Publisher: </b>Prentice Hall PTR</td>
+                    <td><b>Publisher: </b>John Wiley & Sons Inc</td>
                 </tr>
                 <tr>
-                    <td><b>Publish Date: </b> 1988-03-22</td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul id="CommentList"></ul>
-                    </td>
+                    <td><b>Publish Date: </b> 2014-09-14</td>
                 </tr>
             </table>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2">                    
+                    <table class="table">
+                        <tr id="CommentList">
+                            <td>
+                                <ul id="CommentList" style="list-style-type:none"></ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <form id="CommentAdd">
+                                    <input type="hidden" id="id" name="id" value="60" />
+                                    <textarea id="content" name="content" style="width:100%; height:50px;"></textarea>
+                                    <input type="button" id="btnComment" value="Comment" class="btn btn-info" style="float:right;" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
 
     </div>

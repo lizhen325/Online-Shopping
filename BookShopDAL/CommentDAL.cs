@@ -24,5 +24,21 @@ namespace BookShopDAL
                                  };
             return SqlHelper.GetAllList(sql, ps);
         }
+
+        /// <summary>
+        /// insert comment list
+        /// </summary>
+        /// <param name="ci"></param>
+        /// <returns></returns>
+        public int InsertCommentList(CommentInfo ci)
+        {
+            string sql = "insert into Comment (CommentMsg,CommentTime,BookId) values(@CommentMsg,@CommentTime,@BookId)";
+            SqlParameter[] ps = {
+                                     new SqlParameter("@CommentMsg",ci.CoomentMsg),
+                                     new SqlParameter("@CommentTime",ci.CommentTime),
+                                     new SqlParameter("@BookId",ci.BookId)
+                                 };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
     }
 }

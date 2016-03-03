@@ -606,6 +606,9 @@
     <Compile Include="BookShop\CheckUserPassword.ashx.cs">
       <DependentUpon>CheckUserPassword.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\CommentInfoAdd.ashx.cs">
+      <DependentUpon>CommentInfoAdd.ashx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\CommentInfoList.ashx.cs">
       <DependentUpon>CommentInfoList.ashx</DependentUpon>
     </Compile>
@@ -688,6 +691,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookShop\CommentInfoList.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\CommentInfoAdd.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

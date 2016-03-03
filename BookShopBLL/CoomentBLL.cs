@@ -21,5 +21,15 @@ namespace BookShopBLL
         {
             return dal.GetCommentListByBookId(id);
         }
+
+        /// <summary>
+        /// insert comment list
+        /// </summary>
+        /// <param name="ci"></param>
+        /// <returns></returns>
+        public bool InsertCommentList(CommentInfo ci)
+        {
+            return dal.InsertCommentList(ci) > 0;
+        }
     }
 }
