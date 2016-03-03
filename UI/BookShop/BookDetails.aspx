@@ -8,34 +8,34 @@
             <td rowspan="11"><img src="<%=biModel.ImgTitle %>" /></td>           
             </tr>
         <tr>
-            <td>Description: </td>
+            <td><b>Description Info</b> </td>
         </tr>
         <tr>
             <td colspan="2"><p><%=biModel.Details %></p></td>
         </tr>
         <tr>
-            <td>BookTitle: <%=biModel.BookTitle %></td>
+            <td><b>BookTitle: </b> <%=biModel.BookTitle %></td>
         </tr>
         <tr>
-            <td>SubTitle: <%=biModel.SubTitle %></td>
+            <td><b>SubTitle: </b> <%=biModel.SubTitle %></td>
             </tr>
         <tr>
-            <td>Author: <%=biModel.Author %></td>
+            <td><b>Author: </b> <%=biModel.Author %></td>
             </tr>
         <tr>
-            <td>Price: <s> <%=biModel.PriceNew %></s></td>
+            <td><b>Price: </b> <s style="color:red;"> <%=biModel.PriceNew %></s></td>
             </tr>
         <tr>
-            <td style="color:red;"> Now Price: &#36;<%=biModel.PriceOld %></td>            
+            <td style="color:red;"><b> Now Price: &#36;<%=biModel.PriceOld %></b></td>            
         </tr>
         <tr>
-            <td>ISBN: <%=biModel.Isbn %></td>            
+            <td><b>ISBN: </b> <%=biModel.Isbn %></td>            
         </tr>
         <tr>
-            <td>Publisher: <%=biModel.Publisher %></td>            
+            <td><b>Publisher: </b><%=biModel.Publisher %></td>            
         </tr>
         <tr>
-            <td>Publish Date: <%=biModel.PublishDate.ToString("yyyy-MM-dd") %></td>            
+            <td><b>Publish Date: </b> <%=biModel.PublishDate.ToString("yyyy-MM-dd") %></td>            
         </tr>
         
     </table>
