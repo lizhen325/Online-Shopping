@@ -12,8 +12,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+
+        
+    <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <a href="Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;"/>
@@ -43,8 +45,8 @@
                     <%} %>
                 </ul>
             </div>
-        </div>
     </nav>
+            </div>
     <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -69,7 +71,15 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
     </div>
-        <footer id="footer">
+        <div class="container" style="margin:30px 0 0 0;">
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
+                    <a href="BookShop/BookShowList.aspx"><img src="http://rtm.ebaystatic.com/0/RTMS/Image/6416_EN_RoW_BT_Books_876x402_6_11_2015_12_03_48_211.jpg" style="width:960px;"/></a>
+                </div>
+                
+            </div>
+        </div>
+        <footer id="footer" style="margin:30px 0 0 0;">
         <div class="container">
             <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
             <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>

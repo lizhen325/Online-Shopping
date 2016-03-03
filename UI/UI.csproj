@@ -450,6 +450,9 @@
     <Content Include="js\UMEditor\net\upload\2014-11-22\1ef9a504-ff25-4573-b982-4ea83a533c63.jpg" />
     <Content Include="js\UMEditor\umeditor.config.js" />
     <Content Include="js\UMEditor\umeditor.min.js" />
+    <Content Include="UploadedImage\2.png" />
+    <Content Include="UploadedImage\3.jpg" />
+    <Content Include="UploadedImage\4.png" />
     <Content Include="UploadedImage\index.jpg" />
     <Content Include="UploadedImage\s3.jpeg" />
     <Content Include="UploadedImage\s5.jpg" />
