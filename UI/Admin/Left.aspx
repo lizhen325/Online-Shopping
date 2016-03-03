@@ -48,6 +48,7 @@
       <div id="collapse2" class="panel-collapse collapse">
         <ul class="list-group">
           <li class="list-group-item"><a href="BookInfo.aspx" class="list-group-item" target="Main"><span style="font-size:13px;">Details</span></a></li>
+            <li class="list-group-item"><a href="BookInfoStatic.aspx" class="list-group-item" target="Main"><span style="font-size:10px;">Generate Static Page</span></a></li>
         </ul>
       </div>
     </div>
@@ -67,6 +68,5 @@
         </div>
     </div>
   </div>
-</div>
 </body>
 </html>
