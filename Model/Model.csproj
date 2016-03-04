@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BookInfo.cs" />
     <Compile Include="BookType.cs" />
+    <Compile Include="CartInfo.cs" />
     <Compile Include="CommentInfo.cs" />
     <Compile Include="CommentShowModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
