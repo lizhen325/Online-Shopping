@@ -603,6 +603,9 @@
     <Compile Include="BookShop\BookShowList.aspx.designer.cs">
       <DependentUpon>BookShowList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\CartInfoDelete.ashx.cs">
+      <DependentUpon>CartInfoDelete.ashx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\CartInfoList.aspx.cs">
       <DependentUpon>CartInfoList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -711,6 +714,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookShop\BookInfoBuy.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\CartInfoDelete.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

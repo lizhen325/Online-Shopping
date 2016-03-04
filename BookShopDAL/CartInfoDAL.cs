@@ -28,7 +28,7 @@ namespace BookShopDAL
         /// <returns></returns>
         public DataTable GetAllCartInfo(int customerId)
         {
-            string sql = "select BookId,BookCount,BookUnitPrice,Title,ImgTitle from CartInfo inner join BookInfo on CartInfo.BookId = BookInfo.Id where CustomerId=@CustomerId";
+            string sql = "select CId,BookId,BookCount,BookUnitPrice,Title,ImgTitle from CartInfo inner join BookInfo on CartInfo.BookId = BookInfo.Id where CustomerId=@CustomerId";
             SqlParameter ps = new SqlParameter("@CustomerId", customerId);
             return SqlHelper.GetAllList(sql,ps);
         }
@@ -45,8 +45,20 @@ namespace BookShopDAL
                                      new SqlParameter("@CustomerId",ci.CustomerId),
                                      new SqlParameter("@BookId",ci.BookId),
                                      new SqlParameter("@BookCount",ci.BookCount),
-                                     new SqlParameter("@BookUnitPrice",ci.BookUnitPrice)
+                                     new SqlParameter("@BookUnitPrice",ci.BookUnitPrice),
                                  };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
+
+        /// <summary>
+        /// delete cart by Id
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
+        public int DeleteCartInfoById(int cartId)
+        {
+            string sql = "delete from CartInfo where CId=@CId";
+            SqlParameter ps = new SqlParameter("@CId",cartId);
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
     }

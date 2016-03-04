@@ -40,5 +40,15 @@ namespace BookShopBLL
         {
             return dal.InsertCartInfo(ci) > 0;
         }
+
+         /// <summary>
+        /// delete cart by Id
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
+        public bool DeleteCartInfoById(int cartId)
+        {
+            return dal.DeleteCartInfoById(cartId) > 0;
+        }
     }
 }
