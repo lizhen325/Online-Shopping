@@ -90,6 +90,7 @@
     <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\CartInfoList.aspx" />
     <Content Include="BookShop\Logout.aspx" />
+    <Content Include="BookShop\OrderList.aspx" />
     <Content Include="BookShop\Register.aspx" />
     <Content Include="BookTypeList.aspx" />
     <Content Include="Content\img\bkg-blu.jpg" />
@@ -458,7 +459,9 @@
     <Content Include="UploadedImage\3.jpg" />
     <Content Include="UploadedImage\4.png" />
     <Content Include="UploadedImage\Alipay.jpg" />
+    <Content Include="UploadedImage\alipay.png" />
     <Content Include="UploadedImage\index.jpg" />
+    <Content Include="UploadedImage\paypal1.png" />
     <Content Include="UploadedImage\s3.jpeg" />
     <Content Include="UploadedImage\s5.jpg" />
     <Content Include="UploadedImage\s6.jpg" />
@@ -634,6 +637,13 @@
     </Compile>
     <Compile Include="BookShop\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\OrderList.aspx.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\OrderList.aspx.designer.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
