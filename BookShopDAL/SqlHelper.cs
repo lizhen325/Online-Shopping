@@ -134,5 +134,52 @@ namespace BookShopDAL
                 return ds;
             }
         }
+
+        /// <summary>
+        /// Run procedure
+        /// </summary>
+        /// <param name="storedProcName">Procedure Name</param>
+        /// <param name="ps"></param>
+        /// <param name="rowsAffected">Affected rows</param>
+        /// <returns></returns>
+        public static int RunProcedure(string storedProcName, SqlParameter[] ps, out int rowsAffected)
+        {
+            using(SqlConnection con = new SqlConnection(conStr))
+            {
+                int result;
+                con.Open();
+                SqlCommand cmd = BuildIntCommand(con, storedProcName, ps);
+                rowsAffected = cmd.ExecuteNonQuery();
+                result = (int)cmd.Parameters["ReturnValue"].Value;
+                return result;
+            }
+        }
+
+        private static SqlCommand BuildQueryCommand(SqlConnection connection, string storedProcName, IDataParameter[] parameters)
+        {
+            SqlCommand command = new SqlCommand(storedProcName, connection);
+            command.CommandType = CommandType.StoredProcedure;
+            foreach (SqlParameter parameter in parameters)
+            {
+                if (parameter != null)
+                {
+                    if ((parameter.Direction == ParameterDirection.InputOutput || parameter.Direction == ParameterDirection.Input) &&
+                        (parameter.Value == null))
+                    {
+                        parameter.Value = DBNull.Value;
+                    }
+                    command.Parameters.Add(parameter);
+                }
+            }
+
+            return command;
+        }
+
+        private static SqlCommand BuildIntCommand(SqlConnection con,string storedProcName,SqlParameter [] ps )
+        {
+            SqlCommand cmd = BuildQueryCommand(con, storedProcName, ps);
+            cmd.Parameters.Add(new SqlParameter("ReturnValue", SqlDbType.Int, 4, ParameterDirection.ReturnValue, false, 0, 0, string.Empty, DataRowVersion.Default, null));
+            return cmd;
+        }
     }
 }

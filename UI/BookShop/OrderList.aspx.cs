@@ -27,6 +27,20 @@ namespace UI.BookShop
                 CartInfoBLL bll = new CartInfoBLL();
                 DtCartInfo = bll.GetAllCartInfo(CId);
             }
+            else
+            {
+                OrderMainBLL bll = new OrderMainBLL();
+                string orderId = Request["orderId"];
+                int customerId = Convert.ToInt32(Session["id"]);
+                if(bll.ExecProc(orderId,customerId))
+                {
+                    Response.Redirect("../Index.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Error.html");
+                }
+            }
         }
     }
 }

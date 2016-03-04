@@ -43,6 +43,7 @@
     <Compile Include="BookTypeBLL.cs" />
     <Compile Include="CartInfoBLL.cs" />
     <Compile Include="CoomentBLL.cs" />
+    <Compile Include="OrderMainBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfoBLL.cs" />
     <Compile Include="UserManagerBLL.cs" />
