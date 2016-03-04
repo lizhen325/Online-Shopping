@@ -22,5 +22,18 @@ namespace UI.Common
             }
             return sb.ToString();
         }
+
+        public static string EncryptAli(string str)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(str);
+            MD5 md5 = MD5.Create();
+            byte [] bytes2 = md5.ComputeHash(bytes);
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i<bytes2.Length; i++)
+            {
+                sb.Append(bytes2[i].ToString("x2").ToLower());
+            }
+            return sb.ToString();
+        }
     }
 }
