@@ -25,6 +25,7 @@ namespace UI.BookShop
             if(ui != null)
             {
                 context.Session["user"] = username;
+                context.Session["id"] = ui.UserId;
                 context.Response.Write("ok");
                 
             }

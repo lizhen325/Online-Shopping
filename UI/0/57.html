@@ -14,6 +14,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <script type="text/javascript">
+        var cartCount = 0;
         $(function () {
 
             LoadCommentList();
@@ -32,6 +33,8 @@
                     }
                 });
             });
+
+            AddtoCart();
         });
         function LoadCommentList() {
             $.getJSON('../BookShop/CommentInfoList.ashx', { id: 57 }, function (data) {
@@ -43,6 +46,26 @@
                 });
             });
         }
+
+        
+        //Add to Cart
+        function AddtoCart() {            
+            $('#btnBuy').click(function () {
+                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val(), count: $('#count').val() }, function (msg) {
+                    if (msg == 1) {
+                        cartCount++;
+                        document.getElementById('cartCount').innerHTML = cartCount;
+                        location.href = "/BookShop/CartinfoList.aspx";
+                    } else if (msg == 2) {
+                        alert('Need login');
+                        location.href = "/BookShop/Register.aspx";
+                    }
+                    else {
+                        alert('Fail to Add');
+                    }
+                });
+            });
+        };
     </script>
 
 </head>
@@ -57,7 +80,6 @@
                 </button>
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
-
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -72,56 +94,91 @@
                         </select>
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart <mark id="cartCount"></mark></a></li>
                     <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="container" style="margin:70px 0 0 0;">
-            <table class="table">
-                <tr>
-                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/l6cAAOSw7aBVKFMK/s-l225.jpg" /></td>
-                </tr>
-                <tr>
-                    <td><b>Description Info</b> </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><p>ASP.NET es la plataforma de Microsoft para el desarrollo de aplicaciones Web y es el sucesor de la teclogia ASP. Es un componente del IIS que permite a traves de un lenguaje de programacion integrado en la .NET Framework para crear paginas dinamicas. No es ni un lenguaje de programacion como VBScript, PHP, ni un servidor web como IIS o Apache. El ASP.NET esta basado en el Framework .NET heredando todas sus caracteristicas, por eso, como cualquier aplicacion .NET, las aplicaciones para esa plataforma pueden ser escritas en varios lenguajes, como C# y Visual Basic .NET. Aunque se pueda desarrollar aplicaciones ASP.NET utilizando solamente un editor de texto y el compilador .NET, el entor de desarrollo mas comun de las aplicaciones ASP.NET es el Visual Studio .NET ya que posee algunas caracteristicas que facilitan el trabajo del desarrollador, como los componentes visuales para creacion de formularios de paginas Web.</p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>BookTitle: </b>
-                        NEW Aprende a Programar En ASP .Net y C#
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>SubTitle: </b> By Angel Arias Paperback Free Shipping</td>
-                </tr>
-                <tr>
-                    <td><b>Author: </b>   Angel Arias</td>
-                </tr>
-                <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 40.94</s></td>
-                </tr>
-                <tr>
-                    <td style="color:red;"><b> Now Price: &#36;37.75</b></td>
-                </tr>
-                <tr>
-                    <td><b>ISBN: </b> 	9781495959165</td>
-                </tr>
-                <tr>
-                    <td><b>Publisher: </b>Createspace</td>
-                </tr>
-                <tr>
-                    <td><b>Publish Date: </b> 2014-02-15</td>
-                </tr>
-            </table>
+    <div class="container" style="margin:70px 0 0 0;">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://thumbs.ebaystatic.com/images/g/l6cAAOSw7aBVKFMK/s-l225.jpg" />
+                </div>
+            <div class="col-md-9">
+                <h3>NEW Aprende a Programar En ASP .Net y C#</h3>
+                <table class="table" style="border:none;">
+                    <tr>
+                        <td><b>Price: </b> <s style="color:#666;"> 40.94</s></td>
+                    </tr>
+                    <tr>
+                        <td style="color:red;"><b> Now Price: &#36;37.75</b><input type="hidden" id="priceNew" value="37.75" name="priceNew"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Count: <input type="number" min="1" max="10" value="1" id="count" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Delivery:</span> Estimated between 
+                        <b style="font-size:17px;">
+                            <script>
+                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
+                            </script>
+                        </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
+                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
+                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+                <div class="container" style="margin:100px 0 0 0;">
+                    <table class="table">
+                       
+                        <tr>
+                            <td><b>Description Info</b> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>ASP.NET es la plataforma de Microsoft para el desarrollo de aplicaciones Web y es el sucesor de la teclogia ASP. Es un componente del IIS que permite a traves de un lenguaje de programacion integrado en la .NET Framework para crear paginas dinamicas. No es ni un lenguaje de programacion como VBScript, PHP, ni un servidor web como IIS o Apache. El ASP.NET esta basado en el Framework .NET heredando todas sus caracteristicas, por eso, como cualquier aplicacion .NET, las aplicaciones para esa plataforma pueden ser escritas en varios lenguajes, como C# y Visual Basic .NET. Aunque se pueda desarrollar aplicaciones ASP.NET utilizando solamente un editor de texto y el compilador .NET, el entor de desarrollo mas comun de las aplicaciones ASP.NET es el Visual Studio .NET ya que posee algunas caracteristicas que facilitan el trabajo del desarrollador, como los componentes visuales para creacion de formularios de paginas Web.</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>BookTitle: </b>
+                                NEW Aprende a Programar En ASP .Net y C#
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>SubTitle: </b> By Angel Arias Paperback Free Shipping</td>
+                        </tr>
+                        <tr>
+                            <td><b>Author: </b>   Angel Arias</td>
+                        </tr>                       
+                        <tr>
+                            <td><b>ISBN: </b> 	9781495959165</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publisher: </b>Createspace</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publish Date: </b> 2014-02-15</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">                    
+                <div class="col-md-12">
+                    <h3>Review</h3>                   
                     <table class="table">
                         <tr id="CommentList">
                             <td>
@@ -141,7 +198,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
     </div>
     <footer id="footer">

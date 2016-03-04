@@ -28,6 +28,7 @@ namespace UI.BookShop
                 if(bll.InsertUserInfo(ui))
                 {
                     Session["user"] = ui.UserName;
+                    Session["id"] = ui.UserId;
                     Context.Response.Redirect("../Index.aspx");
                 }
                 else

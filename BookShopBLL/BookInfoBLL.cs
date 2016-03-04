@@ -83,5 +83,6 @@ namespace BookShopBLL
         {
             return dal.UpdateBookInfo(bi) > 0;
         }
+
     }
 }

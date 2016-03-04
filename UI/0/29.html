@@ -14,6 +14,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <script type="text/javascript">
+        var cartCount = 0;
         $(function () {
 
             LoadCommentList();
@@ -32,6 +33,8 @@
                     }
                 });
             });
+
+            AddtoCart();
         });
         function LoadCommentList() {
             $.getJSON('../BookShop/CommentInfoList.ashx', { id: 29 }, function (data) {
@@ -43,6 +46,26 @@
                 });
             });
         }
+
+        
+        //Add to Cart
+        function AddtoCart() {            
+            $('#btnBuy').click(function () {
+                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val(), count: $('#count').val() }, function (msg) {
+                    if (msg == 1) {
+                        cartCount++;
+                        document.getElementById('cartCount').innerHTML = cartCount;
+                        location.href = "/BookShop/CartinfoList.aspx";
+                    } else if (msg == 2) {
+                        alert('Need login');
+                        location.href = "/BookShop/Register.aspx";
+                    }
+                    else {
+                        alert('Fail to Add');
+                    }
+                });
+            });
+        };
     </script>
 
 </head>
@@ -57,7 +80,6 @@
                 </button>
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
-
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -72,56 +94,91 @@
                         </select>
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart <mark id="cartCount"></mark></a></li>
                     <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="container" style="margin:70px 0 0 0;">
-            <table class="table">
-                <tr>
-                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/Z2oAAOSwd0BVu-Eq/s-l225.jpg" /></td>
-                </tr>
-                <tr>
-                    <td><b>Description Info</b> </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><p>Wondering how those cool applications, games, websites are programmed? Wondering one day you will be able to make something fun and cool stuff yourself? Here is an entry point book for you to understand the basics of programming with C#. C# is a very popular programming language from Microsoft. It can be used to program applications, games, and websites. It is a powerful language, but you will find out that it is t difficult to learn. This book is especially for entry level who do t have any basics of programming, and who never programmed at all before. This is a book for the very beginners. It can be used by kids too. After this book, you will kw how to program using C#. Programming is easy. The book gives you the basic kwledge that you can learn and master within one or two days. It uses easy to understand examples, style and language to cover the most important basics of programming that you can use to explore more advanced features later.</p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>BookTitle: </b>
-                        NEW Programming Is Easy ( C# ) 
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>SubTitle: </b> For Beginners</td>
-                </tr>
-                <tr>
-                    <td><b>Author: </b>   Yujing He</td>
-                </tr>
-                <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 31.40</s></td>
-                </tr>
-                <tr>
-                    <td style="color:red;"><b> Now Price: &#36;28.95</b></td>
-                </tr>
-                <tr>
-                    <td><b>ISBN: </b> 		9781468156003</td>
-                </tr>
-                <tr>
-                    <td><b>Publisher: </b>	Createspace</td>
-                </tr>
-                <tr>
-                    <td><b>Publish Date: </b> 2012-01-16</td>
-                </tr>
-            </table>
+    <div class="container" style="margin:70px 0 0 0;">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://thumbs.ebaystatic.com/images/g/Z2oAAOSwd0BVu-Eq/s-l225.jpg" />
+                </div>
+            <div class="col-md-9">
+                <h3>NEW Programming Is Easy ( C# ) </h3>
+                <table class="table" style="border:none;">
+                    <tr>
+                        <td><b>Price: </b> <s style="color:#666;"> 31.40</s></td>
+                    </tr>
+                    <tr>
+                        <td style="color:red;"><b> Now Price: &#36;28.95</b><input type="hidden" id="priceNew" value="28.95" name="priceNew"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Count: <input type="number" min="1" max="10" value="1" id="count" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Delivery:</span> Estimated between 
+                        <b style="font-size:17px;">
+                            <script>
+                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
+                            </script>
+                        </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
+                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
+                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+                <div class="container" style="margin:100px 0 0 0;">
+                    <table class="table">
+                       
+                        <tr>
+                            <td><b>Description Info</b> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>Wondering how those cool applications, games, websites are programmed? Wondering one day you will be able to make something fun and cool stuff yourself? Here is an entry point book for you to understand the basics of programming with C#. C# is a very popular programming language from Microsoft. It can be used to program applications, games, and websites. It is a powerful language, but you will find out that it is t difficult to learn. This book is especially for entry level who do t have any basics of programming, and who never programmed at all before. This is a book for the very beginners. It can be used by kids too. After this book, you will kw how to program using C#. Programming is easy. The book gives you the basic kwledge that you can learn and master within one or two days. It uses easy to understand examples, style and language to cover the most important basics of programming that you can use to explore more advanced features later.</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>BookTitle: </b>
+                                NEW Programming Is Easy ( C# ) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>SubTitle: </b> For Beginners</td>
+                        </tr>
+                        <tr>
+                            <td><b>Author: </b>   Yujing He</td>
+                        </tr>                       
+                        <tr>
+                            <td><b>ISBN: </b> 		9781468156003</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publisher: </b>	Createspace</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publish Date: </b> 2012-01-16</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">                    
+                <div class="col-md-12">
+                    <h3>Review</h3>                   
                     <table class="table">
                         <tr id="CommentList">
                             <td>
@@ -141,7 +198,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
     </div>
     <footer id="footer">

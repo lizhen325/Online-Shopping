@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BookInfoBLL.cs" />
     <Compile Include="BookTypeBLL.cs" />
+    <Compile Include="CartInfoBLL.cs" />
     <Compile Include="CoomentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfoBLL.cs" />

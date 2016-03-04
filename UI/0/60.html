@@ -32,6 +32,8 @@
                     }
                 });
             });
+
+            AddtoCart();
         });
         function LoadCommentList() {
             $.getJSON('../BookShop/CommentInfoList.ashx', { id: 60 }, function (data) {
@@ -43,6 +45,19 @@
                 });
             });
         }
+
+        //Add to Cart
+        function AddtoCart() {
+            $('#btnBuy').click(function () {
+                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val() }, function (msg) {
+                    if (msg == 1) {
+                        location.href = "/BookShop/CartinfoList.aspx";
+                    } else {
+                        alert('Fail to Add');
+                    }
+                });
+            });
+        };
     </script>
 
 </head>
@@ -78,50 +93,85 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="container" style="margin:70px 0 0 0;">
-            <table class="table">
-                <tr>
-                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/AMYAAOSwa-dWrBcj/s-l225.jpg" /></td>
-                </tr>
-                <tr>
-                    <td><b>Description Info</b> </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><p>ASP.NET MVC insiders cover the latest updates to the techlogy in this popular Wrox reference MVC 5 is the newest update to the popular Microsoft techlogy that enables you to build dynamic, data-driven websites. Like previous versions, this guide shows you step-by-step techniques on using MVC to best advantage, with plenty of practical tutorials to illustrate the concepts. It covers controllers, views, and models; forms and HTML helpers; data antation and validation; membership, authorization, and security. MVC 5, the latest version of MVC, adds sophisticated features such as single page applications, mobile optimization, and adaptive rendering A team of top Microsoft MVP experts, along with visionaries in the field, provide practical advice on basic and advanced MVC topics Covers controllers, views, models, forms, data antations, authorization and security, Ajax, routing, ASP.NET web API, dependency injection, unit testing, real-world application, and much more Professional ASP.NET MVC 5 is the comprehensive resource you need to make the best use of the updated Model-View-Controller techlogy.</p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>BookTitle: </b>
-                        ASP.NET MVC
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>SubTitle: </b> NEW Professional ASP.NET MVC 5</td>
-                </tr>
-                <tr>
-                    <td><b>Author: </b>   Brad Wilson</td>
-                </tr>
-                <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 61.28</s></td>
-                </tr>
-                <tr>
-                    <td style="color:red;"><b> Now Price: &#36;56.50</b></td>
-                </tr>
-                <tr>
-                    <td><b>ISBN: </b> 	9781118794753</td>
-                </tr>
-                <tr>
-                    <td><b>Publisher: </b>John Wiley & Sons Inc</td>
-                </tr>
-                <tr>
-                    <td><b>Publish Date: </b> 2014-09-14</td>
-                </tr>
-            </table>
+    <div class="container" style="margin:70px 0 0 0;">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://thumbs.ebaystatic.com/images/g/AMYAAOSwa-dWrBcj/s-l225.jpg" />
+                </div>
+            <div class="col-md-9">
+                <h3>ASP.NET MVC</h3>
+                <table class="table" style="border:none;">
+                    <tr>
+                        <td><b>Price: </b> <s style="color:#666;"> 61.28</s></td>
+                    </tr>
+                    <tr>
+                        <td style="color:red;"><b> Now Price: &#36;56.50</b><input type="hidden" id="priceNew" value="56.50" name="priceNew"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Count: <input type="number" min="1" max="10" value="1" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Delivery:</span> Estimated between 
+                        <b style="font-size:17px;">
+                            <script>
+                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
+                            </script>
+                        </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
+                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
+                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+                <div class="container" style="margin:100px 0 0 0;">
+                    <table class="table">
+                       
+                        <tr>
+                            <td><b>Description Info</b> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>ASP.NET MVC insiders cover the latest updates to the techlogy in this popular Wrox reference MVC 5 is the newest update to the popular Microsoft techlogy that enables you to build dynamic, data-driven websites. Like previous versions, this guide shows you step-by-step techniques on using MVC to best advantage, with plenty of practical tutorials to illustrate the concepts. It covers controllers, views, and models; forms and HTML helpers; data antation and validation; membership, authorization, and security. MVC 5, the latest version of MVC, adds sophisticated features such as single page applications, mobile optimization, and adaptive rendering A team of top Microsoft MVP experts, along with visionaries in the field, provide practical advice on basic and advanced MVC topics Covers controllers, views, models, forms, data antations, authorization and security, Ajax, routing, ASP.NET web API, dependency injection, unit testing, real-world application, and much more Professional ASP.NET MVC 5 is the comprehensive resource you need to make the best use of the updated Model-View-Controller techlogy.</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>BookTitle: </b>
+                                ASP.NET MVC
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>SubTitle: </b> NEW Professional ASP.NET MVC 5</td>
+                        </tr>
+                        <tr>
+                            <td><b>Author: </b>   Brad Wilson</td>
+                        </tr>                       
+                        <tr>
+                            <td><b>ISBN: </b> 	9781118794753</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publisher: </b>John Wiley & Sons Inc</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publish Date: </b> 2014-09-14</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">                    
+                <div class="col-md-12">
+                    <h3>Review</h3>                   
                     <table class="table">
                         <tr id="CommentList">
                             <td>
@@ -141,7 +191,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
     </div>
     <footer id="footer">

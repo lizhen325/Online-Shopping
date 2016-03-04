@@ -14,6 +14,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <script type="text/javascript">
+        var cartCount = 0;
         $(function () {
 
             LoadCommentList();
@@ -32,6 +33,8 @@
                     }
                 });
             });
+
+            AddtoCart();
         });
         function LoadCommentList() {
             $.getJSON('../BookShop/CommentInfoList.ashx', { id: 13 }, function (data) {
@@ -43,6 +46,26 @@
                 });
             });
         }
+
+        
+        //Add to Cart
+        function AddtoCart() {            
+            $('#btnBuy').click(function () {
+                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val(), count: $('#count').val() }, function (msg) {
+                    if (msg == 1) {
+                        cartCount++;
+                        document.getElementById('cartCount').innerHTML = cartCount;
+                        location.href = "/BookShop/CartinfoList.aspx";
+                    } else if (msg == 2) {
+                        alert('Need login');
+                        location.href = "/BookShop/Register.aspx";
+                    }
+                    else {
+                        alert('Fail to Add');
+                    }
+                });
+            });
+        };
     </script>
 
 </head>
@@ -57,7 +80,6 @@
                 </button>
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
-
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -72,56 +94,91 @@
                         </select>
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart <mark id="cartCount"></mark></a></li>
                     <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="container" style="margin:70px 0 0 0;">
-            <table class="table">
-                <tr>
-                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/L6wAAOSwQYZWuSql/s-l225.jpg" /></td>
-                </tr>
-                <tr>
-                    <td><b>Description Info</b> </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><p>Finally, after a wait of more than thirty-five years, the first part of Volume 4 is at last ready for publication. Check out the boxed set that brings together Volumes 1 - 4A in one elegant case, and offers the purchaser a $50 discount off the price of buying the four volumes individually. The Art of Computer Programming, Volumes 1-4A Boxed Set, 3/e ISBN: 0321751043 Art of Computer Programming, Volume 4, Fascicle 0, The: Introduction to Combinatorial Algorithms and Boolean Functions: Introduction to Combinatorial Algorithms and Boolean Functions This multivolume work on the analysis of algorithms has long been recognized as the definitive description of classical computer science. The three complete volumes published to date already comprise a unique and invaluable resource in programming theory and practice. Countless readers have spoken about the profound personal influence of Knuth's writings. Scientists have marveled at the beauty and elegance of his analysis, while practicing programmers have successfully applied his "cookbook" solutions to their day-to-day problems. All have admired Knuth for the breadth, clarity, accuracy, and good humor found in his books. To begin the fourth and later volumes of the set, and to update parts of the existing three, Knuth has created a series of small books called fascicles , which will be published at regular intervals. Each fascicle will encompass a section or more of wholly new or revised material. Ultimately, the content of these fascicles will be rolled up into the comprehensive, final versions of each volume, and the enormous undertaking that began in 1962 will be complete. Volume 4, Fascicle 0 This fascicle introduces what will become by far the longest chapter in The Art of Computer Programming , a chapter on combinatorial algorithms that will itself fill three full-sized volumes. Combinatorial algorithms, informally, are techniques for the high-speed manipulation of extremely large quantities of objects, such as permutations or the elements of graphs. Combinatorial patterns or arrangements solve vast numbers of practical problems, and modern approaches to dealing with them often lead to methods that are more than a thousand times faster than the straightforward procedures of yesteryear. This fascicle primes the pump for everything that follows in the chapter, discussing first the essential ideas of combinatorics and then introducing fundamental ideas for dealing efficiently with 0s and 1s inside a machine, including Boolean basics and Boolean function evaluation. As always, the author's exposition is enhanced by hundreds of new exercises, arranged carefully for self-instruction, together with detailed answers.</p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>BookTitle: </b>
-                        The Art of Computer Programming
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>SubTitle: </b> Combinatorial Algorithms</td>
-                </tr>
-                <tr>
-                    <td><b>Author: </b>   	Donald E. Knuth</td>
-                </tr>
-                <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 27.18</s></td>
-                </tr>
-                <tr>
-                    <td style="color:red;"><b> Now Price: &#36;18.85</b></td>
-                </tr>
-                <tr>
-                    <td><b>ISBN: </b> 		9780321534965</td>
-                </tr>
-                <tr>
-                    <td><b>Publisher: </b>Addison Wesley Professional</td>
-                </tr>
-                <tr>
-                    <td><b>Publish Date: </b> 2008-04-17</td>
-                </tr>
-            </table>
+    <div class="container" style="margin:70px 0 0 0;">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://thumbs.ebaystatic.com/images/g/L6wAAOSwQYZWuSql/s-l225.jpg" />
+                </div>
+            <div class="col-md-9">
+                <h3>The Art of Computer Programming</h3>
+                <table class="table" style="border:none;">
+                    <tr>
+                        <td><b>Price: </b> <s style="color:#666;"> 27.18</s></td>
+                    </tr>
+                    <tr>
+                        <td style="color:red;"><b> Now Price: &#36;18.85</b><input type="hidden" id="priceNew" value="18.85" name="priceNew"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Count: <input type="number" min="1" max="10" value="1" id="count" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Delivery:</span> Estimated between 
+                        <b style="font-size:17px;">
+                            <script>
+                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
+                            </script>
+                        </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
+                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
+                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+                <div class="container" style="margin:100px 0 0 0;">
+                    <table class="table">
+                       
+                        <tr>
+                            <td><b>Description Info</b> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>Finally, after a wait of more than thirty-five years, the first part of Volume 4 is at last ready for publication. Check out the boxed set that brings together Volumes 1 - 4A in one elegant case, and offers the purchaser a $50 discount off the price of buying the four volumes individually. The Art of Computer Programming, Volumes 1-4A Boxed Set, 3/e ISBN: 0321751043 Art of Computer Programming, Volume 4, Fascicle 0, The: Introduction to Combinatorial Algorithms and Boolean Functions: Introduction to Combinatorial Algorithms and Boolean Functions This multivolume work on the analysis of algorithms has long been recognized as the definitive description of classical computer science. The three complete volumes published to date already comprise a unique and invaluable resource in programming theory and practice. Countless readers have spoken about the profound personal influence of Knuth's writings. Scientists have marveled at the beauty and elegance of his analysis, while practicing programmers have successfully applied his "cookbook" solutions to their day-to-day problems. All have admired Knuth for the breadth, clarity, accuracy, and good humor found in his books. To begin the fourth and later volumes of the set, and to update parts of the existing three, Knuth has created a series of small books called fascicles , which will be published at regular intervals. Each fascicle will encompass a section or more of wholly new or revised material. Ultimately, the content of these fascicles will be rolled up into the comprehensive, final versions of each volume, and the enormous undertaking that began in 1962 will be complete. Volume 4, Fascicle 0 This fascicle introduces what will become by far the longest chapter in The Art of Computer Programming , a chapter on combinatorial algorithms that will itself fill three full-sized volumes. Combinatorial algorithms, informally, are techniques for the high-speed manipulation of extremely large quantities of objects, such as permutations or the elements of graphs. Combinatorial patterns or arrangements solve vast numbers of practical problems, and modern approaches to dealing with them often lead to methods that are more than a thousand times faster than the straightforward procedures of yesteryear. This fascicle primes the pump for everything that follows in the chapter, discussing first the essential ideas of combinatorics and then introducing fundamental ideas for dealing efficiently with 0s and 1s inside a machine, including Boolean basics and Boolean function evaluation. As always, the author's exposition is enhanced by hundreds of new exercises, arranged carefully for self-instruction, together with detailed answers.</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>BookTitle: </b>
+                                The Art of Computer Programming
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>SubTitle: </b> Combinatorial Algorithms</td>
+                        </tr>
+                        <tr>
+                            <td><b>Author: </b>   	Donald E. Knuth</td>
+                        </tr>                       
+                        <tr>
+                            <td><b>ISBN: </b> 		9780321534965</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publisher: </b>Addison Wesley Professional</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publish Date: </b> 2008-04-17</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">                    
+                <div class="col-md-12">
+                    <h3>Review</h3>                   
                     <table class="table">
                         <tr id="CommentList">
                             <td>
@@ -141,7 +198,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
     </div>
     <footer id="footer">

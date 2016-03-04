@@ -14,7 +14,6 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <script type="text/javascript">
-        var cartCount = 0;
         $(function () {
 
             LoadCommentList();
@@ -33,11 +32,9 @@
                     }
                 });
             });
-
-            AddtoCart();
         });
         function LoadCommentList() {
-            $.getJSON('../BookShop/CommentInfoList.ashx', { id: 11 }, function (data) {
+            $.getJSON('../BookShop/CommentInfoList.ashx', { id: 0 }, function (data) {
                 var list1 = $('#CommentList');
                 list1.empty();
                 $.each(data, function (index, item) {
@@ -46,26 +43,6 @@
                 });
             });
         }
-
-        
-        //Add to Cart
-        function AddtoCart() {            
-            $('#btnBuy').click(function () {
-                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val(), count: $('#count').val() }, function (msg) {
-                    if (msg == 1) {
-                        cartCount++;
-                        document.getElementById('cartCount').innerHTML = cartCount;
-                        location.href = "/BookShop/CartinfoList.aspx";
-                    } else if (msg == 2) {
-                        alert('Need login');
-                        location.href = "/BookShop/Register.aspx";
-                    }
-                    else {
-                        alert('Fail to Add');
-                    }
-                });
-            });
-        };
     </script>
 
 </head>
@@ -80,6 +57,7 @@
                 </button>
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
+
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -94,7 +72,7 @@
                         </select>
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart <mark id="cartCount"></mark></a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
                     <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                 </ul>
             </div>
@@ -103,73 +81,52 @@
     <div class="container" style="margin:70px 0 0 0;">
         <div class="row">
             <div class="col-md-3">
-                <img src="http://thumbs.ebaystatic.com/images/g/gwIAAOSwWKtUxKd4/s-l225.jpg" />
+                <img src="" />
                 </div>
-            <div class="col-md-9">
-                <h3>NEW Programming</h3>
-                <table class="table" style="border:none;">
+            <div class="col-md-9" style="border:1px solid red;">
+                <h3></h3>
+                <table class="table">
                     <tr>
-                        <td><b>Price: </b> <s style="color:#666;"> 23.81</s></td>
+                        <td><b>Price: </b> <s style="color:#666;"> 0</s></td>
                     </tr>
                     <tr>
-                        <td style="color:red;"><b> Now Price: &#36;21.95</b><input type="hidden" id="priceNew" value="21.95" name="priceNew"/></td>
-                        
+                        <td style="color:red;"><b> Now Price: &#36;0</b></td>
                     </tr>
                     <tr>
-                        <td>Count: <input type="number" min="1" max="10" value="1" id="count" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#666;">Delivery:</span> Estimated between 
-                        <b style="font-size:17px;">
-                            <script>
-                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
-                            </script>
-                        </b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
-                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
-                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
-                    </tr>
-                    <tr>
-                        <td></td>
+                        <td>Count: <input type="number" min="1" max="10" value="1" /></td>
+                        <td><button type="button" class="btn btn-primary">Add to Cart</button></td>
                     </tr>
                 </table>
             </div>
-                <div class="container" style="margin:100px 0 0 0;">
+                <div class="container" style="margin:70px 0 0 0;">
                     <table class="table">
                        
                         <tr>
                             <td><b>Description Info</b> </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><p>The original Programming of Life book highlighted the informational aspects of life that are usually overlooked or igred in chemical and biological evolutionary scenarios. Each cell of an organism has thousands (or millions) of interacting computers reading and processing digital information using algorithmic digital programs and digital codes to communicate information. Life is an intersection of physical science and information science, and the reality of real computer hardware and software in life was clearly demonstrated. This Prerequisites book considers the properties of nature s constants and natural laws that are required for such informational structures to be incorporated in even the simplest life. Analysis of the probabilities of life s required component s properties occurring anywhere in the Universe shows infeasibility by natural processes. ** Science is in need of answers, t unsubstantiated speculations. *** From the Publisher</p></td>
+                            <td colspan="2"><p></p></td>
                         </tr>
                         <tr>
                             <td>
                                 <b>BookTitle: </b>
-                                NEW Programming
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td><b>SubTitle: </b> of Life Prerequisites</td>
+                            <td><b>SubTitle: </b> </td>
                         </tr>
                         <tr>
-                            <td><b>Author: </b>   Donald E Johnson</td>
+                            <td><b>Author: </b>   </td>
                         </tr>                       
                         <tr>
-                            <td><b>ISBN: </b> 	9781937355036</td>
+                            <td><b>ISBN: </b> 	</td>
                         </tr>
                         <tr>
-                            <td><b>Publisher: </b>	Big Mac Publishers</td>
+                            <td><b>Publisher: </b></td>
                         </tr>
                         <tr>
-                            <td><b>Publish Date: </b> 2011-01-11</td>
+                            <td><b>Publish Date: </b> 0001-01-01</td>
                         </tr>
                     </table>
                 </div>
@@ -189,7 +146,7 @@
                         <tr>
                             <td>
                                 <form id="CommentAdd">
-                                    <input type="hidden" id="id" name="id" value="11" />
+                                    <input type="hidden" id="id" name="id" value="0" />
                                     <textarea id="content" name="content" style="width:100%; height:50px;"></textarea>
                                     <input type="button" id="btnComment" value="Comment" class="btn btn-info" style="float:right;" />
                                 </form>

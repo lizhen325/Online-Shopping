@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BookInfoDAL.cs" />
     <Compile Include="BookTypeDAL.cs" />
+    <Compile Include="CartInfoDAL.cs" />
     <Compile Include="CommentDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />

@@ -14,6 +14,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <script type="text/javascript">
+        var cartCount = 0;
         $(function () {
 
             LoadCommentList();
@@ -32,6 +33,8 @@
                     }
                 });
             });
+
+            AddtoCart();
         });
         function LoadCommentList() {
             $.getJSON('../BookShop/CommentInfoList.ashx', { id: 19 }, function (data) {
@@ -43,6 +46,26 @@
                 });
             });
         }
+
+        
+        //Add to Cart
+        function AddtoCart() {            
+            $('#btnBuy').click(function () {
+                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val(), count: $('#count').val() }, function (msg) {
+                    if (msg == 1) {
+                        cartCount++;
+                        document.getElementById('cartCount').innerHTML = cartCount;
+                        location.href = "/BookShop/CartinfoList.aspx";
+                    } else if (msg == 2) {
+                        alert('Need login');
+                        location.href = "/BookShop/Register.aspx";
+                    }
+                    else {
+                        alert('Fail to Add');
+                    }
+                });
+            });
+        };
     </script>
 
 </head>
@@ -57,7 +80,6 @@
                 </button>
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
-
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -72,56 +94,91 @@
                         </select>
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart <mark id="cartCount"></mark></a></li>
                     <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="container" style="margin:70px 0 0 0;">
-            <table class="table">
-                <tr>
-                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/h7IAAOSw5dNWjt~I/s-l225.jpg" /></td>
-                </tr>
-                <tr>
-                    <td><b>Description Info</b> </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><p>Problem Solving with C++, 5e brings the best-selling text book for introducing C++ to fully embrace the most up-to-date C++ standards. Suitable for beginning students, the text covers C++ and basic programming techniques. Students will learn how to define their own classes while gaining a solid understanding of basic tools such as simple control structures and function definitions. By defining their own classes early, students are getting a hands-on experience unrivaled by any other text on the market. Flexible by design, the order in which chapters and sections are covered can easily be changed without any loss on continuity in reading. Instructors can therefore mold this text around the way they want to teach rather than have the text dictate their course's organization.</p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>BookTitle: </b>
-                        Problem Solving with C++
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>SubTitle: </b> The Object of Programming</td>
-                </tr>
-                <tr>
-                    <td><b>Author: </b>   Walter J. Savitch</td>
-                </tr>
-                <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 28.61</s></td>
-                </tr>
-                <tr>
-                    <td style="color:red;"><b> Now Price: &#36;26.38</b></td>
-                </tr>
-                <tr>
-                    <td><b>ISBN: </b> 	9780321269751</td>
-                </tr>
-                <tr>
-                    <td><b>Publisher: </b>	Pearson Education Limited</td>
-                </tr>
-                <tr>
-                    <td><b>Publish Date: </b> 2006-04-13</td>
-                </tr>
-            </table>
+    <div class="container" style="margin:70px 0 0 0;">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://thumbs.ebaystatic.com/images/g/h7IAAOSw5dNWjt~I/s-l225.jpg" />
+                </div>
+            <div class="col-md-9">
+                <h3>Problem Solving with C++</h3>
+                <table class="table" style="border:none;">
+                    <tr>
+                        <td><b>Price: </b> <s style="color:#666;"> 28.61</s></td>
+                    </tr>
+                    <tr>
+                        <td style="color:red;"><b> Now Price: &#36;26.38</b><input type="hidden" id="priceNew" value="26.38" name="priceNew"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Count: <input type="number" min="1" max="10" value="1" id="count" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Delivery:</span> Estimated between 
+                        <b style="font-size:17px;">
+                            <script>
+                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
+                            </script>
+                        </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
+                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
+                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+                <div class="container" style="margin:100px 0 0 0;">
+                    <table class="table">
+                       
+                        <tr>
+                            <td><b>Description Info</b> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>Problem Solving with C++, 5e brings the best-selling text book for introducing C++ to fully embrace the most up-to-date C++ standards. Suitable for beginning students, the text covers C++ and basic programming techniques. Students will learn how to define their own classes while gaining a solid understanding of basic tools such as simple control structures and function definitions. By defining their own classes early, students are getting a hands-on experience unrivaled by any other text on the market. Flexible by design, the order in which chapters and sections are covered can easily be changed without any loss on continuity in reading. Instructors can therefore mold this text around the way they want to teach rather than have the text dictate their course's organization.</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>BookTitle: </b>
+                                Problem Solving with C++
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>SubTitle: </b> The Object of Programming</td>
+                        </tr>
+                        <tr>
+                            <td><b>Author: </b>   Walter J. Savitch</td>
+                        </tr>                       
+                        <tr>
+                            <td><b>ISBN: </b> 	9780321269751</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publisher: </b>	Pearson Education Limited</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publish Date: </b> 2006-04-13</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">                    
+                <div class="col-md-12">
+                    <h3>Review</h3>                   
                     <table class="table">
                         <tr id="CommentList">
                             <td>
@@ -141,7 +198,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
     </div>
     <footer id="footer">

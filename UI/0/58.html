@@ -14,6 +14,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <script type="text/javascript">
+        var cartCount = 0;
         $(function () {
 
             LoadCommentList();
@@ -32,6 +33,8 @@
                     }
                 });
             });
+
+            AddtoCart();
         });
         function LoadCommentList() {
             $.getJSON('../BookShop/CommentInfoList.ashx', { id: 58 }, function (data) {
@@ -43,6 +46,26 @@
                 });
             });
         }
+
+        
+        //Add to Cart
+        function AddtoCart() {            
+            $('#btnBuy').click(function () {
+                $.post('/BookShop/BookInfoBuy.ashx', { id: $('#id').val(), priceNew: $('#priceNew').val(), count: $('#count').val() }, function (msg) {
+                    if (msg == 1) {
+                        cartCount++;
+                        document.getElementById('cartCount').innerHTML = cartCount;
+                        location.href = "/BookShop/CartinfoList.aspx";
+                    } else if (msg == 2) {
+                        alert('Need login');
+                        location.href = "/BookShop/Register.aspx";
+                    }
+                    else {
+                        alert('Fail to Add');
+                    }
+                });
+            });
+        };
     </script>
 
 </head>
@@ -57,7 +80,6 @@
                 </button>
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;" />
-
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -72,56 +94,91 @@
                         </select>
                     </li>
                     <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                    <li><a href="about.html"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart <mark id="cartCount"></mark></a></li>
                     <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="container" style="margin:70px 0 0 0;">
-            <table class="table">
-                <tr>
-                    <td rowspan="13"><img src="http://thumbs.ebaystatic.com/images/g/7agAAOSwBahU4mHQ/s-l225.jpg" /></td>
-                </tr>
-                <tr>
-                    <td><b>Description Info</b> </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><p>With this book, web developers can build engaging and interactive sites and applications using Microsoft's latest web development tools - ASP.NET 2.0 and the new ASP.NET AJAX framework. You learn to create applications that have all the great tricks you see on popular commercial web sites, such as order forms and the ability to interact with a database. And you can build pages that display information interactively without a page refresh. This straightforward tutorial explains how. Learning ASP.NET 2.0 with AJAX helps you master the concepts and techniques of Microsoft's tools with plenty of antated examples, review quizzes, web construction exercises and chapter summaries, so you can practice new skills and test your understanding as you go.With it, you'll learn to: Master the fundamental skills of ASP.NET 2.0 to build professional quality web applications; Integrate new Ajax tools and CSS with ASP.NET 2.0 for flashier and more interactive sites; build applications with minimal coding using Visual Studio or its free counterpart, Visual Web Developer; connect your site with a database so that users can retrieve, interact and save data; debug your application, deal with unexpected problems, and protect your site from malicious users; use the community-maintained ASP. NET AJAX Control Toolkit to extend the controls that come with ASP.NET AJAX; and use personalization tools to give your site a customized look for each user.Ideal for beginning web developers, or those who are new to ASP.NET, this book gets you involved with your own learning through hands-on lessons that are clear and to the point. You get the chance to try out new techniques on the spot. Want to join the world of modern web development? This book will get you started.</p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>BookTitle: </b>
-                        NEW Learning ASP.NET 2.0 with AJAX
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>SubTitle: </b> By Jesse Liberty Paperback Free Shipping</td>
-                </tr>
-                <tr>
-                    <td><b>Author: </b>   	Dan Hurwitz, Jesse Liberty</td>
-                </tr>
-                <tr>
-                    <td><b>Price: </b> <s style="color:red;"> 85.14</s></td>
-                </tr>
-                <tr>
-                    <td style="color:red;"><b> Now Price: &#36;78.50</b></td>
-                </tr>
-                <tr>
-                    <td><b>ISBN: </b> 	9780596513979</td>
-                </tr>
-                <tr>
-                    <td><b>Publisher: </b>O'Reilly Media, Inc, USA</td>
-                </tr>
-                <tr>
-                    <td><b>Publish Date: </b> 2007-10-16</td>
-                </tr>
-            </table>
+    <div class="container" style="margin:70px 0 0 0;">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://thumbs.ebaystatic.com/images/g/7agAAOSwBahU4mHQ/s-l225.jpg" />
+                </div>
+            <div class="col-md-9">
+                <h3>NEW Learning ASP.NET 2.0 with AJAX</h3>
+                <table class="table" style="border:none;">
+                    <tr>
+                        <td><b>Price: </b> <s style="color:#666;"> 85.14</s></td>
+                    </tr>
+                    <tr>
+                        <td style="color:red;"><b> Now Price: &#36;78.50</b><input type="hidden" id="priceNew" value="78.50" name="priceNew"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Count: <input type="number" min="1" max="10" value="1" id="count" /> &nbsp; &nbsp;<button type="button" class="btn btn-primary" id="btnBuy">Add to Cart</button></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Delivery:</span> Estimated between 
+                        <b style="font-size:17px;">
+                            <script>
+                            document.write(new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate() + ' and ' + new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + (new Date().getDay()+10));
+                            </script>
+                        </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Payments: </span><img src="http://ir.ebaystatic.com/pictures/aw/pics/logos/logoPayPal_51x14.png"> |
+                            <img src="/UploadedImage/visa.png" width="51" height="14"/> |
+                            <img src="/UploadedImage/Alipay.jpg" width="51" height="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="color:#666;">Guarantee: </span> <span style="font-size:10px;">Get the item you ordered or get your money back. Covers your purchase price and original shipping.</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+                <div class="container" style="margin:100px 0 0 0;">
+                    <table class="table">
+                       
+                        <tr>
+                            <td><b>Description Info</b> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>With this book, web developers can build engaging and interactive sites and applications using Microsoft's latest web development tools - ASP.NET 2.0 and the new ASP.NET AJAX framework. You learn to create applications that have all the great tricks you see on popular commercial web sites, such as order forms and the ability to interact with a database. And you can build pages that display information interactively without a page refresh. This straightforward tutorial explains how. Learning ASP.NET 2.0 with AJAX helps you master the concepts and techniques of Microsoft's tools with plenty of antated examples, review quizzes, web construction exercises and chapter summaries, so you can practice new skills and test your understanding as you go.With it, you'll learn to: Master the fundamental skills of ASP.NET 2.0 to build professional quality web applications; Integrate new Ajax tools and CSS with ASP.NET 2.0 for flashier and more interactive sites; build applications with minimal coding using Visual Studio or its free counterpart, Visual Web Developer; connect your site with a database so that users can retrieve, interact and save data; debug your application, deal with unexpected problems, and protect your site from malicious users; use the community-maintained ASP. NET AJAX Control Toolkit to extend the controls that come with ASP.NET AJAX; and use personalization tools to give your site a customized look for each user.Ideal for beginning web developers, or those who are new to ASP.NET, this book gets you involved with your own learning through hands-on lessons that are clear and to the point. You get the chance to try out new techniques on the spot. Want to join the world of modern web development? This book will get you started.</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>BookTitle: </b>
+                                NEW Learning ASP.NET 2.0 with AJAX
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>SubTitle: </b> By Jesse Liberty Paperback Free Shipping</td>
+                        </tr>
+                        <tr>
+                            <td><b>Author: </b>   	Dan Hurwitz, Jesse Liberty</td>
+                        </tr>                       
+                        <tr>
+                            <td><b>ISBN: </b> 	9780596513979</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publisher: </b>O'Reilly Media, Inc, USA</td>
+                        </tr>
+                        <tr>
+                            <td><b>Publish Date: </b> 2007-10-16</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">                    
+                <div class="col-md-12">
+                    <h3>Review</h3>                   
                     <table class="table">
                         <tr id="CommentList">
                             <td>
@@ -141,7 +198,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
     </div>
     <footer id="footer">
