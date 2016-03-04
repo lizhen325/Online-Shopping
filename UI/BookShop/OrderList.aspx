@@ -4,8 +4,8 @@
     <h1>My Order</h1>
     <table class="table table-condensed">
         <tr>
-            <td>Order Date: </td>
-            <td colspan="4">Order Id: </td>
+            <td>Order Date: <span style="color:red;"> <%=DateTime.Now.ToString("yyyy-MM-dd") %> </span></td>
+            <td colspan="4">Order Id: <span style="color:red;"><%=OrderCode %></span></td>
         </tr>
         <tr>
             <th>Book ID</th>
@@ -14,15 +14,23 @@
             <th>Unit Price</th>
             <th>Price</th>
         </tr>
+        <%
+            decimal total = 0;
+            foreach(System.Data.DataRow dr in DtCartInfo.Rows){ %>        
         <tr>
-            <td>111</td>
-            <td>2222</td>
-            <td>1</td>
-            <td>1000</td>
-            <td>10000</td>
+            <td><%=dr["BookId"].ToString() %></td>
+            <td><%=dr["Title"].ToString() %></td>
+            <td><span style="color:red;"><%=dr["BookCount"].ToString() %></span></td>
+            <td><span style="color:red;"><%=dr["BookUnitPrice"].ToString() %></span></td>
+            <td><span style="color:red;"><%
+              decimal total1 = Convert.ToDecimal(dr["BookUnitPrice"]) * Convert.ToInt32(dr["BookCount"]);
+              total += total1;
+              Response.Write(total1);
+                                         %></span></td>
         </tr>
+        <%} %>
         <tr>
-            <td colspan="5">Total Price: </td>
+            <td colspan="5">Total Price: <span style="color:red;"><%=total %></span> </td>
         </tr>
         <tr>
             <td><input type="radio" name="pay" /><img src="../UploadedImage/paypal1.png" /> </td>

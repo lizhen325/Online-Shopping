@@ -61,7 +61,7 @@
                 <td>Total Price: <span id="totleMoney" style="color:red;"></span></td>
                 <td>
                     <a href="BookShowList.aspx" class="btn btn-primary"><i class="glyphicon glyphicon-backward"></i> Buy More</a>
-                    <button class="btn btn-primary">Payment <span class="glyphicon glyphicon-forward"></span></button>
+                    <a href="OrderList.aspx" class="btn btn-primary">Payment <span class="glyphicon glyphicon-forward"></span></a>
                 </td>
                 <td></td>
             </tr>
