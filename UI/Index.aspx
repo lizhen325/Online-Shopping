@@ -27,9 +27,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="information.html"><span class="glyphicon glyphicon-list"></span> information</a></li>
-                    <li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> case</a></li>
-                    <li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
+                    <li><a href="/BookShop/information.aspx"><span class="glyphicon glyphicon-list"></span> information</a></li>
+                    <li><a href="/BookShop/case.aspx"><span class="glyphicon glyphicon-fire"></span> case</a></li>
+                    <li><a href="/BookShop/about.aspx"><span class="glyphicon glyphicon-question-sign"></span> About Me</a></li>
                     <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
                     <li style="margin:11px 0 0 0;"><select style="height:26px;">
                         <option selected="selected">All Categories</option>
@@ -83,7 +83,7 @@
         </div>
         <footer id="footer" style="margin:30px 0 0 0;">
         <div class="container">
-            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="#" style="color:#eee;">About Me</a></p>
+            <p><a href="#" style="color:#eee;">Corporate Tranning</a> | <a href="#" style="color:#eee;">Cooperation</a> | <a href="https://github.com/lizhen325" style="color:#eee;" target="_blank">GitHub</a></p>
             <p>Copyright &copy; 2016-02 Zhen Li. Powered by ASP.NET</p>
         </div>
     </footer>

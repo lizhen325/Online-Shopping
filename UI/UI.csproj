@@ -83,19 +83,19 @@
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Left.aspx" />
     <Content Include="Admin\Main.aspx" />
-    <Content Include="Admin\slide1.png" />
-    <Content Include="Admin\slide2.png" />
-    <Content Include="Admin\slide3.png" />
     <Content Include="Admin\UserInfoUpdate.aspx" />
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
     <Content Include="BookDetail.html" />
+    <Content Include="BookShop\About.aspx" />
     <Content Include="BookShop\Activation.aspx" />
     <Content Include="BookShop\BookDetails.aspx" />
     <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\CartInfoList.aspx" />
+    <Content Include="BookShop\Case.aspx" />
     <Content Include="BookShop\ComfirmActivation.aspx" />
     <Content Include="BookShop\FacebookLogIn.aspx" />
+    <Content Include="BookShop\information.aspx" />
     <Content Include="BookShop\Logout.aspx" />
     <Content Include="BookShop\OrderList.aspx" />
     <Content Include="BookShop\Register.aspx" />
@@ -597,6 +597,13 @@
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\Activation.aspx.cs">
       <DependentUpon>Activation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -631,6 +638,13 @@
     <Compile Include="BookShop\CartInfoList.aspx.designer.cs">
       <DependentUpon>CartInfoList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\Case.aspx.cs">
+      <DependentUpon>Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\Case.aspx.designer.cs">
+      <DependentUpon>Case.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\CheckUserEmail.ashx.cs">
       <DependentUpon>CheckUserEmail.ashx</DependentUpon>
     </Compile>
@@ -659,6 +673,13 @@
     </Compile>
     <Compile Include="BookShop\FacebookLogIn.aspx.designer.cs">
       <DependentUpon>FacebookLogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\information.aspx.cs">
+      <DependentUpon>information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\information.aspx.designer.cs">
+      <DependentUpon>information.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
