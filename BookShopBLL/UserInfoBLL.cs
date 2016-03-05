@@ -125,5 +125,15 @@ namespace BookShopBLL
         {
             return dal.UpdateUserInfoByUerName(ui) > 0;
         }
+
+         /// <summary>
+        /// insert userinfo registered by facebook
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public bool InsertUserInfoByFaceBook(UserInfo ui)
+        {
+            return dal.InsertUserInfoByFaceBook(ui) > 0;
+        }
     }
 }

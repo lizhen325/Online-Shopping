@@ -95,6 +95,23 @@ namespace BookShopDAL
         }
 
         /// <summary>
+        /// insert userinfo registered by facebook
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public int InsertUserInfoByFaceBook(UserInfo ui)
+        {
+            string sql = "insert into UserInfo(UserName,UserPwd,Email,RegisterTime,State) values(@UserName,@UserPwd,@Email,@RegisterTime,@State)";
+            SqlParameter[] ps = {
+                                    new SqlParameter("@UserName",ui.UserName),
+                                    new SqlParameter("@UserPwd",ui.UserName),
+                                    new SqlParameter("@Email",ui.Email),
+                                    new SqlParameter("@RegisterTime",ui.RegisterTime),
+                                    new SqlParameter("@State",ui.State)
+                                };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
+        /// <summary>
         /// Remove UserInfo by id
         /// </summary>
         /// <param name="id"></param>
