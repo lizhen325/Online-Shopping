@@ -16,6 +16,7 @@ namespace Model
         //MobilePhone   varchar(50)
         //RegisterTime  Date
         //LoginTime     Date
+        //State         int         for acivation register
         private int _userId;
 
         public int UserId
@@ -71,6 +72,14 @@ namespace Model
         {
             get { return _loginTime; }
             set { _loginTime = value; }
+        }
+
+        private int _state;
+
+        public int State
+        {
+            get { return _state; }
+            set { _state = value; }
         }
     }
 }

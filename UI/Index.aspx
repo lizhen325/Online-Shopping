@@ -45,8 +45,9 @@
                    
                     <li><a href="BookShop/Logout.aspx"><span class="glyphicon glyphicon-user"></span> LogOut</a></li>
                     <%} %>
+                    <%=Session["id"] %>
                 </ul>
-            </div>
+            </div>        
     </nav>
             </div>
     <div id="myCarousel" class="carousel slide">

@@ -81,14 +81,15 @@ namespace BookShopDAL
         /// <returns></returns>
         public int InsertUserInfo(UserInfo ui)
         {
-            string sql = "insert into UserInfo (UserName,UserPwd,Email,Address,MobilePhone,RegisterTime) values(@UserName,@UserPwd,@Email,@Address,@MobilePhone,@RegisterTime)";
+            string sql = "insert into UserInfo (UserName,UserPwd,Email,Address,MobilePhone,RegisterTime,State) values(@UserName,@UserPwd,@Email,@Address,@MobilePhone,@RegisterTime,@State)";
             SqlParameter[] ps = {
                                      new SqlParameter("@UserName",ui.UserName),
                                      new SqlParameter("@UserPwd",ui.UserPwd),
                                      new SqlParameter("@Email",ui.Email),
                                      new SqlParameter("@Address",ui.Address),
                                      new SqlParameter("@MobilePhone",ui.MobilePhone),
-                                     new SqlParameter("@RegisterTime",ui.RegisterTime)
+                                     new SqlParameter("@RegisterTime",ui.RegisterTime),
+                                     new SqlParameter("@State",ui.State)
                                  };
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
@@ -132,6 +133,7 @@ namespace BookShopDAL
             ui.MobilePhone = dr["MobilePhone"].ToString();
             //ui.RegisterTime = Convert.ToDateTime(dr["RegisterTime"]);
             //ui.LoginTime = Convert.ToDateTime(dr["LoginTime"]);
+            ui.State = Convert.ToInt32(dr["State"]);
             return ui;
         }
 
@@ -207,6 +209,21 @@ namespace BookShopDAL
                 ui = RowToUserInfo(dt.Rows[0]);
             }
             return ui;
+        }
+
+        /// <summary>
+        /// update userinfo by username
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public int UpdateUserInfoByUerName(UserInfo ui)
+        {
+            string sql = "update UserInfo set State=@State where UserName=@UserName";
+            SqlParameter [] ps = {
+                                     new SqlParameter("@State",ui.State),
+                                     new SqlParameter("@UserName",ui.UserName)
+                                 };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
         }
     }
 }

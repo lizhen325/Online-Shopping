@@ -24,12 +24,13 @@ namespace UI.BookShop
                 ui.MobilePhone = Request["mobilephone"];
                 ui.RegisterTime = System.DateTime.Now;
                 ui.LoginTime = System.DateTime.Now;
+                ui.State = 0;
                 UserInfoBLL bll = new UserInfoBLL();
                 if(bll.InsertUserInfo(ui))
                 {
                     Session["user"] = ui.UserName;
-                    Session["id"] = ui.UserId;
-                    Context.Response.Redirect("../Index.aspx");
+                    //Session["id"] = ui.UserId;
+                    Context.Response.Redirect("Activation.aspx");
                 }
                 else
                 {

@@ -86,12 +86,15 @@
     <Content Include="Admin\UserManagerAdd.aspx" />
     <Content Include="Admin\UserManagerList.aspx" />
     <Content Include="BookDetail.html" />
+    <Content Include="BookShop\Activation.aspx" />
     <Content Include="BookShop\BookDetails.aspx" />
     <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\CartInfoList.aspx" />
+    <Content Include="BookShop\ComfirmActivation.aspx" />
     <Content Include="BookShop\Logout.aspx" />
     <Content Include="BookShop\OrderList.aspx" />
     <Content Include="BookShop\Register.aspx" />
+    <Content Include="BookShop\SuccessActivation.aspx" />
     <Content Include="BookTypeList.aspx" />
     <Content Include="Content\img\bkg-blu.jpg" />
     <Content Include="Content\img\steven.jpg" />
@@ -455,7 +458,6 @@
     <Content Include="js\UMEditor\net\upload\2014-11-22\1ef9a504-ff25-4573-b982-4ea83a533c63.jpg" />
     <Content Include="js\UMEditor\umeditor.config.js" />
     <Content Include="js\UMEditor\umeditor.min.js" />
-    <Content Include="TestSendMail.aspx" />
     <Content Include="UploadedImage\2.png" />
     <Content Include="UploadedImage\3.jpg" />
     <Content Include="UploadedImage\4.png" />
@@ -590,6 +592,13 @@
     <Compile Include="Admin\UserManagerRemove.ashx.cs">
       <DependentUpon>UserManagerRemove.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\Activation.aspx.cs">
+      <DependentUpon>Activation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\Activation.aspx.designer.cs">
+      <DependentUpon>Activation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\BookDetails.aspx.cs">
       <DependentUpon>BookDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -626,6 +635,13 @@
     <Compile Include="BookShop\CheckUserPassword.ashx.cs">
       <DependentUpon>CheckUserPassword.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\ComfirmActivation.aspx.cs">
+      <DependentUpon>ComfirmActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\ComfirmActivation.aspx.designer.cs">
+      <DependentUpon>ComfirmActivation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\CommentInfoAdd.ashx.cs">
       <DependentUpon>CommentInfoAdd.ashx</DependentUpon>
     </Compile>
@@ -660,6 +676,13 @@
     <Compile Include="BookShop\Shop.Master.designer.cs">
       <DependentUpon>Shop.Master</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\SuccessActivation.aspx.cs">
+      <DependentUpon>SuccessActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\SuccessActivation.aspx.designer.cs">
+      <DependentUpon>SuccessActivation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookTypeList.aspx.cs">
       <DependentUpon>BookTypeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -687,13 +710,6 @@
     </Compile>
     <Compile Include="js\UMEditor\net\Uploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestSendMail.aspx.cs">
-      <DependentUpon>TestSendMail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestSendMail.aspx.designer.cs">
-      <DependentUpon>TestSendMail.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css.map" />

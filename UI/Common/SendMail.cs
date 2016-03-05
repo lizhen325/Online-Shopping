@@ -14,7 +14,7 @@ namespace UI.Common
             client.EnableSsl = true;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("EmailAddress", "EmailPassword");
+            client.Credentials = new System.Net.NetworkCredential("zhenli336@gmail.com", "Flwls3250");
             MailMessage msg = new MailMessage();
             msg.To.Add(MessageTo);
             msg.From = new MailAddress(MessageFrom);

@@ -115,5 +115,15 @@ namespace BookShopBLL
         {
             return dal.GetUserInfoByUserNameAndUserPassword(username, password);
         }
+
+         /// <summary>
+        /// update userinfo by username
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public bool UpdateUserInfoByUerName(UserInfo ui)
+        {
+            return dal.UpdateUserInfoByUerName(ui) > 0;
+        }
     }
 }
