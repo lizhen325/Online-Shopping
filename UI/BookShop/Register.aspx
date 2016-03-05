@@ -159,7 +159,6 @@
                     }
                 });
             });
-
         });
         
         function checkPwd(msg) {
@@ -333,7 +332,7 @@
                             <div class="col-md-offset-3 col-md-9">
                                 <input type="submit" value="Sign Up" id="btn-signup" class="btn btn-info" /> <i class="icon-hand-right"></i>
                                 <strong>or</strong>
-                                <button id="btn-fbsignup" type="button" class="btn btn-facebook"> <i class="icon-facebook"></i> Sign Up with Facebook </button>
+                                <a href="FacebookLogIn.aspx" class="btn btn-primary"> <i class="icon-facebook"></i> Sign Up with Facebook </a>
                             </div>
                         </div>
                     </form>

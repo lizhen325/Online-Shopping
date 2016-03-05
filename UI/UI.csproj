@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -91,6 +95,7 @@
     <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\CartInfoList.aspx" />
     <Content Include="BookShop\ComfirmActivation.aspx" />
+    <Content Include="BookShop\FacebookLogIn.aspx" />
     <Content Include="BookShop\Logout.aspx" />
     <Content Include="BookShop\OrderList.aspx" />
     <Content Include="BookShop\Register.aspx" />
@@ -648,6 +653,13 @@
     <Compile Include="BookShop\CommentInfoList.ashx.cs">
       <DependentUpon>CommentInfoList.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\FacebookLogIn.aspx.cs">
+      <DependentUpon>FacebookLogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\FacebookLogIn.aspx.designer.cs">
+      <DependentUpon>FacebookLogIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -752,6 +764,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookShop\CartInfoDelete.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
