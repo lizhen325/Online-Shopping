@@ -23,20 +23,24 @@
                 <a href="../Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
                 <img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/monkey-books~9d4d6837.png" style="height:40px;"/>
                 
-            </div>
+            </div>          
+            <form method="get" action="Search.aspx"> 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="information.aspx"><span class="glyphicon glyphicon-list"></span> information</a></li>
                     <li><a href="case.aspx"><span class="glyphicon glyphicon-fire"></span> case</a></li>
                     <li><a href="about.aspx"><span class="glyphicon glyphicon-question-sign"></span> about</a></li>
-                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" /></li>
+                    
+                    <li style="margin:11px 0 0 0;"><input type="text" name="search" placeholder="search" id="search"/></li>
                     <li style="margin:11px 0 0 0;"><select style="height:26px;">
                         <option selected="selected">All Categories</option>
                         <option>Programming</option>
                         </select>
                     </li>
-                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
-                    <li><a href="CartInfoList.aspx"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>                 
+                                
+                    <li><input type="submit" value="search" class="btn btn-primary" style="margin:8px 0 0 10px;"/></li>
+                    <li><a href="CartInfoList.aspx"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>   
+                                 
                      <%if(Session["user"]==null){%>
                     
                             <li><a href="/BookShop/Register.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up / Log In</a></li>
@@ -46,6 +50,7 @@
                     <%} %>
                 </ul>
             </div>
+             </form>    
         </div>
     </nav>   
     <div class="container"> 

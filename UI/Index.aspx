@@ -11,10 +11,10 @@
     <link href="css/custom.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    
         <div class="container">
 
-        
+     <form method="get" action="/BookShop/Search.aspx">   
     <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <a href="Index.aspx" class="navbar-brand logo"><img src="https://d3nbni5ovlf4g9.cloudfront.net/frontend/images/browse/categories/heading-books~f3910b34.png" style="height:30px;" /></a>
@@ -36,7 +36,7 @@
                         <option>Programming</option>
                         </select>
                     </li>
-                    <li><a href="#"><span class="btn btn-primary" style="margin:-6px 0 0 0; height:30px;">Search</span></a></li>
+                    <li><input type="submit" value="search" class="btn btn-primary" style="margin:8px 0 0 10px;"/></li>
                     <li><a href="/BookShop/CartInfoList.aspx"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
                     <%if(Session["user"]==null){%>
                     
@@ -46,6 +46,7 @@
                     <li><a href="BookShop/Logout.aspx"><span class="glyphicon glyphicon-user"></span> LogOut</a></li>
                     <%} %>
                 </ul>
+                 </form>  
             </div>        
     </nav>
             </div>

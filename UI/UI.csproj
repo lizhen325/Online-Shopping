@@ -102,6 +102,7 @@
     <Content Include="BookShop\OrderList.aspx" />
     <Content Include="BookShop\Register.aspx" />
     <Content Include="BookShop\ResetPassword.aspx" />
+    <Content Include="BookShop\Search.aspx" />
     <Content Include="BookShop\SuccessActivation.aspx" />
     <Content Include="BookTypeList.aspx" />
     <Content Include="Content\img\bkg-blu.jpg" />
@@ -731,6 +732,13 @@
     </Compile>
     <Compile Include="BookShop\ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\Shop.Master.cs">
       <DependentUpon>Shop.Master</DependentUpon>
