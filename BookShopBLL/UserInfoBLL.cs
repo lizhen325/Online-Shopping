@@ -135,5 +135,26 @@ namespace BookShopBLL
         {
             return dal.InsertUserInfoByFaceBook(ui) > 0;
         }
+
+        /// <summary>
+        /// get userinfo by Username and email for backup password
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public UserInfo ForGetPassword(string id, string email)
+        {
+            return dal.ForGetPassword(id, email);
+        }
+
+        /// <summary>
+        /// update password by user name
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public bool UpdatePassword(UserInfo ui)
+        {
+            return dal.UpdatePassword(ui) > 0;
+        }
     }
 }

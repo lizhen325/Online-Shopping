@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Model;
+using BookShopBLL;
 
 namespace UI.BookShop
 {
-    public partial class SuccessActivation : System.Web.UI.Page
+    public partial class ForgotPassword : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+          
         }
     }
 }

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace UI.BookShop
 {
-    public partial class SuccessActivation : System.Web.UI.Page
+    public partial class ResetPassword : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            
         }
     }
 }

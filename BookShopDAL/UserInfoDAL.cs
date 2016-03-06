@@ -242,5 +242,42 @@ namespace BookShopDAL
                                  };
             return SqlHelper.ExcuteNonQuery(sql, ps);
         }
+
+        /// <summary>
+        /// get userinfo by Username and email for backup password
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public UserInfo ForGetPassword(string id, string email)
+        {
+            UserInfo ui = null;
+            string sql = "select * from UserInfo where UserName=@UserName and Email=@Email";
+            SqlParameter[] ps = {
+                                    new SqlParameter("@UserName",id),
+                                    new SqlParameter("@Email",email)
+                                };
+            DataTable dt = SqlHelper.GetAllList(sql, ps);
+            if(dt.Rows.Count > 0)
+            {
+                ui = RowToUserInfo(dt.Rows[0]);
+            }
+            return ui;
+        }
+
+        /// <summary>
+        /// update password by user name
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <returns></returns>
+        public int UpdatePassword(UserInfo ui)
+        {
+            string sql = "update UserInfo set UserPwd=@UserPwd where UserName=@UserName";
+            SqlParameter[] ps = {
+                                    new SqlParameter("@UserPwd",ui.UserPwd),
+                                    new SqlParameter("@UserName",ui.UserName)
+                                };
+            return SqlHelper.ExcuteNonQuery(sql, ps);
+        }
     }
 }

@@ -184,7 +184,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="panel-title"> Sign In </div>
-                    <div class="forgot-password"> <a href="#">Forgot password?</a> </div>
+                    <div class="forgot-password"> <a href="ForgotPassword.aspx">Forgot password?</a> </div>
                 </div>
                 <div class="panel-body panel-pad">
                     <div id="login-alert" class="alert alert-danger col-sm-12 login-alert"></div>
@@ -196,7 +196,7 @@
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
                             </span>
-                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" />
+                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username" />
                         </div>
                         <div class="input-group margT25">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

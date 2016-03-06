@@ -93,12 +93,15 @@
     <Content Include="BookShop\BookShowList.aspx" />
     <Content Include="BookShop\CartInfoList.aspx" />
     <Content Include="BookShop\Case.aspx" />
+    <Content Include="BookShop\ChangePassword.aspx" />
     <Content Include="BookShop\ComfirmActivation.aspx" />
     <Content Include="BookShop\FacebookLogIn.aspx" />
+    <Content Include="BookShop\ForgotPassword.aspx" />
     <Content Include="BookShop\information.aspx" />
     <Content Include="BookShop\Logout.aspx" />
     <Content Include="BookShop\OrderList.aspx" />
     <Content Include="BookShop\Register.aspx" />
+    <Content Include="BookShop\ResetPassword.aspx" />
     <Content Include="BookShop\SuccessActivation.aspx" />
     <Content Include="BookTypeList.aspx" />
     <Content Include="Content\img\bkg-blu.jpg" />
@@ -645,11 +648,21 @@
     <Compile Include="BookShop\Case.aspx.designer.cs">
       <DependentUpon>Case.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BookShop\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookShop\CheckUserEmail.ashx.cs">
       <DependentUpon>CheckUserEmail.ashx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\CheckUserName.ashx.cs">
       <DependentUpon>CheckUserName.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\CheckUserNameAndPassword.ashx.cs">
+      <DependentUpon>CheckUserNameAndPassword.ashx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\CheckUserPassword.ashx.cs">
       <DependentUpon>CheckUserPassword.ashx</DependentUpon>
@@ -673,6 +686,13 @@
     </Compile>
     <Compile Include="BookShop\FacebookLogIn.aspx.designer.cs">
       <DependentUpon>FacebookLogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\information.aspx.cs">
       <DependentUpon>information.aspx</DependentUpon>
@@ -701,6 +721,16 @@
     </Compile>
     <Compile Include="BookShop\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\ResetPassword.ashx.cs">
+      <DependentUpon>ResetPassword.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="BookShop\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookShop\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookShop\Shop.Master.cs">
       <DependentUpon>Shop.Master</DependentUpon>
@@ -788,6 +818,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\CheckUserNameAndPassword.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookShop\ResetPassword.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -109,5 +109,25 @@ namespace UserInfoDALTest.Tests
             int i = dal.UpdateUserInfoByUerName(ui);
             Assert.IsTrue(i > 0);
         }
+
+        [TestMethod()]
+        public void ForGetPassword()
+        {
+            UserInfo ui = new UserInfo();
+            string id = "lizhen303011";
+            string email = "zhenli336@gmail.com";
+            ui = dal.ForGetPassword(id, email);
+            Assert.IsNull(ui);
+        }
+
+        [TestMethod()]
+        public void UpdatePassword()
+        {
+            UserInfo ui = new UserInfo();
+            ui.UserName = "lizhen3250";
+            ui.UserPwd = "fb84e2b693628a485a67c256a324523";
+            int i = dal.UpdatePassword(ui);
+            Assert.IsTrue(i > 0);
+        }
     }
 }
