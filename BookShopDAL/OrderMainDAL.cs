@@ -25,11 +25,11 @@ namespace BookShopDAL
                                     new SqlParameter("@CustomerId",customerId)
                                 };
             int rowAffected;
-            SqlHelper.RunProcedure("InsertOrders", ps, out rowAffected);
+            SqlHelper.RunProcedure("InsertOrderss", ps, out rowAffected);
             return rowAffected;
         }
 
-        //create proc InsertOrders
+        //alter proc InsertOrders
         //@OrderId varchar(50),
         //@CustomerId int
         //as
